@@ -7,6 +7,7 @@ import { RuleCard } from '@/components/strategy-builder/RuleCard'
 import { RuleTimeline } from '@/components/strategy-builder/RuleTimeline'
 import { SimulationControls } from '@/components/strategy-builder/SimulationControls'
 import { WithdrawalForm } from '@/components/strategy-builder/WithdrawalForm'
+import { ExportCsvButton } from '@/components/results/ExportCsvButton'
 import { SpliceAnnotations } from '@/components/results/SpliceAnnotations'
 import { SummaryStatsPanel } from '@/components/results/SummaryStatsPanel'
 import { computeDrawdownSeries, toRealSnapshots } from '@/engine/stats'
@@ -73,6 +74,11 @@ export function StrategyBuilderPage() {
   }
 
   const activeType = editingRule?.type ?? addingType
+  const activeSnapshots = singleResult
+    ? valueMode === 'real'
+      ? toRealSnapshots(singleResult.snapshots)
+      : singleResult.snapshots
+    : undefined
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-8">
@@ -166,21 +172,24 @@ export function StrategyBuilderPage() {
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="text-lg">Results</h2>
           {(singleResult || rollingResult) && (
-            <div className="flex rounded-md border border-border text-sm">
-              <button
-                type="button"
-                onClick={() => setValueMode('real')}
-                className={`rounded-l-md px-3 py-1 ${valueMode === 'real' ? 'bg-stocks text-white' : 'text-text-secondary hover:bg-page'}`}
-              >
-                Today&rsquo;s money
-              </button>
-              <button
-                type="button"
-                onClick={() => setValueMode('nominal')}
-                className={`rounded-r-md px-3 py-1 ${valueMode === 'nominal' ? 'bg-stocks text-white' : 'text-text-secondary hover:bg-page'}`}
-              >
-                Nominal
-              </button>
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="flex rounded-md border border-border text-sm">
+                <button
+                  type="button"
+                  onClick={() => setValueMode('real')}
+                  className={`rounded-l-md px-3 py-1 ${valueMode === 'real' ? 'bg-stocks text-white' : 'text-text-secondary hover:bg-page'}`}
+                >
+                  Today&rsquo;s money
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setValueMode('nominal')}
+                  className={`rounded-r-md px-3 py-1 ${valueMode === 'nominal' ? 'bg-stocks text-white' : 'text-text-secondary hover:bg-page'}`}
+                >
+                  Nominal
+                </button>
+              </div>
+              <ExportCsvButton snapshots={activeSnapshots} rollingResult={rollingResult ?? undefined} />
             </div>
           )}
         </div>
@@ -188,20 +197,15 @@ export function StrategyBuilderPage() {
 
         {(singleResult || rollingResult) && (
           <Suspense fallback={<p className="text-sm text-text-muted">Loading charts…</p>}>
-            {singleResult &&
-              (() => {
-                const snapshots =
-                  valueMode === 'real' ? toRealSnapshots(singleResult.snapshots) : singleResult.snapshots
-                return (
-                  <>
-                    <PortfolioValueChart
-                      snapshots={snapshots}
-                      splices={metadata?.series.stocks.splices}
-                    />
-                    <DrawdownChart drawdown={computeDrawdownSeries(snapshots)} />
-                  </>
-                )
-              })()}
+            {activeSnapshots && (
+              <>
+                <PortfolioValueChart
+                  snapshots={activeSnapshots}
+                  splices={metadata?.series.stocks.splices}
+                />
+                <DrawdownChart drawdown={computeDrawdownSeries(activeSnapshots)} />
+              </>
+            )}
             {rollingResult && (
               <RollingOutcomesChart
                 bands={valueMode === 'real' ? rollingResult.bandsReal : rollingResult.bands}
