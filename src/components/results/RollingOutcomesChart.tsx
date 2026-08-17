@@ -8,10 +8,14 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import type { PercentileBand } from '@/engine/rollingBacktest'
+import type { PercentileBand } from '@/engine/percentiles'
 
 interface RollingOutcomesChartProps {
   bands: PercentileBand[]
+  title?: string
+  /** When set, the x-axis and tooltip show age (currentAge + year)
+   * instead of "Year N". */
+  currentAge?: number | null
 }
 
 // Sequential blue ramp (light -> dark), per the dataviz skill's palette:
@@ -29,20 +33,26 @@ function formatGBPCompact(value: number): string {
   }).format(value)
 }
 
+function yearLabel(year: number, currentAge?: number | null): string {
+  return currentAge != null ? `Age ${currentAge + year}` : `Year ${year}`
+}
+
 function CustomTooltip({
   active,
   payload,
   label,
+  currentAge,
 }: {
   active?: boolean
   payload?: { dataKey: string; value: number | number[] }[]
   label?: number
+  currentAge?: number | null
 }) {
   if (!active || !payload?.length) return null
   const byKey = Object.fromEntries(payload.map((p) => [p.dataKey, p.value]))
   return (
     <div className="rounded-md border border-border bg-surface p-3 shadow-lg">
-      <p className="mb-1 text-sm text-text-secondary">Year {label}</p>
+      <p className="mb-1 text-sm text-text-secondary">{yearLabel(label ?? 0, currentAge)}</p>
       <p className="text-sm text-text-primary">
         Median: <span className="font-medium">{formatGBPCompact(byKey.median as number)}</span>
       </p>
@@ -63,7 +73,11 @@ function CustomTooltip({
 /** Fan chart of portfolio value percentile bands across every historical
  * start date, by year into the simulation (not calendar date, since many
  * different start dates are overlaid). */
-export function RollingOutcomesChart({ bands }: RollingOutcomesChartProps) {
+export function RollingOutcomesChart({
+  bands,
+  title = 'Outcomes across every historical start date',
+  currentAge,
+}: RollingOutcomesChartProps) {
   const data = bands
     .filter((b) => b.monthOffset % 12 === 0)
     .map((b) => ({
@@ -75,15 +89,13 @@ export function RollingOutcomesChart({ bands }: RollingOutcomesChartProps) {
 
   return (
     <div className="rounded-lg border border-border bg-surface p-4">
-      <h3 className="mb-2 text-sm text-text-secondary">
-        Outcomes across every historical start date
-      </h3>
+      <h3 className="mb-2 text-sm text-text-secondary">{title}</h3>
       <ResponsiveContainer width="100%" height={320}>
         <ComposedChart data={data} margin={{ top: 4, right: 8, bottom: 4, left: 8 }}>
           <CartesianGrid stroke="var(--gridline)" vertical={false} />
           <XAxis
             dataKey="year"
-            tickFormatter={(y: number) => `yr ${y}`}
+            tickFormatter={(y: number) => (currentAge != null ? `${currentAge + y}` : `yr ${y}`)}
             stroke="var(--baseline)"
             tick={{ fill: 'var(--text-muted)', fontSize: 12 }}
           />
@@ -93,7 +105,7 @@ export function RollingOutcomesChart({ bands }: RollingOutcomesChartProps) {
             tick={{ fill: 'var(--text-muted)', fontSize: 12 }}
             width={64}
           />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<CustomTooltip currentAge={currentAge} />} />
           <Area dataKey="p10_p90" stroke="none" fill={BAND_OUTER} fillOpacity={1} isAnimationActive={false} />
           <Area dataKey="p25_p75" stroke="none" fill={BAND_INNER} fillOpacity={1} isAnimationActive={false} />
           <Line

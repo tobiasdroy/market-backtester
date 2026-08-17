@@ -1,5 +1,6 @@
 import * as Comlink from 'comlink'
 import { loadMarketData } from './dataLoader'
+import { simulateMonteCarlo, type MonteCarloOptions } from './monteCarlo'
 import { simulateRolling, type RollingBacktestOptions } from './rollingBacktest'
 import { simulateSingleRun } from './simulate'
 import type { MarketData, Strategy } from './types'
@@ -26,6 +27,15 @@ const api = {
   ) {
     const marketData = await getMarketData()
     return simulateRolling(strategy, marketData, { ...options, onProgress })
+  },
+
+  async runMonteCarlo(
+    strategy: Strategy,
+    options: Omit<MonteCarloOptions, 'onProgress'> = {},
+    onProgress?: (done: number, total: number) => void,
+  ) {
+    const marketData = await getMarketData()
+    return simulateMonteCarlo(strategy, marketData, { ...options, onProgress })
   },
 }
 

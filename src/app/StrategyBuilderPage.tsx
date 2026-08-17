@@ -36,12 +36,14 @@ type RuleType = StrategyRule['type']
 
 export function StrategyBuilderPage() {
   const strategy = useStrategyStore((s) => s.strategy)
+  const currentAge = useStrategyStore((s) => s.currentAge)
   const addRule = useStrategyStore((s) => s.addRule)
   const updateRule = useStrategyStore((s) => s.updateRule)
   const removeRule = useStrategyStore((s) => s.removeRule)
 
   const singleResult = useResultsStore((s) => s.singleResult)
   const rollingResult = useResultsStore((s) => s.rollingResult)
+  const monteCarloResult = useResultsStore((s) => s.monteCarloResult)
   const runError = useResultsStore((s) => s.error)
   const progress = useResultsStore((s) => s.progress)
   const { metadata } = useMarketMetadata()
@@ -79,6 +81,21 @@ export function StrategyBuilderPage() {
       ? toRealSnapshots(singleResult.snapshots)
       : singleResult.snapshots
     : undefined
+  const hasResults = Boolean(singleResult || rollingResult || monteCarloResult)
+  const aggregateResult = rollingResult
+    ? { ...rollingResult, runs: rollingResult.runs.length }
+    : monteCarloResult
+      ? monteCarloResult
+      : null
+  const aggregateBands = rollingResult
+    ? valueMode === 'real'
+      ? rollingResult.bandsReal
+      : rollingResult.bands
+    : monteCarloResult
+      ? valueMode === 'real'
+        ? monteCarloResult.bandsReal
+        : monteCarloResult.bands
+      : undefined
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-8">
@@ -92,6 +109,7 @@ export function StrategyBuilderPage() {
           rules={strategy.rules}
           durationMonths={strategy.durationMonths}
           onSelectRule={handleSelectFromTimeline}
+          currentAge={currentAge}
         />
 
         {strategy.rules.length > 0 && (
@@ -171,7 +189,7 @@ export function StrategyBuilderPage() {
       <section className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="text-lg">Results</h2>
-          {(singleResult || rollingResult) && (
+          {hasResults && (
             <div className="flex flex-wrap items-center gap-2">
               <div className="flex rounded-md border border-border text-sm">
                 <button
@@ -189,13 +207,21 @@ export function StrategyBuilderPage() {
                   Nominal
                 </button>
               </div>
-              <ExportCsvButton snapshots={activeSnapshots} rollingResult={rollingResult ?? undefined} />
+              <ExportCsvButton
+                snapshots={activeSnapshots}
+                rollingResult={rollingResult ?? undefined}
+                bands={!rollingResult ? aggregateBands : undefined}
+              />
             </div>
           )}
         </div>
-        <SummaryStatsPanel singleResult={singleResult} rollingResult={rollingResult} />
+        <SummaryStatsPanel
+          singleResult={singleResult}
+          aggregateResult={aggregateResult}
+          aggregateLabel={monteCarloResult ? 'Scenarios' : 'Historical runs'}
+        />
 
-        {(singleResult || rollingResult) && (
+        {hasResults && (
           <Suspense fallback={<p className="text-sm text-text-muted">Loading charts…</p>}>
             {activeSnapshots && (
               <>
@@ -206,15 +232,21 @@ export function StrategyBuilderPage() {
                 <DrawdownChart drawdown={computeDrawdownSeries(activeSnapshots)} />
               </>
             )}
-            {rollingResult && (
+            {aggregateBands && (
               <RollingOutcomesChart
-                bands={valueMode === 'real' ? rollingResult.bandsReal : rollingResult.bands}
+                bands={aggregateBands}
+                title={
+                  monteCarloResult
+                    ? 'Outcomes across randomized scenarios'
+                    : 'Outcomes across every historical start date'
+                }
+                currentAge={currentAge}
               />
             )}
           </Suspense>
         )}
 
-        {(singleResult || rollingResult) && <SpliceAnnotations metadata={metadata} />}
+        {hasResults && <SpliceAnnotations metadata={metadata} />}
       </section>
     </div>
   )

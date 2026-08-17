@@ -1,11 +1,20 @@
 import { useMemo } from 'react'
 import { computeStats } from '@/engine/stats'
 import type { SimulationResult } from '@/engine/types'
-import type { RollingBacktestResult } from '@/engine/rollingBacktest'
+
+/** The subset of RollingBacktestResult/MonteCarloResult this panel needs
+ * - both share this shape (see rollingBacktest.ts / monteCarlo.ts). */
+interface AggregateResult {
+  runs: number
+  successRate: number
+  endingValuePercentiles: Record<number, number>
+  endingValuePercentilesReal: Record<number, number>
+}
 
 interface SummaryStatsPanelProps {
   singleResult: SimulationResult | null
-  rollingResult: RollingBacktestResult | null
+  aggregateResult: AggregateResult | null
+  aggregateLabel?: string
 }
 
 function formatGBP(value: number): string {
@@ -29,23 +38,25 @@ function StatTile({ label, value }: { label: string; value: string }) {
   )
 }
 
-export function SummaryStatsPanel({ singleResult, rollingResult }: SummaryStatsPanelProps) {
+export function SummaryStatsPanel({
+  singleResult,
+  aggregateResult,
+  aggregateLabel = 'Runs',
+}: SummaryStatsPanelProps) {
   const stats = useMemo(() => (singleResult ? computeStats(singleResult) : null), [singleResult])
 
-  if (!singleResult && !rollingResult) {
-    return (
-      <p className="text-text-muted">Run a backtest to see results here.</p>
-    )
+  if (!singleResult && !aggregateResult) {
+    return <p className="text-text-muted">Run a backtest to see results here.</p>
   }
 
-  if (rollingResult) {
-    const p = rollingResult.endingValuePercentiles
-    const pReal = rollingResult.endingValuePercentilesReal
+  if (aggregateResult) {
+    const p = aggregateResult.endingValuePercentiles
+    const pReal = aggregateResult.endingValuePercentilesReal
     return (
       <div className="flex flex-col gap-4">
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <StatTile label="Success rate" value={formatPercent(rollingResult.successRate)} />
-          <StatTile label="Runs" value={String(rollingResult.runs.length)} />
+          <StatTile label="Success rate" value={formatPercent(aggregateResult.successRate)} />
+          <StatTile label={aggregateLabel} value={String(aggregateResult.runs)} />
           <StatTile label="Median ending value" value={formatGBP(p[50] ?? 0)} />
           <StatTile
             label="Median ending value (today's money)"

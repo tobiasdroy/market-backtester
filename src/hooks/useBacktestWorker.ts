@@ -1,5 +1,6 @@
 import * as Comlink from 'comlink'
 import { useEffect, useRef } from 'react'
+import type { MonteCarloOptions } from '@/engine/monteCarlo'
 import type { RollingBacktestOptions } from '@/engine/rollingBacktest'
 import type { WorkerApi } from '@/engine/worker'
 
@@ -32,6 +33,16 @@ export function useBacktestWorker() {
       onProgress?: (done: number, total: number) => void,
     ) =>
       workerRef.current.runRolling(
+        strategy,
+        options,
+        onProgress ? Comlink.proxy(onProgress) : undefined,
+      ),
+    runMonteCarlo: (
+      strategy: Parameters<WorkerApi['runMonteCarlo']>[0],
+      options: Omit<MonteCarloOptions, 'onProgress'>,
+      onProgress?: (done: number, total: number) => void,
+    ) =>
+      workerRef.current.runMonteCarlo(
         strategy,
         options,
         onProgress ? Comlink.proxy(onProgress) : undefined,

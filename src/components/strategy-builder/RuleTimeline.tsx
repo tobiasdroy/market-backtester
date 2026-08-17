@@ -4,6 +4,9 @@ interface RuleTimelineProps {
   rules: StrategyRule[]
   durationMonths: number
   onSelectRule: (id: string) => void
+  /** When set, the year ruler shows age (currentAge + year) instead of
+   * "yr N". */
+  currentAge?: number | null
 }
 
 const VIEW_WIDTH = 1000
@@ -30,7 +33,12 @@ function niceTickStep(durationYears: number): number {
  * duration: contribution/withdrawal rules as ranged bars above/below a
  * baseline, rebalance rules as dots on it. Purely illustrative (not a
  * data chart), so it skips axes/gridline ticks beyond a light year ruler. */
-export function RuleTimeline({ rules, durationMonths, onSelectRule }: RuleTimelineProps) {
+export function RuleTimeline({
+  rules,
+  durationMonths,
+  onSelectRule,
+  currentAge,
+}: RuleTimelineProps) {
   const durationYears = durationMonths / 12
   const yearToX = (year: number) => MARGIN_X + (year / durationYears) * TRACK_WIDTH
 
@@ -70,7 +78,7 @@ export function RuleTimeline({ rules, durationMonths, onSelectRule }: RuleTimeli
               fontSize={11}
               fill="var(--text-muted)"
             >
-              yr {year}
+              {currentAge != null ? `age ${currentAge + year}` : `yr ${year}`}
             </text>
           </g>
         ))}

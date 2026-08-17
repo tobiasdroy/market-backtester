@@ -4,6 +4,7 @@ import type {
   CashFlowRule,
   FeesAndTax,
   MarketData,
+  MarketMonth,
   PortfolioSnapshot,
   RebalanceRule,
   SimulationResult,
@@ -135,19 +136,20 @@ function inflationAdjustedAmount(
   return rule.inflationAdjusted ? rule.amount * (currentCpi / startCpi) : rule.amount
 }
 
-export function simulateSingleRun(
+/** Core stepping loop, decoupled from real calendar lookups: runs
+ * `strategy` over exactly `strategy.durationMonths + 1` months of
+ * `months[0..]` (months[0] is the "month 0" starting point; returns are
+ * applied starting from months[1]). Shared by `simulateSingleRun` (a
+ * real historical slice) and Monte Carlo (a bootstrap-resampled
+ * synthetic path) - see monteCarlo.ts. */
+export function runStrategyOverMonths(
   strategy: Strategy,
-  marketData: MarketData,
-  startDate: string,
+  months: MarketMonth[],
+  strategyId: string,
 ): SimulationResult {
-  const startIndex = marketData.indexByDate.get(startDate)
-  if (startIndex === undefined) {
-    throw new Error(`startDate ${startDate} not found in market data`)
-  }
-  const endIndex = startIndex + strategy.durationMonths
-  if (endIndex >= marketData.months.length) {
+  if (months.length < strategy.durationMonths + 1) {
     throw new Error(
-      `not enough market data for a ${strategy.durationMonths}-month run starting ${startDate}`,
+      `need ${strategy.durationMonths + 1} months of data, got ${months.length}`,
     )
   }
 
@@ -158,7 +160,7 @@ export function simulateSingleRun(
     cash: startValue * allocation.cash,
   }
 
-  const startCpi = marketData.months[startIndex].cpiIndex
+  const startCpi = months[0].cpiIndex
   let cumulativeContributed = startValue
   let cumulativeWithdrawn = 0
   let cumulativeFeesPaid = 0
@@ -171,7 +173,7 @@ export function simulateSingleRun(
 
   const snapshots: PortfolioSnapshot[] = [
     {
-      date: marketData.months[startIndex].date,
+      date: months[0].date,
       monthOffset: 0,
       totalValue: startValue,
       byAsset: { ...balances },
@@ -185,7 +187,7 @@ export function simulateSingleRun(
   ]
 
   for (let offset = 1; offset <= strategy.durationMonths; offset++) {
-    const month = marketData.months[startIndex + offset]
+    const month = months[offset]
 
     for (const asset of ASSET_CLASSES) {
       balances[asset] *= 1 + month.monthlyReturn[asset]
@@ -246,9 +248,29 @@ export function simulateSingleRun(
   }
 
   return {
-    strategyId: strategy.id,
-    startDate,
+    strategyId,
+    startDate: months[0].date,
     endDate: snapshots[snapshots.length - 1].date,
     snapshots,
   }
+}
+
+export function simulateSingleRun(
+  strategy: Strategy,
+  marketData: MarketData,
+  startDate: string,
+): SimulationResult {
+  const startIndex = marketData.indexByDate.get(startDate)
+  if (startIndex === undefined) {
+    throw new Error(`startDate ${startDate} not found in market data`)
+  }
+  const endIndex = startIndex + strategy.durationMonths
+  if (endIndex >= marketData.months.length) {
+    throw new Error(
+      `not enough market data for a ${strategy.durationMonths}-month run starting ${startDate}`,
+    )
+  }
+
+  const months = marketData.months.slice(startIndex, endIndex + 1)
+  return runStrategyOverMonths(strategy, months, strategy.id)
 }

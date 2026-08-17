@@ -1,19 +1,15 @@
+import { bandsOf, percentilesOf, type PercentileBand } from './percentiles'
 import { simulateSingleRun } from './simulate'
 import { computeStats, toRealSnapshots } from './stats'
 import type { MarketData, Strategy } from './types'
+
+export type { PercentileBand }
 
 export interface RollingRunSummary {
   startDate: string
   endingValueNominal: number
   endingValueReal: number
   succeeded: boolean
-}
-
-/** Percentile values of portfolio totalValue at each month offset, across
- * all runs - the data a fan chart needs. */
-export interface PercentileBand {
-  monthOffset: number
-  values: Record<number, number>
 }
 
 export interface RollingBacktestResult {
@@ -38,14 +34,6 @@ export interface RollingBacktestOptions {
 }
 
 const DEFAULT_PERCENTILES = [10, 25, 50, 75, 90]
-
-function percentileOf(sortedValues: number[], p: number): number {
-  const idx = Math.min(
-    sortedValues.length - 1,
-    Math.max(0, Math.ceil((p / 100) * sortedValues.length) - 1),
-  )
-  return sortedValues[idx]
-}
 
 export function simulateRolling(
   strategy: Strategy,
@@ -97,20 +85,13 @@ export function simulateRolling(
 
   const successRate = runs.length ? runs.filter((r) => r.succeeded).length / runs.length : 0
 
-  const percentilesOf = (values: number[]) => {
-    const sorted = [...values].sort((a, b) => a - b)
-    return Object.fromEntries(percentiles.map((p) => [p, percentileOf(sorted, p)]))
-  }
-  const bandsOf = (byOffset: number[][]): PercentileBand[] =>
-    byOffset.map((values, monthOffset) => ({ monthOffset, values: percentilesOf(values) }))
-
   return {
     strategyId: strategy.id,
     runs,
     successRate,
-    endingValuePercentiles: percentilesOf(runs.map((r) => r.endingValueNominal)),
-    bands: bandsOf(valuesByOffset),
-    endingValuePercentilesReal: percentilesOf(runs.map((r) => r.endingValueReal)),
-    bandsReal: bandsOf(valuesByOffsetReal),
+    endingValuePercentiles: percentilesOf(runs.map((r) => r.endingValueNominal), percentiles),
+    bands: bandsOf(valuesByOffset, percentiles),
+    endingValuePercentilesReal: percentilesOf(runs.map((r) => r.endingValueReal), percentiles),
+    bandsReal: bandsOf(valuesByOffsetReal, percentiles),
   }
 }
