@@ -121,6 +121,7 @@ export function StrategyBuilderPage() {
           rules={strategy.rules}
           durationMonths={strategy.durationMonths}
           onSelectRule={handleSelectFromTimeline}
+          initialAllocation={strategy.initialPortfolio.allocation}
           currentAge={currentAge}
         />
 
