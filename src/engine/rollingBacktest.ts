@@ -1,5 +1,5 @@
 import { simulateSingleRun } from './simulate'
-import { computeStats } from './stats'
+import { computeStats, toRealSnapshots } from './stats'
 import type { MarketData, Strategy } from './types'
 
 export interface RollingRunSummary {
@@ -22,6 +22,11 @@ export interface RollingBacktestResult {
   successRate: number
   endingValuePercentiles: Record<number, number>
   bands: PercentileBand[]
+  /** Same as `endingValuePercentiles`/`bands`, but each run deflated to
+   * that run's own starting purchasing power first - "today's money"
+   * from the perspective of whenever that run started. */
+  endingValuePercentilesReal: Record<number, number>
+  bandsReal: PercentileBand[]
 }
 
 export interface RollingBacktestOptions {
@@ -58,8 +63,15 @@ export function simulateRolling(
 
   const runs: RollingRunSummary[] = []
   // valuesByOffset[offset] collects totalValue across every run, for
-  // per-offset percentile bands.
+  // per-offset percentile bands. The *Real variant collects each run's
+  // own snapshots deflated to that run's own starting purchasing power
+  // first, so "year 20" always means "20 years into whichever run", not
+  // a shared calendar CPI base across runs with different start dates.
   const valuesByOffset: number[][] = Array.from(
+    { length: strategy.durationMonths + 1 },
+    () => [],
+  )
+  const valuesByOffsetReal: number[][] = Array.from(
     { length: strategy.durationMonths + 1 },
     () => [],
   )
@@ -77,29 +89,28 @@ export function simulateRolling(
     result.snapshots.forEach((snap) => {
       valuesByOffset[snap.monthOffset].push(snap.totalValue)
     })
+    toRealSnapshots(result.snapshots).forEach((snap) => {
+      valuesByOffsetReal[snap.monthOffset].push(snap.totalValue)
+    })
     options.onProgress?.(i + 1, startIndices.length)
   })
 
   const successRate = runs.length ? runs.filter((r) => r.succeeded).length / runs.length : 0
 
-  const sortedEndingValues = runs.map((r) => r.endingValueNominal).sort((a, b) => a - b)
-  const endingValuePercentiles = Object.fromEntries(
-    percentiles.map((p) => [p, percentileOf(sortedEndingValues, p)]),
-  )
-
-  const bands: PercentileBand[] = valuesByOffset.map((values, monthOffset) => {
+  const percentilesOf = (values: number[]) => {
     const sorted = [...values].sort((a, b) => a - b)
-    return {
-      monthOffset,
-      values: Object.fromEntries(percentiles.map((p) => [p, percentileOf(sorted, p)])),
-    }
-  })
+    return Object.fromEntries(percentiles.map((p) => [p, percentileOf(sorted, p)]))
+  }
+  const bandsOf = (byOffset: number[][]): PercentileBand[] =>
+    byOffset.map((values, monthOffset) => ({ monthOffset, values: percentilesOf(values) }))
 
   return {
     strategyId: strategy.id,
     runs,
     successRate,
-    endingValuePercentiles,
-    bands,
+    endingValuePercentiles: percentilesOf(runs.map((r) => r.endingValueNominal)),
+    bands: bandsOf(valuesByOffset),
+    endingValuePercentilesReal: percentilesOf(runs.map((r) => r.endingValueReal)),
+    bandsReal: bandsOf(valuesByOffsetReal),
   }
 }

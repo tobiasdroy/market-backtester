@@ -64,6 +64,21 @@ describe('simulateRolling', () => {
     expect(result.successRate).toBe(0)
   })
 
+  it('produces real-terms bands and ending-value percentiles alongside the nominal ones', () => {
+    const result = simulateRolling(strategy, market, { stepMonths: 24 })
+    const expectedNominal = 10_000 * (1 + SYNTHETIC_ANNUAL_RATES.stocks) ** 10
+    const expectedReal =
+      expectedNominal / (1 + SYNTHETIC_ANNUAL_RATES.inflation) ** 10
+
+    expect(result.endingValuePercentilesReal[50]).toBeCloseTo(expectedReal, 2)
+    // Real is deflated relative to nominal, and inflation here is positive.
+    expect(result.endingValuePercentilesReal[50]).toBeLessThan(result.endingValuePercentiles[50])
+
+    expect(result.bandsReal).toHaveLength(strategy.durationMonths + 1)
+    expect(result.bandsReal[0].monthOffset).toBe(0)
+    expect(result.bandsReal[0].values[50]).toBeCloseTo(10_000, 2) // no deflation at t=0
+  })
+
   it('reports onProgress callbacks totalling the number of runs', () => {
     const calls: [number, number][] = []
     simulateRolling(strategy, market, {

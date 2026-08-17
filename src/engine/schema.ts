@@ -42,6 +42,12 @@ const strategyRuleSchema = z.discriminatedUnion('type', [
   rebalanceRuleSchema,
 ])
 
+const feesAndTaxSchema = z.object({
+  annualFeePercent: z.number().min(0).max(1),
+  accountType: z.enum(['ISA', 'GIA']),
+  capitalGainsTaxRate: z.number().min(0).max(1).optional(),
+})
+
 export const strategySchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -49,6 +55,7 @@ export const strategySchema = z.object({
   rules: z.array(strategyRuleSchema),
   durationMonths: z.number().int().min(1),
   contributionAllocation: z.enum(['proRata', 'lastTarget']).optional(),
+  feesAndTax: feesAndTaxSchema.optional(),
 })
 
 export type StrategySchemaType = z.infer<typeof strategySchema>

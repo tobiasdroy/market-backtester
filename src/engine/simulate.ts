@@ -2,6 +2,7 @@ import type {
   AllocationTarget,
   AssetClass,
   CashFlowRule,
+  FeesAndTax,
   MarketData,
   PortfolioSnapshot,
   RebalanceRule,
@@ -61,6 +62,58 @@ function distributeWithdrawal(balances: Balances, amount: number): number {
   return paid
 }
 
+/** Deducts the monthly-equivalent of an annual fee drag from every asset
+ * class. Uses the simple linear approximation (annualRate / 12) - the
+ * standard convention platforms quote an "ongoing charges figure" by,
+ * and close enough to geometric compounding at typical fee sizes. */
+function applyFeeDrag(balances: Balances, annualFeePercent: number): number {
+  const totalBefore = totalOf(balances)
+  const monthlyRate = annualFeePercent / 12
+  for (const asset of ASSET_CLASSES) {
+    balances[asset] *= 1 - monthlyRate
+  }
+  return totalBefore - totalOf(balances)
+}
+
+interface WithdrawalOutcome {
+  netPaid: number
+  taxPaid: number
+  newCostBasis: number
+}
+
+/** Withdraws `requestedNetAmount` pro-rata, grossed up so that amount is
+ * what's actually received net of capital gains tax on a GIA (ISA: no
+ * tax, netPaid === requested unless the portfolio can't cover it).
+ *
+ * Approximation: the gain fraction of the withdrawal is `(total -
+ * costBasis) / total`, using the portfolio's *total* unrealized gain
+ * ratio as a stand-in for the gain ratio of the specific units sold
+ * (Section-104-pool-style average cost, not FIFO/specific-identification,
+ * and ignoring the UK's annual CGT exempt amount). `costBasis` is
+ * reduced proportionally to the fraction of the portfolio withdrawn. */
+function withdrawWithTax(
+  balances: Balances,
+  requestedNetAmount: number,
+  costBasis: number,
+  feesAndTax: FeesAndTax | undefined,
+): WithdrawalOutcome {
+  const total = totalOf(balances)
+  if (total <= 0) return { netPaid: 0, taxPaid: 0, newCostBasis: costBasis }
+
+  const isGIA = feesAndTax?.accountType === 'GIA'
+  const taxRate = feesAndTax?.capitalGainsTaxRate ?? 0
+  const gainFraction = isGIA ? Math.max(0, (total - costBasis) / total) : 0
+  const effectiveTaxRate = gainFraction * taxRate
+
+  const desiredGross =
+    effectiveTaxRate < 1 ? requestedNetAmount / (1 - effectiveTaxRate) : total
+  const grossWithdrawn = distributeWithdrawal(balances, desiredGross)
+  const taxPaid = grossWithdrawn * effectiveTaxRate
+  const newCostBasis = Math.max(0, costBasis - costBasis * (grossWithdrawn / total))
+
+  return { netPaid: grossWithdrawn - taxPaid, taxPaid, newCostBasis }
+}
+
 /** Is `rule` due at this month offset? Offset 0 is reserved for the
  * initial snapshot, so a rule's first firing is at
  * `max(startOffset.months, period)` when startOffset is 0, or at
@@ -108,9 +161,13 @@ export function simulateSingleRun(
   const startCpi = marketData.months[startIndex].cpiIndex
   let cumulativeContributed = startValue
   let cumulativeWithdrawn = 0
+  let cumulativeFeesPaid = 0
+  let cumulativeTaxPaid = 0
+  let costBasis = startValue
   let everDepleted = false
   let lastRebalanceAllocation: AllocationTarget = allocation
   const contributionMode = strategy.contributionAllocation ?? 'proRata'
+  const { feesAndTax } = strategy
 
   const snapshots: PortfolioSnapshot[] = [
     {
@@ -120,6 +177,8 @@ export function simulateSingleRun(
       byAsset: { ...balances },
       cumulativeContributed,
       cumulativeWithdrawn,
+      cumulativeFeesPaid,
+      cumulativeTaxPaid,
       cpiIndex: startCpi,
       depleted: false,
     },
@@ -130,6 +189,10 @@ export function simulateSingleRun(
 
     for (const asset of ASSET_CLASSES) {
       balances[asset] *= 1 + month.monthlyReturn[asset]
+    }
+
+    if (feesAndTax && feesAndTax.annualFeePercent > 0) {
+      cumulativeFeesPaid += applyFeeDrag(balances, feesAndTax.annualFeePercent)
     }
 
     for (const rule of strategy.rules) {
@@ -153,10 +216,18 @@ export function simulateSingleRun(
           contributionMode === 'lastTarget' ? lastRebalanceAllocation : weightsOf(balances)
         distributeContribution(balances, amount, weights)
         cumulativeContributed += amount
+        costBasis += amount
       } else {
-        const paid = distributeWithdrawal(balances, amount)
-        cumulativeWithdrawn += paid
-        if (paid < amount - 1e-6) everDepleted = true
+        const { netPaid, taxPaid, newCostBasis } = withdrawWithTax(
+          balances,
+          amount,
+          costBasis,
+          feesAndTax,
+        )
+        cumulativeWithdrawn += netPaid
+        cumulativeTaxPaid += taxPaid
+        costBasis = newCostBasis
+        if (netPaid < amount - 1e-6) everDepleted = true
       }
     }
 
@@ -167,6 +238,8 @@ export function simulateSingleRun(
       byAsset: { ...balances },
       cumulativeContributed,
       cumulativeWithdrawn,
+      cumulativeFeesPaid,
+      cumulativeTaxPaid,
       cpiIndex: month.cpiIndex,
       depleted: everDepleted,
     })

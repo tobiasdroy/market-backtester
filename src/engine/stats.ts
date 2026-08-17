@@ -5,8 +5,12 @@ export interface SimulationStats {
   endingValueReal: number
   totalContributed: number
   totalWithdrawn: number
+  totalFeesPaid: number
+  totalTaxPaid: number
   /** Annualized time-weighted return (the portfolio's own investment
-   * performance, independent of cash-flow timing/size). */
+   * performance, independent of cash-flow timing/size). Fee drag is
+   * folded in (it's a genuine performance cost); tax on withdrawals is
+   * excluded (it's a cash outflow, not a market-return effect). */
   cagrNominal: number
   cagrReal: number
   /** Annualized standard deviation of monthly time-weighted returns. */
@@ -18,8 +22,12 @@ export interface SimulationStats {
 
 /** Per-month time-weighted return, backed out from snapshot deltas:
  * the value just before this month's cash flow, divided by last month's
- * end value. Since simulate.ts applies returns before flows each month,
- * `snapshot.totalValue - netFlow` is exactly that pre-flow value. */
+ * end value. Since simulate.ts applies returns (and fee drag) before
+ * flows each month, `snapshot.totalValue - netFlow` is exactly that
+ * pre-flow value. Tax paid counts as an outflow here alongside
+ * withdrawals (money leaving the account to HMRC, not a market-return
+ * effect), while fee drag is deliberately left out of netFlow so it
+ * stays folded into the return itself. */
 function monthlyTimeWeightedReturns(snapshots: PortfolioSnapshot[]): number[] {
   const returns: number[] = []
   for (let i = 1; i < snapshots.length; i++) {
@@ -28,7 +36,8 @@ function monthlyTimeWeightedReturns(snapshots: PortfolioSnapshot[]): number[] {
     const netFlow =
       cur.cumulativeContributed -
       prev.cumulativeContributed -
-      (cur.cumulativeWithdrawn - prev.cumulativeWithdrawn)
+      (cur.cumulativeWithdrawn - prev.cumulativeWithdrawn) -
+      (cur.cumulativeTaxPaid - prev.cumulativeTaxPaid)
     const valueBeforeFlow = cur.totalValue - netFlow
     const denominator = prev.totalValue
     returns.push(denominator > 0 ? valueBeforeFlow / denominator - 1 : 0)
@@ -39,6 +48,32 @@ function monthlyTimeWeightedReturns(snapshots: PortfolioSnapshot[]): number[] {
 function annualize(totalReturn: number, months: number): number {
   if (months <= 0) return 0
   return (1 + totalReturn) ** (12 / months) - 1
+}
+
+/** Deflates every monetary field in a snapshot series to the purchasing
+ * power of the simulation's start date ("today's money"), using each
+ * snapshot's own CPI relative to the first snapshot's. Chart components
+ * take either this or the raw snapshots depending on a nominal/real
+ * toggle - `date`/`monthOffset`/`cpiIndex`/`depleted` pass through
+ * unchanged since they aren't monetary. */
+export function toRealSnapshots(snapshots: PortfolioSnapshot[]): PortfolioSnapshot[] {
+  const startCpi = snapshots[0]?.cpiIndex ?? 1
+  return snapshots.map((s) => {
+    const deflator = startCpi / s.cpiIndex
+    return {
+      ...s,
+      totalValue: s.totalValue * deflator,
+      byAsset: {
+        stocks: s.byAsset.stocks * deflator,
+        bonds: s.byAsset.bonds * deflator,
+        cash: s.byAsset.cash * deflator,
+      },
+      cumulativeContributed: s.cumulativeContributed * deflator,
+      cumulativeWithdrawn: s.cumulativeWithdrawn * deflator,
+      cumulativeFeesPaid: s.cumulativeFeesPaid * deflator,
+      cumulativeTaxPaid: s.cumulativeTaxPaid * deflator,
+    }
+  })
 }
 
 export interface DrawdownPoint {
@@ -84,6 +119,8 @@ export function computeStats(result: SimulationResult): SimulationStats {
     endingValueReal: last.totalValue * (first.cpiIndex / last.cpiIndex),
     totalContributed: last.cumulativeContributed,
     totalWithdrawn: last.cumulativeWithdrawn,
+    totalFeesPaid: last.cumulativeFeesPaid,
+    totalTaxPaid: last.cumulativeTaxPaid,
     cagrNominal,
     cagrReal,
     volatility,

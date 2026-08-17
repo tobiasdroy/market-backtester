@@ -50,6 +50,25 @@ export interface RebalanceRule extends BaseRule {
 
 export type StrategyRule = CashFlowRule | RebalanceRule
 
+/** Ongoing platform/fund fee and account-wrapper tax treatment. Optional
+ * and omitted entirely by default (no fees, no tax) so existing
+ * strategies keep behaving exactly as before. */
+export interface FeesAndTax {
+  /** Annual expense-ratio-style drag, e.g. 0.0075 for 0.75%/yr, applied
+   * to every asset class every month regardless of account type. */
+  annualFeePercent: number
+  /** ISA: UK tax-free wrapper, no tax modeled. GIA (General Investment
+   * Account): taxable - withdrawals are grossed up so the requested
+   * amount is what you actually receive net of capital gains tax, using
+   * a cost-basis approximation (see simulate.ts). Simplification: only
+   * capital gains tax on withdrawals is modeled - dividend tax during
+   * accumulation and the annual CGT exempt amount are not. */
+  accountType: 'ISA' | 'GIA'
+  /** Flat capital gains tax rate applied to the gain portion of each
+   * withdrawal from a GIA. Ignored for ISA. */
+  capitalGainsTaxRate?: number
+}
+
 export interface Strategy {
   id: string
   name: string
@@ -62,6 +81,7 @@ export interface Strategy {
    * `lastTarget`: proportional to the most recent rebalance's target
    * allocation (or the initial allocation if no rebalance has fired yet). */
   contributionAllocation?: 'proRata' | 'lastTarget'
+  feesAndTax?: FeesAndTax
 }
 
 /** One month of market data for a single asset class. */
@@ -110,6 +130,8 @@ export interface PortfolioSnapshot {
   byAsset: Record<AssetClass, number>
   cumulativeContributed: number
   cumulativeWithdrawn: number
+  cumulativeFeesPaid: number
+  cumulativeTaxPaid: number
   cpiIndex: number
   /** True once a withdrawal could not be fully paid because the
    * portfolio was exhausted. */

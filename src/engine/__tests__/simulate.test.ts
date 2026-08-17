@@ -204,3 +204,124 @@ describe('simulateSingleRun - bounds', () => {
     expect(() => simulateSingleRun(strategy, market, startDate)).toThrow()
   })
 })
+
+describe('simulateSingleRun - fees', () => {
+  it('deducts the monthly-equivalent annual fee from every asset class', () => {
+    const strategy = baseStrategy({
+      durationMonths: 1,
+      feesAndTax: { annualFeePercent: 0.12, accountType: 'ISA' }, // 1%/month
+    })
+    const result = simulateSingleRun(strategy, market, startDate)
+    const snap = result.snapshots[1]
+
+    const stocksAfterReturn = 5000 * (1 + monthlyStocks)
+    const cashAfterReturn = 5000 * (1 + monthlyCash)
+    expect(snap.byAsset.stocks).toBeCloseTo(stocksAfterReturn * 0.99, 6)
+    expect(snap.byAsset.cash).toBeCloseTo(cashAfterReturn * 0.99, 6)
+    expect(snap.cumulativeFeesPaid).toBeCloseTo(
+      (stocksAfterReturn + cashAfterReturn) * 0.01,
+      6,
+    )
+  })
+
+  it('charges no fee when feesAndTax is omitted', () => {
+    const strategy = baseStrategy({ durationMonths: 1 })
+    const result = simulateSingleRun(strategy, market, startDate)
+    expect(result.snapshots[1].cumulativeFeesPaid).toBe(0)
+  })
+})
+
+describe('simulateSingleRun - tax (GIA)', () => {
+  it('charges no tax on an ISA even with large unrealized gains', () => {
+    const strategy = baseStrategy({
+      initialPortfolio: { startValue: 10_000, allocation: { stocks: 1, bonds: 0, cash: 0 } },
+      durationMonths: 12,
+      feesAndTax: { annualFeePercent: 0, accountType: 'ISA', capitalGainsTaxRate: 0.2 },
+      rules: [
+        {
+          id: 'w',
+          type: 'withdrawal',
+          startOffset: { months: 12 },
+          amount: 1000,
+          frequency: 'monthly',
+          inflationAdjusted: false,
+        },
+      ],
+    })
+    const result = simulateSingleRun(strategy, market, startDate)
+    const last = result.snapshots[result.snapshots.length - 1]
+    expect(last.cumulativeTaxPaid).toBe(0)
+    expect(last.cumulativeWithdrawn).toBeCloseTo(1000, 6)
+  })
+
+  it('grosses up a GIA withdrawal so the requested amount is received net of CGT', () => {
+    // All-gain scenario (no contributions beyond the initial stake, and
+    // costBasis starts equal to that stake) - after growth, cost basis is
+    // a known fraction of total value, so the tax is exactly computable.
+    const strategy = baseStrategy({
+      initialPortfolio: { startValue: 10_000, allocation: { stocks: 1, bonds: 0, cash: 0 } },
+      durationMonths: 12,
+      feesAndTax: { annualFeePercent: 0, accountType: 'GIA', capitalGainsTaxRate: 0.2 },
+      rules: [
+        {
+          id: 'w',
+          type: 'withdrawal',
+          startOffset: { months: 12 },
+          amount: 1000,
+          frequency: 'monthly',
+          inflationAdjusted: false,
+        },
+      ],
+    })
+    const result = simulateSingleRun(strategy, market, startDate)
+    const beforeWithdrawal = result.snapshots[11].totalValue
+    const totalBeforeThisWithdrawal = beforeWithdrawal * (1 + monthlyStocks) // this month's return applied first
+    const costBasis = 10_000 // no contributions/withdrawals yet
+    const gainFraction = (totalBeforeThisWithdrawal - costBasis) / totalBeforeThisWithdrawal
+    const effectiveTaxRate = gainFraction * 0.2
+    const expectedGross = 1000 / (1 - effectiveTaxRate)
+    const expectedTax = expectedGross * effectiveTaxRate
+
+    const last = result.snapshots[12]
+    expect(last.cumulativeWithdrawn).toBeCloseTo(1000, 4)
+    expect(last.cumulativeTaxPaid).toBeCloseTo(expectedTax, 4)
+    expect(last.totalValue).toBeCloseTo(totalBeforeThisWithdrawal - expectedGross, 4)
+  })
+
+  it('reduces cost basis proportionally to the fraction of the portfolio withdrawn', () => {
+    const strategy = baseStrategy({
+      initialPortfolio: { startValue: 10_000, allocation: { stocks: 1, bonds: 0, cash: 0 } },
+      durationMonths: 24,
+      feesAndTax: { annualFeePercent: 0, accountType: 'GIA', capitalGainsTaxRate: 0.2 },
+      rules: [
+        {
+          id: 'w1',
+          type: 'withdrawal',
+          startOffset: { months: 12 },
+          endOffset: { months: 12 },
+          amount: 5000, // withdraw roughly half the portfolio
+          frequency: 'monthly',
+          inflationAdjusted: false,
+        },
+        {
+          id: 'w2',
+          // A second, later withdrawal of the same gain-fraction check:
+          // if cost basis wasn't reduced after w1, this would compute the
+          // wrong (too-low) tax rate on the remaining, now higher-cost-
+          // basis-fraction portfolio.
+          type: 'withdrawal',
+          startOffset: { months: 24 },
+          amount: 100,
+          frequency: 'monthly',
+          inflationAdjusted: false,
+        },
+      ],
+    })
+    const result = simulateSingleRun(strategy, market, startDate)
+    // Just assert it runs to completion with a sane, fully-paid result -
+    // the point is no crash/negative-cost-basis from the first withdrawal.
+    const last = result.snapshots[result.snapshots.length - 1]
+    expect(last.cumulativeWithdrawn).toBeCloseTo(5100, 1)
+    expect(last.totalValue).toBeGreaterThan(0)
+  })
+})

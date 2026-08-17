@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid'
 import { create } from 'zustand'
-import type { AllocationTarget, Strategy, StrategyRule } from '@/engine/types'
+import type { AllocationTarget, FeesAndTax, Strategy, StrategyRule } from '@/engine/types'
 
 function defaultStrategy(): Strategy {
   return {
@@ -22,6 +22,7 @@ interface StrategyStore {
   setInitialPortfolio: (startValue: number, allocation: AllocationTarget) => void
   setDurationYears: (years: number) => void
   setContributionAllocation: (mode: 'proRata' | 'lastTarget') => void
+  setFeesAndTax: (feesAndTax: FeesAndTax | undefined) => void
   addRule: (rule: StrategyRule) => void
   updateRule: (id: string, rule: StrategyRule) => void
   removeRule: (id: string) => void
@@ -44,6 +45,8 @@ export const useStrategyStore = create<StrategyStore>((set) => ({
 
   setContributionAllocation: (mode) =>
     set((s) => ({ strategy: { ...s.strategy, contributionAllocation: mode } })),
+
+  setFeesAndTax: (feesAndTax) => set((s) => ({ strategy: { ...s.strategy, feesAndTax } })),
 
   addRule: (rule) => set((s) => ({ strategy: { ...s.strategy, rules: [...s.strategy.rules, rule] } })),
 

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { buildSyntheticMarketData, SYNTHETIC_ANNUAL_RATES } from '../fixtures/syntheticMarketData'
 import { simulateSingleRun } from '../simulate'
-import { computeDrawdownSeries, computeStats } from '../stats'
+import { computeDrawdownSeries, computeStats, toRealSnapshots } from '../stats'
 import type { Strategy } from '../types'
 
 const market = buildSyntheticMarketData(200)
@@ -115,11 +115,62 @@ describe('computeDrawdownSeries', () => {
       byAsset: { stocks: s.totalValue, bonds: 0, cash: 0 },
       cumulativeContributed: 100,
       cumulativeWithdrawn: 0,
+      cumulativeFeesPaid: 0,
+      cumulativeTaxPaid: 0,
       cpiIndex: 100,
       depleted: false,
     }))
     const series = computeDrawdownSeries(snapshots)
     const expected = [0, -0.1, -0.2, 0]
     series.forEach((p, i) => expect(p.drawdown).toBeCloseTo(expected[i], 9))
+  })
+})
+
+describe('toRealSnapshots', () => {
+  it('leaves the first snapshot unchanged and deflates later ones by CPI growth', () => {
+    const strategy: Strategy = {
+      id: 't',
+      name: 't',
+      initialPortfolio: { startValue: 10_000, allocation: { stocks: 1, bonds: 0, cash: 0 } },
+      durationMonths: 24,
+      rules: [],
+    }
+    const result = simulateSingleRun(strategy, market, startDate)
+    const real = toRealSnapshots(result.snapshots)
+
+    expect(real[0].totalValue).toBeCloseTo(result.snapshots[0].totalValue, 6)
+
+    const last = result.snapshots[result.snapshots.length - 1]
+    const lastReal = real[real.length - 1]
+    const expectedDeflator = result.snapshots[0].cpiIndex / last.cpiIndex
+    expect(lastReal.totalValue).toBeCloseTo(last.totalValue * expectedDeflator, 6)
+    expect(lastReal.byAsset.stocks).toBeCloseTo(last.byAsset.stocks * expectedDeflator, 6)
+    expect(lastReal.cumulativeContributed).toBeCloseTo(
+      last.cumulativeContributed * expectedDeflator,
+      6,
+    )
+  })
+
+  it('matches endingValueReal from computeStats at the final snapshot', () => {
+    const strategy: Strategy = {
+      id: 't',
+      name: 't',
+      initialPortfolio: { startValue: 10_000, allocation: { stocks: 0.6, bonds: 0.4, cash: 0 } },
+      durationMonths: 36,
+      rules: [
+        {
+          id: 'c',
+          type: 'contribution',
+          startOffset: { months: 0 },
+          amount: 500,
+          frequency: 'monthly',
+          inflationAdjusted: true,
+        },
+      ],
+    }
+    const result = simulateSingleRun(strategy, market, startDate)
+    const stats = computeStats(result)
+    const real = toRealSnapshots(result.snapshots)
+    expect(real[real.length - 1].totalValue).toBeCloseTo(stats.endingValueReal, 6)
   })
 })
