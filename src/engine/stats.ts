@@ -41,14 +41,23 @@ function annualize(totalReturn: number, months: number): number {
   return (1 + totalReturn) ** (12 / months) - 1
 }
 
-function maxDrawdown(values: number[]): number {
-  let peak = values[0] ?? 0
-  let worst = 0
-  for (const v of values) {
-    if (v > peak) peak = v
-    if (peak > 0) worst = Math.min(worst, v / peak - 1)
-  }
-  return worst
+export interface DrawdownPoint {
+  date: string
+  monthOffset: number
+  drawdown: number
+}
+
+/** Portfolio value's decline from its running peak at each month, as a
+ * fraction (0 to -1). Note this is computed on raw totalValue, so a large
+ * withdrawal reads as part of the drawdown alongside genuine market
+ * declines - a known simplification, documented for the results view. */
+export function computeDrawdownSeries(snapshots: PortfolioSnapshot[]): DrawdownPoint[] {
+  let peak = snapshots[0]?.totalValue ?? 0
+  return snapshots.map((s) => {
+    if (s.totalValue > peak) peak = s.totalValue
+    const drawdown = peak > 0 ? Math.min(0, s.totalValue / peak - 1) : 0
+    return { date: s.date, monthOffset: s.monthOffset, drawdown }
+  })
 }
 
 export function computeStats(result: SimulationResult): SimulationStats {
@@ -78,7 +87,7 @@ export function computeStats(result: SimulationResult): SimulationStats {
     cagrNominal,
     cagrReal,
     volatility,
-    maxDrawdown: maxDrawdown(snapshots.map((s) => s.totalValue)),
+    maxDrawdown: Math.min(0, ...computeDrawdownSeries(snapshots).map((p) => p.drawdown)),
     succeeded: !last.depleted,
   }
 }

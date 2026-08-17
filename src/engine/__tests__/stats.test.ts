@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { buildSyntheticMarketData, SYNTHETIC_ANNUAL_RATES } from '../fixtures/syntheticMarketData'
 import { simulateSingleRun } from '../simulate'
-import { computeStats } from '../stats'
+import { computeDrawdownSeries, computeStats } from '../stats'
 import type { Strategy } from '../types'
 
 const market = buildSyntheticMarketData(200)
@@ -83,5 +83,43 @@ describe('computeStats', () => {
     }
     const stats = computeStats(simulateSingleRun(strategy, market, startDate))
     expect(stats.succeeded).toBe(false)
+  })
+})
+
+describe('computeDrawdownSeries', () => {
+  it('is zero while the portfolio only ever rises', () => {
+    const strategy: Strategy = {
+      id: 't',
+      name: 't',
+      initialPortfolio: { startValue: 10_000, allocation: { stocks: 1, bonds: 0, cash: 0 } },
+      durationMonths: 24,
+      rules: [],
+    }
+    const result = simulateSingleRun(strategy, market, startDate)
+    const series = computeDrawdownSeries(result.snapshots)
+    expect(series.every((p) => p.drawdown === 0)).toBe(true)
+  })
+
+  it('tracks decline from the running peak, then recovers to zero once a new peak is set', () => {
+    // Two down months then a big up month, using a hand-built snapshot list
+    // rather than the engine, to pin down the drawdown formula itself.
+    const snapshots = [
+      { totalValue: 100 },
+      { totalValue: 90 }, // -10% from peak 100
+      { totalValue: 80 }, // -20% from peak 100
+      { totalValue: 120 }, // new peak -> 0
+    ].map((s, i) => ({
+      date: `2000-0${i + 1}-01`,
+      monthOffset: i,
+      totalValue: s.totalValue,
+      byAsset: { stocks: s.totalValue, bonds: 0, cash: 0 },
+      cumulativeContributed: 100,
+      cumulativeWithdrawn: 0,
+      cpiIndex: 100,
+      depleted: false,
+    }))
+    const series = computeDrawdownSeries(snapshots)
+    const expected = [0, -0.1, -0.2, 0]
+    series.forEach((p, i) => expect(p.drawdown).toBeCloseTo(expected[i], 9))
   })
 })

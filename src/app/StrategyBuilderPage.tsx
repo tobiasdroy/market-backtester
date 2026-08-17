@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { ContributionForm } from '@/components/strategy-builder/ContributionForm'
 import { InitialPortfolioForm } from '@/components/strategy-builder/InitialPortfolioForm'
 import { RebalanceForm } from '@/components/strategy-builder/RebalanceForm'
@@ -6,10 +6,29 @@ import { RuleCard } from '@/components/strategy-builder/RuleCard'
 import { RuleTimeline } from '@/components/strategy-builder/RuleTimeline'
 import { SimulationControls } from '@/components/strategy-builder/SimulationControls'
 import { WithdrawalForm } from '@/components/strategy-builder/WithdrawalForm'
+import { SpliceAnnotations } from '@/components/results/SpliceAnnotations'
 import { SummaryStatsPanel } from '@/components/results/SummaryStatsPanel'
+import { computeDrawdownSeries } from '@/engine/stats'
 import type { CashFlowRule, RebalanceRule, StrategyRule } from '@/engine/types'
+import { useMarketMetadata } from '@/hooks/useMarketMetadata'
 import { useResultsStore } from '@/store/resultsStore'
 import { useStrategyStore } from '@/store/strategyStore'
+
+// Recharts (and everything that imports it) is the bulk of the JS bundle,
+// so it's only worth loading once a backtest has actually been run.
+const PortfolioValueChart = lazy(() =>
+  import('@/components/results/PortfolioValueChart').then((m) => ({
+    default: m.PortfolioValueChart,
+  })),
+)
+const DrawdownChart = lazy(() =>
+  import('@/components/results/DrawdownChart').then((m) => ({ default: m.DrawdownChart })),
+)
+const RollingOutcomesChart = lazy(() =>
+  import('@/components/results/RollingOutcomesChart').then((m) => ({
+    default: m.RollingOutcomesChart,
+  })),
+)
 
 type RuleType = StrategyRule['type']
 
@@ -23,6 +42,7 @@ export function StrategyBuilderPage() {
   const rollingResult = useResultsStore((s) => s.rollingResult)
   const runError = useResultsStore((s) => s.error)
   const progress = useResultsStore((s) => s.progress)
+  const { metadata } = useMarketMetadata()
 
   const [addingType, setAddingType] = useState<RuleType | null>(null)
   const [editingRuleId, setEditingRuleId] = useState<string | null>(null)
@@ -140,6 +160,23 @@ export function StrategyBuilderPage() {
       <section className="flex flex-col gap-3">
         <h2 className="text-lg">Results</h2>
         <SummaryStatsPanel singleResult={singleResult} rollingResult={rollingResult} />
+
+        {(singleResult || rollingResult) && (
+          <Suspense fallback={<p className="text-sm text-text-muted">Loading charts…</p>}>
+            {singleResult && (
+              <>
+                <PortfolioValueChart
+                  snapshots={singleResult.snapshots}
+                  splices={metadata?.series.stocks.splices}
+                />
+                <DrawdownChart drawdown={computeDrawdownSeries(singleResult.snapshots)} />
+              </>
+            )}
+            {rollingResult && <RollingOutcomesChart bands={rollingResult.bands} />}
+          </Suspense>
+        )}
+
+        {(singleResult || rollingResult) && <SpliceAnnotations metadata={metadata} />}
       </section>
     </div>
   )
