@@ -1,47 +1,47 @@
 {
-  "generatedAt": "2026-08-17T20:56:34.414235+00:00",
+  "generatedAt": "2026-08-17T21:24:33.259129+00:00",
   "pipelineVersion": "1.0.0",
   "series": {
     "stocks": {
       "splices": [
         {
           "from": "1871-01",
-          "to": "2008-03",
+          "to": "2000-11",
           "source": "SHILLER_SP500",
           "url": "https://shillerdata.com",
-          "note": "Robert Shiller's monthly S&P 500 dataset (nominal, dividends reinvested), USD, converted to GBP via monthly FX. Used as the developed-market equity proxy before genuinely global index/ETF data is freely available. Overlaps ETF_ACWI by one month (2008-03, ACWI's inception month) so that month's real Shiller-implied return is preserved at the join rather than reset to zero."
+          "note": "Robert Shiller's monthly S&P 500 dataset (nominal, dividends reinvested), USD, converted to GBP via monthly FX. Used as the developed-market equity proxy before genuinely global index data is available from MSCI_WORLD_GRTR. Overlaps it by one month so that month's real Shiller-implied return is preserved at the join rather than reset to zero."
         },
         {
-          "from": "2008-03",
-          "to": "present",
-          "source": "ETF_ACWI",
-          "url": "https://www.ishares.com",
-          "note": "iShares MSCI ACWI ETF (ACWI), dividend-adjusted close, USD, converted to GBP via monthly FX. Genuinely globally diversified equities."
+          "from": "2000-12",
+          "to": "2026-07",
+          "source": "MSCI_WORLD_GRTR",
+          "url": "https://www.msci.com/end-of-day-data-search",
+          "note": "MSCI World Index, Gross Total Return (dividends reinvested, pre-withholding-tax), USD, converted to GBP via monthly FX. Genuinely globally diversified developed-market equities, via MSCI's free index data service - which serves a shifting trailing window from today rather than a fixed start date, so how far back this segment reaches will vary between runs."
         }
       ],
       "earliestAvailable": "1871-01-01",
-      "latestAvailable": "2026-08-01",
+      "latestAvailable": "2026-07-01",
       "currencyAssumption": "unhedged - spot FX converted to GBP each month"
     },
     "bonds": {
       "splices": [
         {
           "from": "1871-01",
-          "to": "1960-01",
+          "to": "1959-12",
           "source": "BOE_CONSOLS_YIELD_APPROX",
           "url": "https://www.bankofengland.co.uk/statistics/research-datasets",
           "note": "UK Consols (irredeemable government perpetuity) yield from the BoE Millennium dataset, converted to a total return via the exact perpetuity price/yield relationship plus income accrual. Single-market (UK) proxy for developed-market government bonds."
         },
         {
           "from": "1960-01",
-          "to": "2018-03",
+          "to": "2018-02",
           "source": "FRED_UK10Y_YIELD_APPROX",
           "url": "https://fred.stlouisfed.org/series/IRLTLT01GBM156N",
           "note": "UK 10-year government bond yield (FRED/OECD), converted to a total return via a standard assumed-duration (7-year) approximation."
         },
         {
           "from": "2018-03",
-          "to": "present",
+          "to": "2026-08",
           "source": "ETF_IGLH_GBP_HEDGED",
           "url": "https://www.ishares.com",
           "note": "iShares Global Government Bond UCITS ETF, GBP Hedged (IGLH.L), dividend-adjusted close. Genuinely globally diversified government bonds, currency-hedged so no FX conversion is needed (or introduced)."
@@ -55,14 +55,14 @@
       "splices": [
         {
           "from": "1871-01",
-          "to": "2017-01",
+          "to": "2016-12",
           "source": "BOE_MILLENNIUM_BANK_RATE",
           "url": "https://www.bankofengland.co.uk/statistics/research-datasets",
           "note": "Bank of England Official Bank Rate, from the Millennium dataset."
         },
         {
           "from": "2017-01",
-          "to": "present",
+          "to": "2026-07",
           "source": "BOE_MODERN_BANK_RATE",
           "url": "https://www.bankofengland.co.uk/boeapps/database/",
           "note": "Bank of England Official Bank Rate (series IUMABEDR), modern era."
@@ -83,14 +83,14 @@
         },
         {
           "from": "1914-07",
-          "to": "1988-01",
+          "to": "1987-12",
           "source": "BOE_MILLENNIUM_MONTHLY_CPI",
           "url": "https://www.bankofengland.co.uk/statistics/research-datasets",
           "note": "BoE Millennium dataset's spliced monthly UK CPI series."
         },
         {
           "from": "1988-01",
-          "to": "present",
+          "to": "2026-06",
           "source": "ONS_CPI_D7BT",
           "url": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7bt/mm23",
           "note": "Official ONS UK CPI (All Items Index), modern era."

@@ -10916,2164 +10916,2157 @@
     "date": "2000-12-01",
     "totalReturnIndex": 47426568.642554,
     "monthlyReturn": -0.0577209,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2001-01-01",
-    "totalReturnIndex": 47171288.429563,
-    "monthlyReturn": -0.00538264,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2001-02-01",
-    "totalReturnIndex": 46957842.735903,
-    "monthlyReturn": -0.00452491,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2001-03-01",
-    "totalReturnIndex": 42930265.447842,
-    "monthlyReturn": -0.08577007,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2001-04-01",
-    "totalReturnIndex": 43414140.67916,
-    "monthlyReturn": 0.01127119,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2001-05-01",
-    "totalReturnIndex": 46670438.329129,
-    "monthlyReturn": 0.07500546,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2001-06-01",
-    "totalReturnIndex": 46351439.60048,
-    "monthlyReturn": -0.00683513,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2001-07-01",
-    "totalReturnIndex": 44710241.764875,
-    "monthlyReturn": -0.0354077,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2001-08-01",
-    "totalReturnIndex": 43113001.584803,
-    "monthlyReturn": -0.03572426,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2001-09-01",
-    "totalReturnIndex": 37568664.350554,
-    "monthlyReturn": -0.12860012,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2001-10-01",
-    "totalReturnIndex": 39131098.314398,
-    "monthlyReturn": 0.04158875,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2001-11-01",
-    "totalReturnIndex": 41523657.865225,
-    "monthlyReturn": 0.06114215,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2001-12-01",
-    "totalReturnIndex": 41965791.475749,
-    "monthlyReturn": 0.01064775,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2002-01-01",
-    "totalReturnIndex": 42106704.627787,
-    "monthlyReturn": 0.00335781,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2002-02-01",
-    "totalReturnIndex": 40966691.979998,
-    "monthlyReturn": -0.02707437,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2002-03-01",
-    "totalReturnIndex": 42983531.666201,
-    "monthlyReturn": 0.04923121,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2002-04-01",
-    "totalReturnIndex": 40901240.391377,
-    "monthlyReturn": -0.04844393,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2002-05-01",
-    "totalReturnIndex": 39287830.626735,
-    "monthlyReturn": -0.03944648,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2002-06-01",
-    "totalReturnIndex": 36366531.259085,
-    "monthlyReturn": -0.07435634,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2002-07-01",
-    "totalReturnIndex": 30935882.991481,
-    "monthlyReturn": -0.14933094,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2002-08-01",
-    "totalReturnIndex": 31689025.101695,
-    "monthlyReturn": 0.02434526,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2002-09-01",
-    "totalReturnIndex": 29802954.427437,
-    "monthlyReturn": -0.0595181,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2002-10-01",
-    "totalReturnIndex": 29373144.438291,
-    "monthlyReturn": -0.01442172,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2002-11-01",
-    "totalReturnIndex": 31048429.349728,
-    "monthlyReturn": 0.05703458,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2002-12-01",
-    "totalReturnIndex": 30432884.431052,
-    "monthlyReturn": -0.01982532,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2003-01-01",
-    "totalReturnIndex": 29779589.739298,
-    "monthlyReturn": -0.02146674,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2003-02-01",
-    "totalReturnIndex": 28035811.33344,
-    "monthlyReturn": -0.05855616,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2003-03-01",
-    "totalReturnIndex": 28858508.683104,
-    "monthlyReturn": 0.02934452,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2003-04-01",
-    "totalReturnIndex": 30549902.961817,
-    "monthlyReturn": 0.0586099,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2003-05-01",
-    "totalReturnIndex": 31210959.70062,
-    "monthlyReturn": 0.02163859,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2003-06-01",
-    "totalReturnIndex": 32226500.477919,
-    "monthlyReturn": 0.03253795,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2003-07-01",
-    "totalReturnIndex": 33194366.908972,
-    "monthlyReturn": 0.03003325,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2003-08-01",
-    "totalReturnIndex": 33725866.709302,
-    "monthlyReturn": 0.01601175,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2003-09-01",
-    "totalReturnIndex": 34327209.133356,
-    "monthlyReturn": 0.0178303,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2003-10-01",
-    "totalReturnIndex": 33695426.436315,
-    "monthlyReturn": -0.01840472,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2003-11-01",
-    "totalReturnIndex": 33892132.745725,
-    "monthlyReturn": 0.00583777,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2003-12-01",
-    "totalReturnIndex": 33696801.507735,
-    "monthlyReturn": -0.00576332,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2004-01-01",
-    "totalReturnIndex": 33928814.72269,
-    "monthlyReturn": 0.00688532,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2004-02-01",
-    "totalReturnIndex": 33530260.195814,
-    "monthlyReturn": -0.01174679,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2004-03-01",
-    "totalReturnIndex": 33750630.847354,
-    "monthlyReturn": 0.00657229,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2004-04-01",
-    "totalReturnIndex": 34512557.763118,
-    "monthlyReturn": 0.02257519,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2004-05-01",
-    "totalReturnIndex": 33950029.715885,
-    "monthlyReturn": -0.01629923,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2004-06-01",
-    "totalReturnIndex": 34120238.649219,
-    "monthlyReturn": 0.00501351,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2004-07-01",
-    "totalReturnIndex": 33069177.797334,
-    "monthlyReturn": -0.03080462,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2004-08-01",
-    "totalReturnIndex": 33031788.855866,
-    "monthlyReturn": -0.00113063,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2004-09-01",
-    "totalReturnIndex": 34454899.984825,
-    "monthlyReturn": 0.04308308,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2004-10-01",
-    "totalReturnIndex": 34223372.173059,
-    "monthlyReturn": -0.00671974,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2004-11-01",
-    "totalReturnIndex": 34836039.955403,
-    "monthlyReturn": 0.01790203,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2004-12-01",
-    "totalReturnIndex": 34526478.444819,
-    "monthlyReturn": -0.00888624,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2005-01-01",
-    "totalReturnIndex": 34947368.365663,
-    "monthlyReturn": 0.01219035,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2005-02-01",
-    "totalReturnIndex": 35396207.282037,
-    "monthlyReturn": 0.01284328,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2005-03-01",
-    "totalReturnIndex": 34987492.291942,
-    "monthlyReturn": -0.01154686,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2005-04-01",
-    "totalReturnIndex": 34292908.257703,
-    "monthlyReturn": -0.01985235,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2005-05-01",
-    "totalReturnIndex": 35504331.792769,
-    "monthlyReturn": 0.03532577,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2005-06-01",
-    "totalReturnIndex": 37041586.956591,
-    "monthlyReturn": 0.04329768,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2005-07-01",
-    "totalReturnIndex": 39154925.011364,
-    "monthlyReturn": 0.05705312,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2005-08-01",
-    "totalReturnIndex": 38320263.823577,
-    "monthlyReturn": -0.02131689,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2005-09-01",
-    "totalReturnIndex": 38172633.041953,
-    "monthlyReturn": -0.00385255,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2005-10-01",
-    "totalReturnIndex": 38041291.904202,
-    "monthlyReturn": -0.00344071,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2005-11-01",
-    "totalReturnIndex": 40237421.332681,
-    "monthlyReturn": 0.05773015,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2005-12-01",
-    "totalReturnIndex": 40844226.406231,
-    "monthlyReturn": 0.01508062,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2006-01-01",
-    "totalReturnIndex": 40909545.573265,
-    "monthlyReturn": 0.00159923,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2006-02-01",
-    "totalReturnIndex": 41385276.399833,
-    "monthlyReturn": 0.01162885,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2006-03-01",
-    "totalReturnIndex": 42092327.948173,
-    "monthlyReturn": 0.01708462,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2006-04-01",
-    "totalReturnIndex": 41857801.636648,
-    "monthlyReturn": -0.00557171,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2006-05-01",
-    "totalReturnIndex": 39291212.448065,
-    "monthlyReturn": -0.06131687,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2006-06-01",
-    "totalReturnIndex": 38751204.002243,
-    "monthlyReturn": -0.01374375,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2006-07-01",
-    "totalReturnIndex": 39013864.988708,
-    "monthlyReturn": 0.00677814,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2006-08-01",
-    "totalReturnIndex": 38859254.358679,
-    "monthlyReturn": -0.00396297,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2006-09-01",
-    "totalReturnIndex": 40059127.144065,
-    "monthlyReturn": 0.0308774,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2006-10-01",
-    "totalReturnIndex": 41671977.465588,
-    "monthlyReturn": 0.04026174,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2006-11-01",
-    "totalReturnIndex": 41706636.600351,
-    "monthlyReturn": 0.00083171,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2006-12-01",
-    "totalReturnIndex": 41509362.613145,
-    "monthlyReturn": -0.00473004,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2007-01-01",
-    "totalReturnIndex": 41887072.458207,
-    "monthlyReturn": 0.00909939,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2007-02-01",
-    "totalReturnIndex": 42569148.644725,
-    "monthlyReturn": 0.01628369,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2007-03-01",
-    "totalReturnIndex": 41751078.175807,
-    "monthlyReturn": -0.01921745,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2007-04-01",
-    "totalReturnIndex": 42540005.180561,
-    "monthlyReturn": 0.01889597,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2007-05-01",
-    "totalReturnIndex": 44145272.875336,
-    "monthlyReturn": 0.03773548,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2007-06-01",
-    "totalReturnIndex": 44235640.466209,
-    "monthlyReturn": 0.00204705,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2007-07-01",
-    "totalReturnIndex": 43453583.609262,
-    "monthlyReturn": -0.01767934,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2007-08-01",
-    "totalReturnIndex": 42098572.501073,
-    "monthlyReturn": -0.03118295,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2007-09-01",
-    "totalReturnIndex": 43234561.827921,
-    "monthlyReturn": 0.02698403,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2007-10-01",
-    "totalReturnIndex": 43960160.61524,
-    "monthlyReturn": 0.01678284,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2007-11-01",
-    "totalReturnIndex": 41332401.197929,
-    "monthlyReturn": -0.05977593,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2007-12-01",
-    "totalReturnIndex": 42914476.519145,
-    "monthlyReturn": 0.03827688,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2008-01-01",
-    "totalReturnIndex": 41058076.75645,
-    "monthlyReturn": -0.04325812,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2008-02-01",
-    "totalReturnIndex": 40539898.332109,
-    "monthlyReturn": -0.01262062,
-    "source": "SHILLER_SP500",
-    "isInterpolated": false
-  },
-  {
-    "date": "2008-03-01",
-    "totalReturnIndex": 38699110.831814,
-    "monthlyReturn": -0.04540681,
-    "source": "ETF_ACWI",
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false,
     "isSpliceStart": true
   },
   {
+    "date": "2001-01-01",
+    "totalReturnIndex": 47869948.855535,
+    "monthlyReturn": 0.00934877,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2001-02-01",
+    "totalReturnIndex": 44584109.480694,
+    "monthlyReturn": -0.06864096,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2001-03-01",
+    "totalReturnIndex": 41894900.363943,
+    "monthlyReturn": -0.06031766,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2001-04-01",
+    "totalReturnIndex": 45306290.430984,
+    "monthlyReturn": 0.08142733,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2001-05-01",
+    "totalReturnIndex": 45003906.33629,
+    "monthlyReturn": -0.00667422,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2001-06-01",
+    "totalReturnIndex": 44362180.416926,
+    "monthlyReturn": -0.01425934,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2001-07-01",
+    "totalReturnIndex": 43381934.096551,
+    "monthlyReturn": -0.02209644,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2001-08-01",
+    "totalReturnIndex": 40664232.263545,
+    "monthlyReturn": -0.06264594,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2001-09-01",
+    "totalReturnIndex": 36412506.824054,
+    "monthlyReturn": -0.10455688,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2001-10-01",
+    "totalReturnIndex": 37464291.979639,
+    "monthlyReturn": 0.02888527,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2001-11-01",
+    "totalReturnIndex": 40087176.52604,
+    "monthlyReturn": 0.07001025,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2001-12-01",
+    "totalReturnIndex": 40184513.74376,
+    "monthlyReturn": 0.00242814,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2002-01-01",
+    "totalReturnIndex": 39219075.03703,
+    "monthlyReturn": -0.02402514,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2002-02-01",
+    "totalReturnIndex": 39145438.059254,
+    "monthlyReturn": -0.00187758,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2002-03-01",
+    "totalReturnIndex": 40875527.745832,
+    "monthlyReturn": 0.04419646,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2002-04-01",
+    "totalReturnIndex": 38957562.445202,
+    "monthlyReturn": -0.04692209,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2002-05-01",
+    "totalReturnIndex": 38595813.692709,
+    "monthlyReturn": -0.00928571,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2002-06-01",
+    "totalReturnIndex": 35677833.932639,
+    "monthlyReturn": -0.07560353,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2002-07-01",
+    "totalReturnIndex": 31146707.469396,
+    "monthlyReturn": -0.12700116,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2002-08-01",
+    "totalReturnIndex": 31611563.797887,
+    "monthlyReturn": 0.01492473,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2002-09-01",
+    "totalReturnIndex": 27789439.808632,
+    "monthlyReturn": -0.12090904,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2002-10-01",
+    "totalReturnIndex": 29822497.684752,
+    "monthlyReturn": 0.07315937,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2002-11-01",
+    "totalReturnIndex": 31164953.094963,
+    "monthlyReturn": 0.04501486,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2002-12-01",
+    "totalReturnIndex": 29376563.009916,
+    "monthlyReturn": -0.05738466,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2003-01-01",
+    "totalReturnIndex": 27939421.292789,
+    "monthlyReturn": -0.04892137,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2003-02-01",
+    "totalReturnIndex": 27624994.791572,
+    "monthlyReturn": -0.01125387,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2003-03-01",
+    "totalReturnIndex": 27991267.415667,
+    "monthlyReturn": 0.01325874,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2003-04-01",
+    "totalReturnIndex": 30657798.949088,
+    "monthlyReturn": 0.09526298,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2003-05-01",
+    "totalReturnIndex": 31455603.365817,
+    "monthlyReturn": 0.02602289,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2003-06-01",
+    "totalReturnIndex": 31269640.566394,
+    "monthlyReturn": -0.00591191,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2003-07-01",
+    "totalReturnIndex": 32673793.794169,
+    "monthlyReturn": 0.04490468,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2003-08-01",
+    "totalReturnIndex": 33978245.296136,
+    "monthlyReturn": 0.03992348,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2003-09-01",
+    "totalReturnIndex": 33736589.691577,
+    "monthlyReturn": -0.00711207,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2003-10-01",
+    "totalReturnIndex": 34389357.625861,
+    "monthlyReturn": 0.01934896,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2003-11-01",
+    "totalReturnIndex": 34704221.632859,
+    "monthlyReturn": 0.00915586,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2003-12-01",
+    "totalReturnIndex": 35586308.647638,
+    "monthlyReturn": 0.02541728,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2004-01-01",
+    "totalReturnIndex": 34701144.229756,
+    "monthlyReturn": -0.02487374,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2004-02-01",
+    "totalReturnIndex": 34504558.708934,
+    "monthlyReturn": -0.0056651,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2004-03-01",
+    "totalReturnIndex": 35062699.459081,
+    "monthlyReturn": 0.01617586,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2004-04-01",
+    "totalReturnIndex": 34802386.224414,
+    "monthlyReturn": -0.00742422,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2004-05-01",
+    "totalReturnIndex": 35479994.821795,
+    "monthlyReturn": 0.01947018,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2004-06-01",
+    "totalReturnIndex": 35393343.903207,
+    "monthlyReturn": -0.00244225,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2004-07-01",
+    "totalReturnIndex": 33951808.425251,
+    "monthlyReturn": -0.040729,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2004-08-01",
+    "totalReturnIndex": 34555016.695728,
+    "monthlyReturn": 0.0177666,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2004-09-01",
+    "totalReturnIndex": 35742057.179389,
+    "monthlyReturn": 0.03435219,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2004-10-01",
+    "totalReturnIndex": 36341736.767915,
+    "monthlyReturn": 0.01677798,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2004-11-01",
+    "totalReturnIndex": 37176854.990867,
+    "monthlyReturn": 0.02297959,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2004-12-01",
+    "totalReturnIndex": 37248086.019736,
+    "monthlyReturn": 0.001916,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2005-01-01",
+    "totalReturnIndex": 37363826.247256,
+    "monthlyReturn": 0.00310728,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2005-02-01",
+    "totalReturnIndex": 38413156.804702,
+    "monthlyReturn": 0.02808413,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2005-03-01",
+    "totalReturnIndex": 37343041.284006,
+    "monthlyReturn": -0.02785805,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2005-04-01",
+    "totalReturnIndex": 36713551.312188,
+    "monthlyReturn": -0.01685696,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2005-05-01",
+    "totalReturnIndex": 38203976.804083,
+    "monthlyReturn": 0.04059606,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2005-06-01",
+    "totalReturnIndex": 39361602.082933,
+    "monthlyReturn": 0.03030117,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2005-07-01",
+    "totalReturnIndex": 42304682.653368,
+    "monthlyReturn": 0.07477035,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2005-08-01",
+    "totalReturnIndex": 41604702.835378,
+    "monthlyReturn": -0.01654615,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2005-09-01",
+    "totalReturnIndex": 42413698.08958,
+    "monthlyReturn": 0.0194448,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2005-10-01",
+    "totalReturnIndex": 42361632.283,
+    "monthlyReturn": -0.00122757,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2005-11-01",
+    "totalReturnIndex": 44558546.996316,
+    "monthlyReturn": 0.05186096,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2005-12-01",
+    "totalReturnIndex": 45272646.935625,
+    "monthlyReturn": 0.0160261,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2006-01-01",
+    "totalReturnIndex": 46693238.329598,
+    "monthlyReturn": 0.03137858,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2006-02-01",
+    "totalReturnIndex": 47193009.648739,
+    "monthlyReturn": 0.01070329,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2006-03-01",
+    "totalReturnIndex": 48357161.023928,
+    "monthlyReturn": 0.02466788,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2006-04-01",
+    "totalReturnIndex": 49180054.196875,
+    "monthlyReturn": 0.01701699,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2006-05-01",
+    "totalReturnIndex": 44982114.179408,
+    "monthlyReturn": -0.08535859,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2006-06-01",
+    "totalReturnIndex": 45602440.023658,
+    "monthlyReturn": 0.0137905,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2006-07-01",
+    "totalReturnIndex": 45877031.517744,
+    "monthlyReturn": 0.00602142,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2006-08-01",
+    "totalReturnIndex": 45853214.664805,
+    "monthlyReturn": -0.00051915,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2006-09-01",
+    "totalReturnIndex": 46664469.071316,
+    "monthlyReturn": 0.01769242,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2006-10-01",
+    "totalReturnIndex": 48577526.357462,
+    "monthlyReturn": 0.04099602,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2006-11-01",
+    "totalReturnIndex": 48855016.0267,
+    "monthlyReturn": 0.00571231,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2006-12-01",
+    "totalReturnIndex": 48581128.703905,
+    "monthlyReturn": -0.00560612,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2007-01-01",
+    "totalReturnIndex": 49269750.686276,
+    "monthlyReturn": 0.01417468,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2007-02-01",
+    "totalReturnIndex": 49048702.480388,
+    "monthlyReturn": -0.00448649,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2007-03-01",
+    "totalReturnIndex": 50249690.190491,
+    "monthlyReturn": 0.02448562,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2007-04-01",
+    "totalReturnIndex": 51341254.004378,
+    "monthlyReturn": 0.0217228,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2007-05-01",
+    "totalReturnIndex": 53024331.956552,
+    "monthlyReturn": 0.03278217,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2007-06-01",
+    "totalReturnIndex": 52559747.745506,
+    "monthlyReturn": -0.00876172,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2007-07-01",
+    "totalReturnIndex": 50208364.398794,
+    "monthlyReturn": -0.04473734,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2007-08-01",
+    "totalReturnIndex": 50758637.198181,
+    "monthlyReturn": 0.01095978,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2007-09-01",
+    "totalReturnIndex": 52994769.324504,
+    "monthlyReturn": 0.04405422,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2007-10-01",
+    "totalReturnIndex": 53934328.57114,
+    "monthlyReturn": 0.01772928,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2007-11-01",
+    "totalReturnIndex": 51116641.625846,
+    "monthlyReturn": -0.05224292,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2007-12-01",
+    "totalReturnIndex": 51762194.438183,
+    "monthlyReturn": 0.01262901,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2008-01-01",
+    "totalReturnIndex": 49000323.283718,
+    "monthlyReturn": -0.05335692,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2008-02-01",
+    "totalReturnIndex": 48889347.044124,
+    "monthlyReturn": -0.00226481,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
+    "date": "2008-03-01",
+    "totalReturnIndex": 47491937.993479,
+    "monthlyReturn": -0.0285831,
+    "source": "MSCI_WORLD_GRTR",
+    "isInterpolated": false
+  },
+  {
     "date": "2008-04-01",
-    "totalReturnIndex": 42236114.190075,
-    "monthlyReturn": 0.09139754,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 50568972.250468,
+    "monthlyReturn": 0.06479067,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2008-05-01",
-    "totalReturnIndex": 42982703.467976,
-    "monthlyReturn": 0.01767656,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 51863697.150653,
+    "monthlyReturn": 0.02560315,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2008-06-01",
-    "totalReturnIndex": 39515332.425011,
-    "monthlyReturn": -0.08066898,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 47704364.203229,
+    "monthlyReturn": -0.08019739,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2008-07-01",
-    "totalReturnIndex": 37840650.564758,
-    "monthlyReturn": -0.04238056,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 46031029.486465,
+    "monthlyReturn": -0.03507718,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2008-08-01",
-    "totalReturnIndex": 39160221.857778,
-    "monthlyReturn": 0.03487179,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 47787410.124407,
+    "monthlyReturn": 0.03815645,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2008-09-01",
-    "totalReturnIndex": 36083828.914902,
-    "monthlyReturn": -0.07855913,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 44239117.66558,
+    "monthlyReturn": -0.07425162,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2008-10-01",
-    "totalReturnIndex": 31334041.520155,
-    "monthlyReturn": -0.13163202,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 38167407.431515,
+    "monthlyReturn": -0.13724754,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2008-11-01",
-    "totalReturnIndex": 31501945.384965,
-    "monthlyReturn": 0.00535851,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 39361211.44526,
+    "monthlyReturn": 0.0312781,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2008-12-01",
-    "totalReturnIndex": 34294590.736796,
-    "monthlyReturn": 0.08864993,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 41954543.08847,
+    "monthlyReturn": 0.06588546,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2009-01-01",
-    "totalReturnIndex": 31247115.080211,
-    "monthlyReturn": -0.0888617,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 39369728.048266,
+    "monthlyReturn": -0.0616099,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2009-02-01",
-    "totalReturnIndex": 28292930.973354,
-    "monthlyReturn": -0.09454262,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 35467063.220927,
+    "monthlyReturn": -0.09912857,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2009-03-01",
-    "totalReturnIndex": 31416396.094562,
-    "monthlyReturn": 0.11039737,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 38800786.709681,
+    "monthlyReturn": 0.09399491,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2009-04-01",
-    "totalReturnIndex": 34128157.422102,
-    "monthlyReturn": 0.08631675,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 41604641.061438,
+    "monthlyReturn": 0.07226282,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2009-05-01",
-    "totalReturnIndex": 35961613.577432,
-    "monthlyReturn": 0.05372268,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 43324506.043462,
+    "monthlyReturn": 0.0413383,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2009-06-01",
-    "totalReturnIndex": 33388146.133542,
-    "monthlyReturn": -0.07156151,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 40677020.86174,
+    "monthlyReturn": -0.06110826,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2009-07-01",
-    "totalReturnIndex": 36534327.777888,
-    "monthlyReturn": 0.0942305,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 44134550.69899,
+    "monthlyReturn": 0.08499958,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2009-08-01",
-    "totalReturnIndex": 37225047.010942,
-    "monthlyReturn": 0.01890603,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 45493983.181459,
+    "monthlyReturn": 0.030802,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2009-09-01",
-    "totalReturnIndex": 39539974.126722,
-    "monthlyReturn": 0.06218735,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 47934540.683106,
+    "monthlyReturn": 0.05364572,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2009-10-01",
-    "totalReturnIndex": 38779004.689922,
-    "monthlyReturn": -0.01924557,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 47467003.561396,
+    "monthlyReturn": -0.00975366,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2009-11-01",
-    "totalReturnIndex": 39891876.692825,
-    "monthlyReturn": 0.0286978,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 48245318.845726,
+    "monthlyReturn": 0.01639698,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2009-12-01",
-    "totalReturnIndex": 41535379.112092,
-    "monthlyReturn": 0.04119892,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 50210252.619659,
+    "monthlyReturn": 0.04072797,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2010-01-01",
-    "totalReturnIndex": 39522749.641055,
-    "monthlyReturn": -0.04845579,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 48373986.897706,
+    "monthlyReturn": -0.03657153,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2010-02-01",
-    "totalReturnIndex": 41795882.834312,
-    "monthlyReturn": 0.05751455,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 50794308.21543,
+    "monthlyReturn": 0.05003353,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2010-03-01",
-    "totalReturnIndex": 46100510.228963,
-    "monthlyReturn": 0.10299166,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 55983200.71864,
+    "monthlyReturn": 0.102155,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2010-04-01",
-    "totalReturnIndex": 45134043.978849,
-    "monthlyReturn": -0.02096433,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 54974181.522391,
+    "monthlyReturn": -0.01802361,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2010-05-01",
-    "totalReturnIndex": 42896219.095034,
-    "monthlyReturn": -0.04958175,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 52186170.448219,
+    "monthlyReturn": -0.05071492,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2010-06-01",
-    "totalReturnIndex": 40994330.859895,
-    "monthlyReturn": -0.04433697,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 49958675.779119,
+    "monthlyReturn": -0.04268362,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2010-07-01",
-    "totalReturnIndex": 43245029.198,
-    "monthlyReturn": 0.05490267,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 52122375.399606,
+    "monthlyReturn": 0.04330979,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2010-08-01",
-    "totalReturnIndex": 40439389.124243,
-    "monthlyReturn": -0.06487775,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 49040504.440912,
+    "monthlyReturn": -0.0591276,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2010-09-01",
-    "totalReturnIndex": 44640000.047213,
-    "monthlyReturn": 0.10387424,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 53914492.796832,
+    "monthlyReturn": 0.09938699,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2010-10-01",
-    "totalReturnIndex": 45484401.735719,
-    "monthlyReturn": 0.01891581,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 54934671.46528,
+    "monthlyReturn": 0.01892216,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2010-11-01",
-    "totalReturnIndex": 44214147.700573,
-    "monthlyReturn": -0.02792725,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 53440944.296725,
+    "monthlyReturn": -0.02719097,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2010-12-01",
-    "totalReturnIndex": 48752895.924319,
-    "monthlyReturn": 0.10265375,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 58704559.918922,
+    "monthlyReturn": 0.09849406,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2011-01-01",
-    "totalReturnIndex": 48674703.254317,
-    "monthlyReturn": -0.00160386,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 59314658.528781,
+    "monthlyReturn": 0.0103927,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2011-02-01",
-    "totalReturnIndex": 49144752.315427,
-    "monthlyReturn": 0.00965695,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 60142106.453146,
+    "monthlyReturn": 0.01395014,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2011-03-01",
-    "totalReturnIndex": 48634192.546689,
-    "monthlyReturn": -0.0103889,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 59469697.547893,
+    "monthlyReturn": -0.01118034,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2011-04-01",
-    "totalReturnIndex": 50397275.323379,
-    "monthlyReturn": 0.03625192,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 61327885.786353,
+    "monthlyReturn": 0.03124597,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2011-05-01",
-    "totalReturnIndex": 49512984.534377,
-    "monthlyReturn": -0.0175464,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 60239336.769308,
+    "monthlyReturn": -0.01774966,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2011-06-01",
-    "totalReturnIndex": 48935045.366683,
-    "monthlyReturn": -0.01167248,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 59668050.012899,
+    "monthlyReturn": -0.00948362,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2011-07-01",
-    "totalReturnIndex": 48023795.420573,
-    "monthlyReturn": -0.01862162,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 58852422.845346,
+    "monthlyReturn": -0.01366941,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2011-08-01",
-    "totalReturnIndex": 43937029.781088,
-    "monthlyReturn": -0.08509876,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 54050900.122004,
+    "monthlyReturn": -0.08158581,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2011-09-01",
-    "totalReturnIndex": 40758854.498978,
-    "monthlyReturn": -0.07233478,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 51172537.366571,
+    "monthlyReturn": -0.05325282,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2011-10-01",
-    "totalReturnIndex": 45440662.954877,
-    "monthlyReturn": 0.11486605,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 56562557.30745,
+    "monthlyReturn": 0.10533032,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2011-11-01",
-    "totalReturnIndex": 44793900.07958,
-    "monthlyReturn": -0.01423313,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 55060270.349766,
+    "monthlyReturn": -0.02655974,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2011-12-01",
-    "totalReturnIndex": 44991672.323742,
-    "monthlyReturn": 0.00441516,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 55824024.208354,
+    "monthlyReturn": 0.01387123,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2012-01-01",
-    "totalReturnIndex": 47685721.746436,
-    "monthlyReturn": 0.05987885,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 58925444.524969,
+    "monthlyReturn": 0.05555709,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2012-02-01",
-    "totalReturnIndex": 49119531.466969,
-    "monthlyReturn": 0.0300679,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 60693710.923377,
+    "monthlyReturn": 0.03000854,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2012-03-01",
-    "totalReturnIndex": 49600779.976519,
-    "monthlyReturn": 0.0097975,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 61425784.975393,
+    "monthlyReturn": 0.01206178,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2012-04-01",
-    "totalReturnIndex": 48448485.373983,
-    "monthlyReturn": -0.02323138,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 60046226.664645,
+    "monthlyReturn": -0.02245894,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2012-05-01",
-    "totalReturnIndex": 44253747.220462,
-    "monthlyReturn": -0.08658141,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 55296537.614034,
+    "monthlyReturn": -0.07910054,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2012-06-01",
-    "totalReturnIndex": 47495829.857438,
-    "monthlyReturn": 0.0732612,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 59388905.579154,
+    "monthlyReturn": 0.07400767,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2012-07-01",
-    "totalReturnIndex": 47830262.833663,
-    "monthlyReturn": 0.00704131,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 60099376.415904,
+    "monthlyReturn": 0.01196302,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2012-08-01",
-    "totalReturnIndex": 48753823.434699,
-    "monthlyReturn": 0.01930913,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 61143527.617066,
+    "monthlyReturn": 0.01737374,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2012-09-01",
-    "totalReturnIndex": 48839444.001488,
-    "monthlyReturn": 0.00175618,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 61302416.532427,
+    "monthlyReturn": 0.00259862,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2012-10-01",
-    "totalReturnIndex": 48700215.567141,
-    "monthlyReturn": -0.00285074,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 61045741.010231,
+    "monthlyReturn": -0.00418704,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2012-11-01",
-    "totalReturnIndex": 49841840.377674,
-    "monthlyReturn": 0.02344188,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 62317734.865375,
+    "monthlyReturn": 0.02083673,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2012-12-01",
-    "totalReturnIndex": 50707910.861209,
-    "monthlyReturn": 0.01737637,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 62803161.84034,
+    "monthlyReturn": 0.00778955,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2013-01-01",
-    "totalReturnIndex": 53233464.466708,
-    "monthlyReturn": 0.04980591,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 66795424.345826,
+    "monthlyReturn": 0.06356786,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2013-02-01",
-    "totalReturnIndex": 54825893.006177,
-    "monthlyReturn": 0.02991405,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 69010667.728498,
+    "monthlyReturn": 0.0331646,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2013-03-01",
-    "totalReturnIndex": 57315549.006826,
-    "monthlyReturn": 0.04541022,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 72546964.416092,
+    "monthlyReturn": 0.05124275,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2013-04-01",
-    "totalReturnIndex": 58018223.750415,
-    "monthlyReturn": 0.01225976,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 73709771.470076,
+    "monthlyReturn": 0.01602834,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2013-05-01",
-    "totalReturnIndex": 57913110.481818,
-    "monthlyReturn": -0.00181173,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 73952720.613432,
+    "monthlyReturn": 0.00329602,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2013-06-01",
-    "totalReturnIndex": 55703017.215985,
-    "monthlyReturn": -0.03816223,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 71260240.928023,
+    "monthlyReturn": -0.03640812,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2013-07-01",
-    "totalReturnIndex": 59429149.110642,
-    "monthlyReturn": 0.06689282,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 76545903.423242,
+    "monthlyReturn": 0.07417408,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2013-08-01",
-    "totalReturnIndex": 56810917.503681,
-    "monthlyReturn": -0.04405635,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 73330092.096874,
+    "monthlyReturn": -0.04201154,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2013-09-01",
-    "totalReturnIndex": 58604844.480965,
-    "monthlyReturn": 0.03157715,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 75288127.786396,
+    "monthlyReturn": 0.02670167,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2013-10-01",
-    "totalReturnIndex": 60053087.377343,
-    "monthlyReturn": 0.024712,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 77139632.64027,
+    "monthlyReturn": 0.02459226,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2013-11-01",
-    "totalReturnIndex": 60947338.701694,
-    "monthlyReturn": 0.01489101,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 78497548.54314,
+    "monthlyReturn": 0.01760335,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2013-12-01",
-    "totalReturnIndex": 61178954.282209,
-    "monthlyReturn": 0.00380026,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 78860864.194977,
+    "monthlyReturn": 0.00462837,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2014-01-01",
-    "totalReturnIndex": 58007509.406422,
-    "monthlyReturn": -0.05183882,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 75519598.310513,
+    "monthlyReturn": -0.04236913,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2014-02-01",
-    "totalReturnIndex": 60669330.211097,
-    "monthlyReturn": 0.04588752,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 78875769.00198,
+    "monthlyReturn": 0.04444106,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2014-03-01",
-    "totalReturnIndex": 60813751.825036,
-    "monthlyReturn": 0.00238047,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 78773260.952191,
+    "monthlyReturn": -0.00129961,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2014-04-01",
-    "totalReturnIndex": 61090781.254845,
-    "monthlyReturn": 0.00455537,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 79048250.771074,
+    "monthlyReturn": 0.0034909,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2014-05-01",
-    "totalReturnIndex": 61942454.583444,
-    "monthlyReturn": 0.01394111,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 80194257.781531,
+    "monthlyReturn": 0.01449756,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2014-06-01",
-    "totalReturnIndex": 62837420.377201,
-    "monthlyReturn": 0.01444834,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 81363883.303207,
+    "monthlyReturn": 0.0145849,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2014-07-01",
-    "totalReturnIndex": 61338803.19037,
-    "monthlyReturn": -0.02384912,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 79320198.035888,
+    "monthlyReturn": -0.02511784,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2014-08-01",
-    "totalReturnIndex": 64274612.48012,
-    "monthlyReturn": 0.04786219,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 82847960.336305,
+    "monthlyReturn": 0.04447496,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2014-09-01",
-    "totalReturnIndex": 63683161.523129,
-    "monthlyReturn": -0.00920194,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 82631392.615286,
+    "monthlyReturn": -0.00261404,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2014-10-01",
-    "totalReturnIndex": 65401444.916784,
-    "monthlyReturn": 0.02698175,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 84412669.30326,
+    "monthlyReturn": 0.0215569,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2014-11-01",
-    "totalReturnIndex": 67511179.778741,
-    "monthlyReturn": 0.03225823,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 87716322.233317,
+    "monthlyReturn": 0.03913693,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2014-12-01",
-    "totalReturnIndex": 66509551.945211,
-    "monthlyReturn": -0.01483647,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 87111153.522519,
+    "monthlyReturn": -0.00689916,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2015-01-01",
-    "totalReturnIndex": 67788278.235953,
-    "monthlyReturn": 0.01922621,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 88361125.41855,
+    "monthlyReturn": 0.01434916,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2015-02-01",
-    "totalReturnIndex": 70631424.884043,
-    "monthlyReturn": 0.04194157,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 92416381.004364,
+    "monthlyReturn": 0.04589411,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2015-03-01",
-    "totalReturnIndex": 71353683.45171,
-    "monthlyReturn": 0.01022574,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 93323956.423681,
+    "monthlyReturn": 0.0098205,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2015-04-01",
-    "totalReturnIndex": 73349433.331758,
-    "monthlyReturn": 0.02796982,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 95496920.953207,
+    "monthlyReturn": 0.0232841,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2015-05-01",
-    "totalReturnIndex": 70964509.933835,
-    "monthlyReturn": -0.03251454,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 92788623.031927,
+    "monthlyReturn": -0.02836005,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2015-06-01",
-    "totalReturnIndex": 68699611.669284,
-    "monthlyReturn": -0.03191593,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 90098037.166821,
+    "monthlyReturn": -0.02899694,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2015-07-01",
-    "totalReturnIndex": 69301448.85661,
-    "monthlyReturn": 0.00876042,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 91792465.752583,
+    "monthlyReturn": 0.0188065,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2015-08-01",
-    "totalReturnIndex": 64488916.442861,
-    "monthlyReturn": -0.06944346,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 85629307.553711,
+    "monthlyReturn": -0.06714231,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2015-09-01",
-    "totalReturnIndex": 63316557.300848,
-    "monthlyReturn": -0.01817923,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 83893187.290008,
+    "monthlyReturn": -0.02027484,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2015-10-01",
-    "totalReturnIndex": 68106711.888611,
-    "monthlyReturn": 0.07565406,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 90488866.958566,
+    "monthlyReturn": 0.07861997,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2015-11-01",
-    "totalReturnIndex": 68407648.508062,
-    "monthlyReturn": 0.0044186,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 90966150.433995,
+    "monthlyReturn": 0.0052745,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2015-12-01",
-    "totalReturnIndex": 67892317.374775,
-    "monthlyReturn": -0.00753324,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 90639114.803089,
+    "monthlyReturn": -0.00359514,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2016-01-01",
-    "totalReturnIndex": 66992799.857439,
-    "monthlyReturn": -0.01324918,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 88820279.709206,
+    "monthlyReturn": -0.02006678,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2016-02-01",
-    "totalReturnIndex": 66540432.018083,
-    "monthlyReturn": -0.00675248,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 88725504.371574,
+    "monthlyReturn": -0.00106705,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2016-03-01",
-    "totalReturnIndex": 71691527.329694,
-    "monthlyReturn": 0.07741301,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 95117463.958272,
+    "monthlyReturn": 0.07204196,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2016-04-01",
-    "totalReturnIndex": 72335943.617508,
-    "monthlyReturn": 0.00898874,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 96264101.189875,
+    "monthlyReturn": 0.01205496,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2016-05-01",
-    "totalReturnIndex": 71548035.446316,
-    "monthlyReturn": -0.01089235,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 95518302.366172,
+    "monthlyReturn": -0.00774742,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2016-06-01",
-    "totalReturnIndex": 73067667.851866,
-    "monthlyReturn": 0.02123933,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 96548736.520166,
+    "monthlyReturn": 0.01078782,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2016-07-01",
-    "totalReturnIndex": 81984729.422373,
-    "monthlyReturn": 0.1220384,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 108834101.99445,
+    "monthlyReturn": 0.12724522,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2016-08-01",
-    "totalReturnIndex": 82523224.924921,
-    "monthlyReturn": 0.00656824,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 109320670.349041,
+    "monthlyReturn": 0.00447073,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2016-09-01",
-    "totalReturnIndex": 83032216.352624,
-    "monthlyReturn": 0.00616786,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 109599322.16829,
+    "monthlyReturn": 0.00254894,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2016-10-01",
-    "totalReturnIndex": 86815252.205338,
-    "monthlyReturn": 0.04556106,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 114595694.574438,
+    "monthlyReturn": 0.04558762,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2016-11-01",
-    "totalReturnIndex": 86994093.16552,
-    "monthlyReturn": 0.00206002,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 115351633.611998,
+    "monthlyReturn": 0.00659657,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2016-12-01",
-    "totalReturnIndex": 88296296.940553,
-    "monthlyReturn": 0.01496888,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 117614462.996362,
+    "monthlyReturn": 0.0196168,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2017-01-01",
-    "totalReturnIndex": 91870853.159711,
-    "monthlyReturn": 0.04048365,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 121816929.033209,
+    "monthlyReturn": 0.03573086,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2017-02-01",
-    "totalReturnIndex": 93603321.202792,
-    "monthlyReturn": 0.01885765,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 124490405.433252,
+    "monthlyReturn": 0.02194667,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2017-03-01",
-    "totalReturnIndex": 94030646.620285,
-    "monthlyReturn": 0.00456528,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 124800952.481847,
+    "monthlyReturn": 0.00249455,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2017-04-01",
-    "totalReturnIndex": 92585406.038817,
-    "monthlyReturn": -0.01536989,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 122783215.528695,
+    "monthlyReturn": -0.01616764,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2017-05-01",
-    "totalReturnIndex": 94872690.840301,
-    "monthlyReturn": 0.02470459,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 125820481.560257,
+    "monthlyReturn": 0.02473682,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2017-06-01",
-    "totalReturnIndex": 94957217.491216,
-    "monthlyReturn": 0.00089095,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 125477378.712673,
+    "monthlyReturn": -0.00272692,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2017-07-01",
-    "totalReturnIndex": 96066700.213194,
-    "monthlyReturn": 0.01168403,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 126561532.495419,
+    "monthlyReturn": 0.00864023,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2017-08-01",
-    "totalReturnIndex": 98757274.115499,
-    "monthlyReturn": 0.02800735,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 129833972.667888,
+    "monthlyReturn": 0.02585652,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2017-09-01",
-    "totalReturnIndex": 96755162.84946,
-    "monthlyReturn": -0.02027305,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 127705940.698491,
+    "monthlyReturn": -0.01639041,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2017-10-01",
-    "totalReturnIndex": 99736436.773721,
-    "monthlyReturn": 0.03081256,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 131337313.45749,
+    "monthlyReturn": 0.02843543,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2017-11-01",
-    "totalReturnIndex": 100055919.853585,
-    "monthlyReturn": 0.00320327,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 132013848.992933,
+    "monthlyReturn": 0.00515113,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2017-12-01",
-    "totalReturnIndex": 101334504.959854,
-    "monthlyReturn": 0.01277871,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 133612872.130644,
+    "monthlyReturn": 0.01211254,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2018-01-01",
-    "totalReturnIndex": 102122310.443386,
-    "monthlyReturn": 0.00777431,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 134143779.930977,
+    "monthlyReturn": 0.00397348,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2018-02-01",
-    "totalReturnIndex": 100352811.706641,
-    "monthlyReturn": -0.01732725,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 132336198.646909,
+    "monthlyReturn": -0.01347495,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2018-03-01",
-    "totalReturnIndex": 97208080.390973,
-    "monthlyReturn": -0.03133675,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 127385659.746803,
+    "monthlyReturn": -0.0374088,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2018-04-01",
-    "totalReturnIndex": 99560235.005241,
-    "monthlyReturn": 0.02419711,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 131515850.500924,
+    "monthlyReturn": 0.03242273,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2018-05-01",
-    "totalReturnIndex": 103508095.713713,
-    "monthlyReturn": 0.03965299,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 137069977.224959,
+    "monthlyReturn": 0.04223161,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2018-06-01",
-    "totalReturnIndex": 103619610.951384,
-    "monthlyReturn": 0.00107736,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 138009790.620868,
+    "monthlyReturn": 0.00685645,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2018-07-01",
-    "totalReturnIndex": 107381641.76998,
-    "monthlyReturn": 0.03630617,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 143136092.49453,
+    "monthlyReturn": 0.03714448,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2018-08-01",
-    "totalReturnIndex": 109471610.069995,
-    "monthlyReturn": 0.01946299,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 146774623.281423,
+    "monthlyReturn": 0.02542008,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2018-09-01",
-    "totalReturnIndex": 109388061.091665,
-    "monthlyReturn": -0.0007632,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 146646583.511567,
+    "monthlyReturn": -0.00087236,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2018-10-01",
-    "totalReturnIndex": 103427944.61863,
-    "monthlyReturn": -0.05448599,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 138827568.053349,
+    "monthlyReturn": -0.05331877,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2018-11-01",
-    "totalReturnIndex": 105125608.872025,
-    "monthlyReturn": 0.01641398,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 140554199.832825,
+    "monthlyReturn": 0.01243724,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2018-12-01",
-    "totalReturnIndex": 97614690.22114,
-    "monthlyReturn": -0.07144709,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 130011536.884279,
+    "monthlyReturn": -0.07500781,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2019-01-01",
-    "totalReturnIndex": 102478337.905064,
-    "monthlyReturn": 0.04982496,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 136201432.149646,
+    "monthlyReturn": 0.04761035,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2019-02-01",
-    "totalReturnIndex": 103906718.003366,
-    "monthlyReturn": 0.01393836,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 138895705.060268,
+    "monthlyReturn": 0.01978153,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2019-03-01",
-    "totalReturnIndex": 107505034.037843,
-    "monthlyReturn": 0.03463025,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 143429268.829637,
+    "monthlyReturn": 0.03264006,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2019-04-01",
-    "totalReturnIndex": 111202488.975522,
-    "monthlyReturn": 0.03439332,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 148620458.256109,
+    "monthlyReturn": 0.03619338,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2019-05-01",
-    "totalReturnIndex": 107845048.385276,
-    "monthlyReturn": -0.03019214,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 144732863.846591,
+    "monthlyReturn": -0.02615787,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2019-06-01",
-    "totalReturnIndex": 114085304.360361,
-    "monthlyReturn": 0.05786317,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 153310511.423714,
+    "monthlyReturn": 0.05926538,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2019-07-01",
-    "totalReturnIndex": 118684355.40864,
-    "monthlyReturn": 0.04031239,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 160216581.442088,
+    "monthlyReturn": 0.04504629,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2019-08-01",
-    "totalReturnIndex": 116576746.643003,
-    "monthlyReturn": -0.0177581,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 157713100.469825,
+    "monthlyReturn": -0.0156256,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2019-09-01",
-    "totalReturnIndex": 117848557.899342,
-    "monthlyReturn": 0.01090965,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 159324168.15432,
+    "monthlyReturn": 0.01021518,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2019-10-01",
-    "totalReturnIndex": 115143802.92686,
-    "monthlyReturn": -0.02295111,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 155415244.859529,
+    "monthlyReturn": -0.0245344,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2019-11-01",
-    "totalReturnIndex": 117833557.232532,
-    "monthlyReturn": 0.02335996,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 159817685.587264,
+    "monthlyReturn": 0.02832696,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2019-12-01",
-    "totalReturnIndex": 118857903.751544,
-    "monthlyReturn": 0.00869316,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 160571459.068861,
+    "monthlyReturn": 0.00471646,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2020-01-01",
-    "totalReturnIndex": 117805133.965941,
-    "monthlyReturn": -0.00885738,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 160534683.820111,
+    "monthlyReturn": -0.00022903,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2020-02-01",
-    "totalReturnIndex": 112538755.636031,
-    "monthlyReturn": -0.04470415,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 151832792.561583,
+    "monthlyReturn": -0.05420568,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2020-03-01",
-    "totalReturnIndex": 99982589.063026,
-    "monthlyReturn": -0.11157193,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 135268336.743066,
+    "monthlyReturn": -0.10909669,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2020-04-01",
-    "totalReturnIndex": 108520235.966757,
-    "monthlyReturn": 0.08539134,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 148356778.651928,
+    "monthlyReturn": 0.0967591,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2020-05-01",
-    "totalReturnIndex": 116657813.833426,
-    "monthlyReturn": 0.07498673,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 159183589.877158,
+    "monthlyReturn": 0.0729782,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2020-06-01",
-    "totalReturnIndex": 119612492.300067,
-    "monthlyReturn": 0.02532774,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 162814168.740315,
+    "monthlyReturn": 0.02280749,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2020-07-01",
-    "totalReturnIndex": 118690266.321262,
-    "monthlyReturn": -0.00771011,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 160729797.730869,
+    "monthlyReturn": -0.01280215,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2020-08-01",
-    "totalReturnIndex": 123565052.695773,
-    "monthlyReturn": 0.04107149,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 168428946.737932,
+    "monthlyReturn": 0.04790119,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2020-09-01",
-    "totalReturnIndex": 124132366.314566,
-    "monthlyReturn": 0.00459121,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 168400001.441735,
+    "monthlyReturn": -0.00017185,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2020-10-01",
-    "totalReturnIndex": 121255073.276555,
-    "monthlyReturn": -0.02317923,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 163125932.646478,
+    "monthlyReturn": -0.0313187,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2020-11-01",
-    "totalReturnIndex": 131400945.152595,
-    "monthlyReturn": 0.08367379,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 178462787.446171,
+    "monthlyReturn": 0.0940185,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2020-12-01",
-    "totalReturnIndex": 134297794.784247,
-    "monthlyReturn": 0.02204588,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 181678763.632793,
+    "monthlyReturn": 0.01802043,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2021-01-01",
-    "totalReturnIndex": 133288197.298312,
-    "monthlyReturn": -0.0075176,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 179116590.899965,
+    "monthlyReturn": -0.01410276,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2021-02-01",
-    "totalReturnIndex": 134149185.529347,
-    "monthlyReturn": 0.0064596,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 180815369.337413,
+    "monthlyReturn": 0.0094842,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2021-03-01",
-    "totalReturnIndex": 139497749.993421,
-    "monthlyReturn": 0.03987027,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 188995612.382187,
+    "monthlyReturn": 0.04524086,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2021-04-01",
-    "totalReturnIndex": 144968863.979322,
-    "monthlyReturn": 0.03922009,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 197262512.027668,
+    "monthlyReturn": 0.04374123,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2021-05-01",
-    "totalReturnIndex": 143473842.698861,
-    "monthlyReturn": -0.01031271,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 195279681.851166,
+    "monthlyReturn": -0.01005173,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2021-06-01",
-    "totalReturnIndex": 149302732.701879,
-    "monthlyReturn": 0.04062685,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 203739916.725292,
+    "monthlyReturn": 0.04332368,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2021-07-01",
-    "totalReturnIndex": 149501505.846956,
-    "monthlyReturn": 0.00133134,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 205843787.586099,
+    "monthlyReturn": 0.01032626,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2021-08-01",
-    "totalReturnIndex": 154596381.288388,
-    "monthlyReturn": 0.03407909,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 213579199.04179,
+    "monthlyReturn": 0.03757904,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2021-09-01",
-    "totalReturnIndex": 151106392.179509,
-    "monthlyReturn": -0.02257484,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 209016649.995771,
+    "monthlyReturn": -0.02136233,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2021-10-01",
-    "totalReturnIndex": 156744046.826414,
-    "monthlyReturn": 0.03730917,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 217425549.31402,
+    "monthlyReturn": 0.04023076,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2021-11-01",
-    "totalReturnIndex": 158142108.308914,
-    "monthlyReturn": 0.00891939,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 219700507.778298,
+    "monthlyReturn": 0.01046316,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2021-12-01",
-    "totalReturnIndex": 161272421.52087,
-    "monthlyReturn": 0.01979431,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 224946727.111542,
+    "monthlyReturn": 0.02387896,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2022-01-01",
-    "totalReturnIndex": 154637787.91266,
-    "monthlyReturn": -0.04113929,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 214057007.9948,
+    "monthlyReturn": -0.04841021,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2022-02-01",
-    "totalReturnIndex": 150128819.606291,
-    "monthlyReturn": -0.02915826,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 209023562.390643,
+    "monthlyReturn": -0.02351451,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2022-03-01",
-    "totalReturnIndex": 156149971.439386,
-    "monthlyReturn": 0.04010657,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 219252567.130923,
+    "monthlyReturn": 0.04893709,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2022-04-01",
-    "totalReturnIndex": 150258524.042404,
-    "monthlyReturn": -0.03772942,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 210522462.175099,
+    "monthlyReturn": -0.03981757,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2022-05-01",
-    "totalReturnIndex": 150224742.764664,
-    "monthlyReturn": -0.00022482,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 209858227.899795,
+    "monthlyReturn": -0.00315517,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2022-06-01",
-    "totalReturnIndex": 143290106.763833,
-    "monthlyReturn": -0.04616174,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 199039340.678613,
+    "monthlyReturn": -0.05155331,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2022-07-01",
-    "totalReturnIndex": 153154521.811405,
-    "monthlyReturn": 0.06884226,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 214528832.55292,
+    "monthlyReturn": 0.07782126,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2022-08-01",
-    "totalReturnIndex": 153211056.987257,
-    "monthlyReturn": 0.00036914,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 215107733.031207,
+    "monthlyReturn": 0.00269847,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2022-09-01",
-    "totalReturnIndex": 145213449.010394,
-    "monthlyReturn": -0.05219994,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 204193312.721427,
+    "monthlyReturn": -0.05073932,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2022-10-01",
-    "totalReturnIndex": 149320715.209095,
-    "monthlyReturn": 0.02828434,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 211669350.391604,
+    "monthlyReturn": 0.03661255,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2022-11-01",
-    "totalReturnIndex": 155723586.331762,
-    "monthlyReturn": 0.04287999,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 218027611.701723,
+    "monthlyReturn": 0.03003865,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2022-12-01",
-    "totalReturnIndex": 147130201.279541,
-    "monthlyReturn": -0.05518358,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 206862463.278011,
+    "monthlyReturn": -0.05120979,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2023-01-01",
-    "totalReturnIndex": 155001769.751449,
-    "monthlyReturn": 0.0535007,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 217114944.305488,
+    "monthlyReturn": 0.04956182,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2023-02-01",
-    "totalReturnIndex": 152717402.985639,
-    "monthlyReturn": -0.01473768,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 216029132.636455,
+    "monthlyReturn": -0.00500109,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2023-03-01",
-    "totalReturnIndex": 154285550.166215,
-    "monthlyReturn": 0.01026829,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 217888516.316053,
+    "monthlyReturn": 0.0086071,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2023-04-01",
-    "totalReturnIndex": 154052901.338622,
-    "monthlyReturn": -0.00150791,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 218064163.283055,
+    "monthlyReturn": 0.00080613,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2023-05-01",
-    "totalReturnIndex": 154726341.634158,
-    "monthlyReturn": 0.00437149,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 219295629.803253,
+    "monthlyReturn": 0.00564727,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2023-06-01",
-    "totalReturnIndex": 159645122.311785,
-    "monthlyReturn": 0.0317902,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 226911948.385654,
+    "monthlyReturn": 0.03473083,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2023-07-01",
-    "totalReturnIndex": 163482138.332363,
-    "monthlyReturn": 0.02403466,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 231891433.286408,
+    "monthlyReturn": 0.02194457,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2023-08-01",
-    "totalReturnIndex": 161109393.862085,
-    "monthlyReturn": -0.01451378,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 229844373.641919,
+    "monthlyReturn": -0.00882766,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2023-09-01",
-    "totalReturnIndex": 159933830.16994,
-    "monthlyReturn": -0.00729668,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 228169352.852176,
+    "monthlyReturn": -0.00728763,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2023-10-01",
-    "totalReturnIndex": 156879616.99285,
-    "monthlyReturn": -0.01909673,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 223045646.948078,
+    "monthlyReturn": -0.02245571,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2023-11-01",
-    "totalReturnIndex": 163996624.178586,
-    "monthlyReturn": 0.04536604,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 234319723.102529,
+    "monthlyReturn": 0.05054605,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2023-12-01",
-    "totalReturnIndex": 170500122.119969,
-    "monthlyReturn": 0.03965629,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 243917474.065578,
+    "monthlyReturn": 0.04096006,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2024-01-01",
-    "totalReturnIndex": 171103518.116932,
-    "monthlyReturn": 0.00353898,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 247094830.801968,
+    "monthlyReturn": 0.01302636,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2024-02-01",
-    "totalReturnIndex": 180245905.636107,
-    "monthlyReturn": 0.05343191,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 259727280.208244,
+    "monthlyReturn": 0.05112389,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2024-03-01",
-    "totalReturnIndex": 186053704.204461,
-    "monthlyReturn": 0.03222153,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 268114692.391952,
+    "monthlyReturn": 0.03229315,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2024-04-01",
-    "totalReturnIndex": 181211932.089305,
-    "monthlyReturn": -0.02602352,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 260815003.084861,
+    "monthlyReturn": -0.027226,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2024-05-01",
-    "totalReturnIndex": 186170693.255664,
-    "monthlyReturn": 0.02736443,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 267842069.597425,
+    "monthlyReturn": 0.02694272,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2024-06-01",
-    "totalReturnIndex": 191437308.388896,
-    "monthlyReturn": 0.02828917,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 275500206.200664,
+    "monthlyReturn": 0.02859199,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2024-07-01",
-    "totalReturnIndex": 191356014.938023,
-    "monthlyReturn": -0.00042465,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 276049911.625358,
+    "monthlyReturn": 0.0019953,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2024-08-01",
-    "totalReturnIndex": 191773296.064657,
-    "monthlyReturn": 0.00218065,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 277138060.683221,
+    "monthlyReturn": 0.00394186,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2024-09-01",
-    "totalReturnIndex": 192081067.617262,
-    "monthlyReturn": 0.00160487,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 276691452.890958,
+    "monthlyReturn": -0.0016115,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2024-10-01",
-    "totalReturnIndex": 196007601.508907,
-    "monthlyReturn": 0.02044207,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 282722036.561619,
+    "monthlyReturn": 0.02179534,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2024-11-01",
-    "totalReturnIndex": 206432514.647352,
-    "monthlyReturn": 0.05318627,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 299452501.100146,
+    "monthlyReturn": 0.05917637,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2024-12-01",
-    "totalReturnIndex": 203801749.107395,
-    "monthlyReturn": -0.01274395,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 295890805.929758,
+    "monthlyReturn": -0.01189402,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2025-01-01",
-    "totalReturnIndex": 211451702.628676,
-    "monthlyReturn": 0.03753625,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 308220531.624238,
+    "monthlyReturn": 0.04166985,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2025-02-01",
-    "totalReturnIndex": 208412439.992311,
-    "monthlyReturn": -0.01437332,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 302591107.356097,
+    "monthlyReturn": -0.01826427,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2025-03-01",
-    "totalReturnIndex": 196006158.988519,
-    "monthlyReturn": -0.05952755,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 282446155.421248,
+    "monthlyReturn": -0.06657483,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2025-04-01",
-    "totalReturnIndex": 190402128.343816,
-    "monthlyReturn": -0.02859109,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 275516758.210379,
+    "monthlyReturn": -0.02453352,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2025-05-01",
-    "totalReturnIndex": 199388487.879613,
-    "monthlyReturn": 0.04719674,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 289325257.281069,
+    "monthlyReturn": 0.05011855,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2025-06-01",
-    "totalReturnIndex": 205103911.51671,
-    "monthlyReturn": 0.02866476,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 296318650.800516,
+    "monthlyReturn": 0.02417139,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2025-07-01",
-    "totalReturnIndex": 215143691.599505,
-    "monthlyReturn": 0.04894973,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 311592873.176853,
+    "monthlyReturn": 0.05154661,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2025-08-01",
-    "totalReturnIndex": 216146857.527727,
-    "monthlyReturn": 0.00466277,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 312923931.905008,
+    "monthlyReturn": 0.00427179,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2025-09-01",
-    "totalReturnIndex": 225054604.377716,
-    "monthlyReturn": 0.04121155,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 324734489.347843,
+    "monthlyReturn": 0.03774258,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2025-10-01",
-    "totalReturnIndex": 235506072.689082,
-    "monthlyReturn": 0.0464397,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 338916578.762917,
+    "monthlyReturn": 0.04367288,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2025-11-01",
-    "totalReturnIndex": 233861960.620566,
-    "monthlyReturn": -0.00698119,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 337459196.824494,
+    "monthlyReturn": -0.00430012,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2025-12-01",
-    "totalReturnIndex": 232300294.314432,
-    "monthlyReturn": -0.00667773,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 335024446.569745,
+    "monthlyReturn": -0.00721495,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2026-01-01",
-    "totalReturnIndex": 233977181.448017,
-    "monthlyReturn": 0.00721862,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 335554763.749646,
+    "monthlyReturn": 0.00158292,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2026-02-01",
-    "totalReturnIndex": 241826699.716626,
-    "monthlyReturn": 0.03354822,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 344986450.146982,
+    "monthlyReturn": 0.02810774,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2026-03-01",
-    "totalReturnIndex": 231709660.089319,
-    "monthlyReturn": -0.04183591,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 329834286.089875,
+    "monthlyReturn": -0.04392104,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2026-04-01",
-    "totalReturnIndex": 246363785.83346,
-    "monthlyReturn": 0.06324348,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 351072013.887729,
+    "monthlyReturn": 0.06438908,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2026-05-01",
-    "totalReturnIndex": 259733051.282334,
-    "monthlyReturn": 0.05426636,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 370074531.247371,
+    "monthlyReturn": 0.05412712,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2026-06-01",
-    "totalReturnIndex": 263067800.362985,
-    "monthlyReturn": 0.01283914,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 373551137.91859,
+    "monthlyReturn": 0.00939434,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   },
   {
     "date": "2026-07-01",
-    "totalReturnIndex": 258056160.711617,
-    "monthlyReturn": -0.01905075,
-    "source": "ETF_ACWI",
-    "isInterpolated": false
-  },
-  {
-    "date": "2026-08-01",
-    "totalReturnIndex": 266410549.098976,
-    "monthlyReturn": 0.0323743,
-    "source": "ETF_ACWI",
+    "totalReturnIndex": 369651968.292184,
+    "monthlyReturn": -0.01043811,
+    "source": "MSCI_WORLD_GRTR",
     "isInterpolated": false
   }
 ]

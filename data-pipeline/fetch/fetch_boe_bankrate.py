@@ -5,13 +5,14 @@ Millennium dataset's Jan-2017 end. Used as the modern-era cash proxy.
 
 from __future__ import annotations
 
+import io
 import sys
 from pathlib import Path
 
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from common import download_cached  # noqa: E402
+from common import fetch_fresh  # noqa: E402
 
 BANK_RATE_URL = (
     "https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp"
@@ -21,8 +22,8 @@ BANK_RATE_URL = (
 
 
 def fetch_boe_bank_rate_modern() -> pd.Series:
-    path = download_cached(BANK_RATE_URL, "boe_bank_rate_modern.csv")
-    df = pd.read_csv(path)
+    raw = fetch_fresh(BANK_RATE_URL)
+    df = pd.read_csv(io.BytesIO(raw))
     df.columns = ["date", "value"]
     df["date"] = pd.to_datetime(df["date"], format="%d %b %Y")
     df["month"] = df["date"].values.astype("datetime64[M]")

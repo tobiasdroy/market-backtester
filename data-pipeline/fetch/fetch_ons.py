@@ -12,7 +12,7 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from common import download_cached, month_start  # noqa: E402
+from common import fetch_fresh, month_start  # noqa: E402
 
 ONS_CPI_URL = (
     "https://www.ons.gov.uk/generator?format=csv"
@@ -36,8 +36,7 @@ MONTH_NUM = {
 
 
 def fetch_ons_cpi_monthly() -> pd.Series:
-    path = download_cached(ONS_CPI_URL, "ons_cpi_d7bt.csv")
-    text = path.read_text()
+    text = fetch_fresh(ONS_CPI_URL).decode("utf-8")
     out: dict[pd.Timestamp, float] = {}
     for row in csv.reader(StringIO(text)):
         if len(row) != 2:

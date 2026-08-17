@@ -6,13 +6,14 @@ era, beyond the Millennium dataset's Consols yield).
 
 from __future__ import annotations
 
+import io
 import sys
 from pathlib import Path
 
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from common import download_cached  # noqa: E402
+from common import fetch_fresh  # noqa: E402
 
 FRED_CSV = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}"
 
@@ -20,10 +21,8 @@ FRED_CSV = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}"
 def _fetch_fred_series(series_id: str) -> pd.Series:
     # FRED appears to stall specifically on requests carrying a spoofed
     # browser User-Agent (needed for BoE, unwanted here) - use plain headers.
-    path = download_cached(
-        FRED_CSV.format(series_id=series_id), f"fred_{series_id}.csv", headers={}
-    )
-    df = pd.read_csv(path)
+    raw = fetch_fresh(FRED_CSV.format(series_id=series_id), headers={})
+    df = pd.read_csv(io.BytesIO(raw))
     df.columns = ["date", "value"]
     df["date"] = pd.to_datetime(df["date"])
     df = df[df["value"] != "."]

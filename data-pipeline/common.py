@@ -20,26 +20,46 @@ BROWSER_HEADERS = {
 }
 
 
-def download_cached(
-    url: str, filename: str, headers: dict | None = None, retries: int = 3
-) -> Path:
-    """Download `url` to raw/`filename` unless already cached; return the path."""
-    RAW_DIR.mkdir(parents=True, exist_ok=True)
-    path = RAW_DIR / filename
-    if path.exists():
-        return path
-
+def _get_with_retries(
+    url: str, headers: dict | None = None, retries: int = 3
+) -> requests.Response:
     effective_headers = BROWSER_HEADERS if headers is None else headers
     last_error: Exception | None = None
     for attempt in range(retries):
         try:
             resp = requests.get(url, headers=effective_headers, timeout=60)
             resp.raise_for_status()
-            path.write_bytes(resp.content)
-            return path
+            return resp
         except requests.RequestException as exc:
             last_error = exc
-    raise RuntimeError(f"failed to download {url} after {retries} attempts") from last_error
+    raise RuntimeError(f"failed to fetch {url} after {retries} attempts") from last_error
+
+
+def download_cached(
+    url: str, filename: str, headers: dict | None = None, retries: int = 3
+) -> Path:
+    """Download `url` to raw/`filename` unless already cached; return the
+    path. Only appropriate for sources whose *content* doesn't depend on
+    when you ask (static historical archives) - a URL that always
+    resolves to "everything up to today" would otherwise get permanently
+    frozen at whatever it returned on the first run. Use `fetch_fresh` for
+    those instead.
+    """
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    path = RAW_DIR / filename
+    if path.exists():
+        return path
+    resp = _get_with_retries(url, headers, retries)
+    path.write_bytes(resp.content)
+    return path
+
+
+def fetch_fresh(url: str, headers: dict | None = None, retries: int = 3) -> bytes:
+    """Fetches `url` every call, no disk cache - for sources whose URL
+    always resolves to "up to today" (ONS, FRED, BoE's modern series),
+    where caching would silently freeze the data at the first fetch and
+    defeat re-running build.py to refresh."""
+    return _get_with_retries(url, headers, retries).content
 
 
 def month_start(year: int, month: int) -> pd.Timestamp:

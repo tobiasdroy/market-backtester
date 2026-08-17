@@ -1,8 +1,7 @@
-"""Modern-era total-return proxies from listed ETFs, via yfinance.
+"""Modern-era total-return proxy from a listed ETF, via yfinance.
 
-- ACWI (iShares MSCI ACWI, USD): globally-diversified equities, from 2008.
-- IGLH.L (iShares Global Govt Bond UCITS ETF, GBP Hedged): globally
-  diversified government bonds, GBP, from 2018.
+IGLH.L (iShares Global Govt Bond UCITS ETF, GBP Hedged): globally
+diversified government bonds, GBP, from 2018.
 
 `auto_adjust=True` gives dividend/split-adjusted close, i.e. a genuine
 total-return series.
@@ -23,10 +22,6 @@ def _monthly_close(ticker: str) -> pd.Series:
     monthly = close.resample("ME").last().dropna()
     monthly.index = monthly.index.to_period("M").to_timestamp()
     return monthly
-
-
-def fetch_acwi_monthly_usd() -> pd.Series:
-    return _monthly_close("ACWI")
 
 
 def fetch_iglh_monthly_gbp() -> pd.Series:

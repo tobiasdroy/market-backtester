@@ -12372,21 +12372,21 @@
   },
   {
     "date": "2018-04-01",
-    "totalReturnIndex": 111272.067722,
-    "monthlyReturn": -0.00522896,
+    "totalReturnIndex": 111272.079858,
+    "monthlyReturn": -0.00522885,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2018-05-01",
-    "totalReturnIndex": 111105.306533,
-    "monthlyReturn": -0.00149868,
+    "totalReturnIndex": 111105.282261,
+    "monthlyReturn": -0.00149901,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2018-06-01",
-    "totalReturnIndex": 111505.589212,
+    "totalReturnIndex": 111505.56494,
     "monthlyReturn": 0.00360273,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
@@ -12394,69 +12394,69 @@
   {
     "date": "2018-07-01",
     "totalReturnIndex": 110970.01407,
-    "monthlyReturn": -0.00480312,
+    "monthlyReturn": -0.00480291,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2018-08-01",
-    "totalReturnIndex": 110986.773928,
-    "monthlyReturn": 0.00015103,
+    "totalReturnIndex": 110986.761792,
+    "monthlyReturn": 0.00015092,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2018-09-01",
     "totalReturnIndex": 110373.224793,
-    "monthlyReturn": -0.00552813,
+    "monthlyReturn": -0.00552802,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2018-10-01",
-    "totalReturnIndex": 110138.987277,
-    "monthlyReturn": -0.00212223,
+    "totalReturnIndex": 110138.975141,
+    "monthlyReturn": -0.00212234,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2018-11-01",
     "totalReturnIndex": 110758.082577,
-    "monthlyReturn": 0.00562104,
+    "monthlyReturn": 0.00562115,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2018-12-01",
-    "totalReturnIndex": 112464.808891,
-    "monthlyReturn": 0.0154095,
+    "totalReturnIndex": 112464.796755,
+    "monthlyReturn": 0.01540939,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2019-01-01",
-    "totalReturnIndex": 113175.931708,
-    "monthlyReturn": 0.00632307,
+    "totalReturnIndex": 113175.943844,
+    "monthlyReturn": 0.00632329,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2019-02-01",
-    "totalReturnIndex": 112816.814442,
-    "monthlyReturn": -0.00317309,
+    "totalReturnIndex": 112816.802306,
+    "monthlyReturn": -0.0031733,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2019-03-01",
-    "totalReturnIndex": 114825.776448,
-    "monthlyReturn": 0.01780729,
+    "totalReturnIndex": 114825.788584,
+    "monthlyReturn": 0.01780751,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2019-04-01",
-    "totalReturnIndex": 114343.138669,
+    "totalReturnIndex": 114343.150805,
     "monthlyReturn": -0.00420322,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
@@ -12464,189 +12464,189 @@
   {
     "date": "2019-05-01",
     "totalReturnIndex": 116105.217416,
-    "monthlyReturn": 0.01541045,
+    "monthlyReturn": 0.01541034,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2019-06-01",
-    "totalReturnIndex": 117508.154625,
-    "monthlyReturn": 0.01208333,
+    "totalReturnIndex": 117508.142489,
+    "monthlyReturn": 0.01208322,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2019-07-01",
-    "totalReturnIndex": 118196.134033,
-    "monthlyReturn": 0.00585474,
+    "totalReturnIndex": 118196.158305,
+    "monthlyReturn": 0.00585505,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2019-08-01",
     "totalReturnIndex": 121527.365056,
-    "monthlyReturn": 0.02818393,
+    "monthlyReturn": 0.02818371,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2019-09-01",
-    "totalReturnIndex": 120544.953424,
-    "monthlyReturn": -0.00808387,
+    "totalReturnIndex": 120544.941288,
+    "monthlyReturn": -0.00808397,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2019-10-01",
-    "totalReturnIndex": 119991.611134,
+    "totalReturnIndex": 119991.598998,
     "monthlyReturn": -0.00459034,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2019-11-01",
-    "totalReturnIndex": 119280.209189,
-    "monthlyReturn": -0.00592876,
+    "totalReturnIndex": 119280.172781,
+    "monthlyReturn": -0.00592897,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2019-12-01",
     "totalReturnIndex": 118647.837071,
-    "monthlyReturn": -0.00530157,
+    "monthlyReturn": -0.00530126,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2020-01-01",
-    "totalReturnIndex": 121122.713406,
-    "monthlyReturn": 0.02085901,
+    "totalReturnIndex": 121122.725542,
+    "monthlyReturn": 0.02085911,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2020-02-01",
-    "totalReturnIndex": 122984.73236,
-    "monthlyReturn": 0.015373,
+    "totalReturnIndex": 122984.744496,
+    "monthlyReturn": 0.01537299,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2020-03-01",
-    "totalReturnIndex": 123768.161644,
+    "totalReturnIndex": 123768.17378,
     "monthlyReturn": 0.00637013,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2020-04-01",
-    "totalReturnIndex": 124324.489397,
-    "monthlyReturn": 0.00449492,
+    "totalReturnIndex": 124324.51367,
+    "monthlyReturn": 0.00449502,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2020-05-01",
-    "totalReturnIndex": 123858.975557,
-    "monthlyReturn": -0.00374435,
+    "totalReturnIndex": 123858.987693,
+    "monthlyReturn": -0.00374444,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2020-06-01",
     "totalReturnIndex": 124210.956836,
-    "monthlyReturn": 0.00284179,
+    "monthlyReturn": 0.00284169,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2020-07-01",
-    "totalReturnIndex": 125180.103788,
-    "monthlyReturn": 0.00780243,
+    "totalReturnIndex": 125180.12806,
+    "monthlyReturn": 0.00780262,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2020-08-01",
-    "totalReturnIndex": 123902.774489,
-    "monthlyReturn": -0.01020393,
+    "totalReturnIndex": 123902.786625,
+    "monthlyReturn": -0.01020403,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2020-09-01",
     "totalReturnIndex": 124609.88028,
-    "monthlyReturn": 0.00570694,
+    "monthlyReturn": 0.00570684,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2020-10-01",
-    "totalReturnIndex": 124381.795731,
-    "monthlyReturn": -0.00183039,
+    "totalReturnIndex": 124381.783595,
+    "monthlyReturn": -0.00183049,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2020-11-01",
-    "totalReturnIndex": 124564.260943,
+    "totalReturnIndex": 124564.248807,
     "monthlyReturn": 0.00146698,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2020-12-01",
-    "totalReturnIndex": 124632.708153,
-    "monthlyReturn": 0.00054949,
+    "totalReturnIndex": 124632.659608,
+    "monthlyReturn": 0.0005492,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2021-01-01",
-    "totalReturnIndex": 123594.434374,
-    "monthlyReturn": -0.00833067,
+    "totalReturnIndex": 123594.44651,
+    "monthlyReturn": -0.00833018,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2021-02-01",
-    "totalReturnIndex": 120860.890694,
-    "monthlyReturn": -0.02211705,
+    "totalReturnIndex": 120860.866422,
+    "monthlyReturn": -0.02211734,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2021-03-01",
-    "totalReturnIndex": 120803.681449,
-    "monthlyReturn": -0.00047335,
+    "totalReturnIndex": 120803.669313,
+    "monthlyReturn": -0.00047325,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2021-04-01",
-    "totalReturnIndex": 120815.113589,
-    "monthlyReturn": 9.463e-05,
+    "totalReturnIndex": 120815.089317,
+    "monthlyReturn": 9.453e-05,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2021-05-01",
-    "totalReturnIndex": 120998.137058,
-    "monthlyReturn": 0.00151491,
+    "totalReturnIndex": 120998.124922,
+    "monthlyReturn": 0.00151501,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2021-06-01",
-    "totalReturnIndex": 121684.381013,
-    "monthlyReturn": 0.00567152,
+    "totalReturnIndex": 121684.356741,
+    "monthlyReturn": 0.00567143,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2021-07-01",
     "totalReturnIndex": 123390.901014,
-    "monthlyReturn": 0.01402415,
+    "monthlyReturn": 0.01402435,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
@@ -12659,105 +12659,105 @@
   },
   {
     "date": "2021-09-01",
-    "totalReturnIndex": 121372.82485,
-    "monthlyReturn": -0.01286937,
+    "totalReturnIndex": 121372.800578,
+    "monthlyReturn": -0.01286957,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2021-10-01",
-    "totalReturnIndex": 121407.194087,
-    "monthlyReturn": 0.00028317,
+    "totalReturnIndex": 121407.206223,
+    "monthlyReturn": 0.00028347,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2021-11-01",
-    "totalReturnIndex": 122622.641768,
-    "monthlyReturn": 0.01001133,
+    "totalReturnIndex": 122622.66604,
+    "monthlyReturn": 0.01001143,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2021-12-01",
-    "totalReturnIndex": 121556.260944,
-    "monthlyReturn": -0.00869644,
+    "totalReturnIndex": 121556.248808,
+    "monthlyReturn": -0.00869674,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2022-01-01",
-    "totalReturnIndex": 119522.055995,
-    "monthlyReturn": -0.01673468,
+    "totalReturnIndex": 119522.068131,
+    "monthlyReturn": -0.01673448,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2022-02-01",
-    "totalReturnIndex": 118280.285265,
-    "monthlyReturn": -0.01038947,
+    "totalReturnIndex": 118280.260993,
+    "monthlyReturn": -0.01038977,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2022-03-01",
-    "totalReturnIndex": 115739.19475,
-    "monthlyReturn": -0.02148364,
+    "totalReturnIndex": 115739.206886,
+    "monthlyReturn": -0.02148333,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2022-04-01",
-    "totalReturnIndex": 112490.998444,
-    "monthlyReturn": -0.02806479,
+    "totalReturnIndex": 112491.022716,
+    "monthlyReturn": -0.02806468,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2022-05-01",
-    "totalReturnIndex": 111904.609744,
+    "totalReturnIndex": 111904.634016,
     "monthlyReturn": -0.00521276,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2022-06-01",
-    "totalReturnIndex": 110519.11201,
-    "monthlyReturn": -0.01238106,
+    "totalReturnIndex": 110519.124146,
+    "monthlyReturn": -0.01238117,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2022-07-01",
-    "totalReturnIndex": 112856.147316,
-    "monthlyReturn": 0.02114598,
+    "totalReturnIndex": 112856.13518,
+    "monthlyReturn": 0.02114576,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2022-08-01",
     "totalReturnIndex": 109554.989375,
-    "monthlyReturn": -0.02925102,
+    "monthlyReturn": -0.02925092,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2022-09-01",
-    "totalReturnIndex": 105913.367247,
-    "monthlyReturn": -0.03324013,
+    "totalReturnIndex": 105913.342975,
+    "monthlyReturn": -0.03324035,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2022-10-01",
-    "totalReturnIndex": 105047.679951,
-    "monthlyReturn": -0.00817354,
+    "totalReturnIndex": 105047.692088,
+    "monthlyReturn": -0.0081732,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2022-11-01",
-    "totalReturnIndex": 106553.955457,
+    "totalReturnIndex": 106553.967593,
     "monthlyReturn": 0.01433897,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
@@ -12765,70 +12765,70 @@
   {
     "date": "2022-12-01",
     "totalReturnIndex": 105018.820472,
-    "monthlyReturn": -0.01440711,
+    "monthlyReturn": -0.01440723,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2023-01-01",
-    "totalReturnIndex": 106911.070277,
-    "monthlyReturn": 0.0180182,
+    "totalReturnIndex": 106911.046005,
+    "monthlyReturn": 0.01801797,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2023-02-01",
     "totalReturnIndex": 105256.613845,
-    "monthlyReturn": -0.01547507,
+    "monthlyReturn": -0.01547485,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2023-03-01",
-    "totalReturnIndex": 107863.069018,
-    "monthlyReturn": 0.02476286,
+    "totalReturnIndex": 107863.056882,
+    "monthlyReturn": 0.02476275,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2023-04-01",
-    "totalReturnIndex": 108292.648073,
-    "monthlyReturn": 0.00398263,
+    "totalReturnIndex": 108292.660209,
+    "monthlyReturn": 0.00398286,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2023-05-01",
-    "totalReturnIndex": 107410.298009,
-    "monthlyReturn": -0.00814783,
+    "totalReturnIndex": 107410.273737,
+    "monthlyReturn": -0.00814817,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2023-06-01",
     "totalReturnIndex": 107108.426398,
-    "monthlyReturn": -0.00281045,
+    "monthlyReturn": -0.00281023,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2023-07-01",
-    "totalReturnIndex": 106580.011513,
-    "monthlyReturn": -0.00493346,
+    "totalReturnIndex": 106580.023649,
+    "monthlyReturn": -0.00493334,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2023-08-01",
-    "totalReturnIndex": 106252.156662,
-    "monthlyReturn": -0.00307614,
+    "totalReturnIndex": 106252.144526,
+    "monthlyReturn": -0.00307637,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2023-09-01",
     "totalReturnIndex": 104015.61982,
-    "monthlyReturn": -0.02104933,
+    "monthlyReturn": -0.02104922,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
@@ -12848,29 +12848,29 @@
   },
   {
     "date": "2023-12-01",
-    "totalReturnIndex": 109952.371543,
-    "monthlyReturn": 0.03158496,
+    "totalReturnIndex": 109952.359407,
+    "monthlyReturn": 0.03158485,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2024-01-01",
-    "totalReturnIndex": 109447.12434,
-    "monthlyReturn": -0.00459515,
+    "totalReturnIndex": 109447.136476,
+    "monthlyReturn": -0.00459493,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2024-02-01",
-    "totalReturnIndex": 108411.496216,
-    "monthlyReturn": -0.00946236,
+    "totalReturnIndex": 108411.48408,
+    "monthlyReturn": -0.00946258,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2024-03-01",
     "totalReturnIndex": 109352.451169,
-    "monthlyReturn": 0.00867948,
+    "monthlyReturn": 0.00867959,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
@@ -12883,70 +12883,70 @@
   },
   {
     "date": "2024-05-01",
-    "totalReturnIndex": 107671.744504,
-    "monthlyReturn": 0.00586018,
+    "totalReturnIndex": 107671.732368,
+    "monthlyReturn": 0.00586006,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2024-06-01",
     "totalReturnIndex": 108133.338407,
-    "monthlyReturn": 0.00428705,
+    "monthlyReturn": 0.00428716,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2024-07-01",
-    "totalReturnIndex": 110226.815726,
-    "monthlyReturn": 0.01936015,
+    "totalReturnIndex": 110226.80359,
+    "monthlyReturn": 0.01936003,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2024-08-01",
-    "totalReturnIndex": 111790.955823,
+    "totalReturnIndex": 111790.943687,
     "monthlyReturn": 0.0141902,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2024-09-01",
-    "totalReturnIndex": 112893.623377,
-    "monthlyReturn": 0.00986366,
+    "totalReturnIndex": 112893.635513,
+    "monthlyReturn": 0.00986387,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2024-10-01",
-    "totalReturnIndex": 110987.902578,
+    "totalReturnIndex": 110987.914714,
     "monthlyReturn": -0.01688068,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2024-11-01",
-    "totalReturnIndex": 111970.738972,
-    "monthlyReturn": 0.00885535,
+    "totalReturnIndex": 111970.726836,
+    "monthlyReturn": 0.00885513,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2024-12-01",
     "totalReturnIndex": 110826.09289,
-    "monthlyReturn": -0.01022273,
+    "monthlyReturn": -0.01022262,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2025-01-01",
-    "totalReturnIndex": 111067.150855,
-    "monthlyReturn": 0.0021751,
+    "totalReturnIndex": 111067.138719,
+    "monthlyReturn": 0.00217499,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2025-02-01",
-    "totalReturnIndex": 112356.361326,
+    "totalReturnIndex": 112356.34919,
     "monthlyReturn": 0.01160749,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
@@ -12954,7 +12954,7 @@
   {
     "date": "2025-03-01",
     "totalReturnIndex": 111638.770006,
-    "monthlyReturn": -0.00638674,
+    "monthlyReturn": -0.00638664,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
@@ -12988,15 +12988,15 @@
   },
   {
     "date": "2025-08-01",
-    "totalReturnIndex": 113057.920951,
-    "monthlyReturn": 0.00213219,
+    "totalReturnIndex": 113057.933087,
+    "monthlyReturn": 0.0021323,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2025-09-01",
     "totalReturnIndex": 113841.289555,
-    "monthlyReturn": 0.00692891,
+    "monthlyReturn": 0.00692881,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
@@ -13009,15 +13009,15 @@
   },
   {
     "date": "2025-11-01",
-    "totalReturnIndex": 115087.283624,
-    "monthlyReturn": 0.0014492,
+    "totalReturnIndex": 115087.29576,
+    "monthlyReturn": 0.0014493,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
   {
     "date": "2025-12-01",
     "totalReturnIndex": 111522.021397,
-    "monthlyReturn": -0.03097877,
+    "monthlyReturn": -0.03097887,
     "source": "ETF_IGLH_GBP_HEDGED",
     "isInterpolated": false
   },
