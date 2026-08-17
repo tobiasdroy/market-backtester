@@ -2,6 +2,7 @@ import * as Comlink from 'comlink'
 import { useEffect, useRef } from 'react'
 import type { MonteCarloOptions } from '@/engine/monteCarlo'
 import type { RollingBacktestOptions } from '@/engine/rollingBacktest'
+import type { SensitivityOptions, SensitivityTarget } from '@/engine/sensitivity'
 import type { WorkerApi } from '@/engine/worker'
 
 let sharedWorker: Comlink.Remote<WorkerApi> | null = null
@@ -44,6 +45,20 @@ export function useBacktestWorker() {
     ) =>
       workerRef.current.runMonteCarlo(
         strategy,
+        options,
+        onProgress ? Comlink.proxy(onProgress) : undefined,
+      ),
+    runSensitivity: (
+      strategy: Parameters<WorkerApi['runSensitivity']>[0],
+      target: SensitivityTarget,
+      values: number[],
+      options: Omit<SensitivityOptions, 'onProgress'> = {},
+      onProgress?: (done: number, total: number) => void,
+    ) =>
+      workerRef.current.runSensitivity(
+        strategy,
+        target,
+        values,
         options,
         onProgress ? Comlink.proxy(onProgress) : undefined,
       ),

@@ -2,6 +2,7 @@ import * as Comlink from 'comlink'
 import { loadMarketData } from './dataLoader'
 import { simulateMonteCarlo, type MonteCarloOptions } from './monteCarlo'
 import { simulateRolling, type RollingBacktestOptions } from './rollingBacktest'
+import { runSensitivity, type SensitivityOptions, type SensitivityTarget } from './sensitivity'
 import { simulateSingleRun } from './simulate'
 import type { MarketData, Strategy } from './types'
 
@@ -36,6 +37,17 @@ const api = {
   ) {
     const marketData = await getMarketData()
     return simulateMonteCarlo(strategy, marketData, { ...options, onProgress })
+  },
+
+  async runSensitivity(
+    strategy: Strategy,
+    target: SensitivityTarget,
+    values: number[],
+    options: Omit<SensitivityOptions, 'onProgress'> = {},
+    onProgress?: (done: number, total: number) => void,
+  ) {
+    const marketData = await getMarketData()
+    return runSensitivity(strategy, marketData, target, values, { ...options, onProgress })
   },
 }
 

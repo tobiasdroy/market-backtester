@@ -6,6 +6,7 @@ import { InitialPortfolioForm } from '@/components/strategy-builder/InitialPortf
 import { RebalanceForm } from '@/components/strategy-builder/RebalanceForm'
 import { RuleCard } from '@/components/strategy-builder/RuleCard'
 import { RuleTimeline } from '@/components/strategy-builder/RuleTimeline'
+import { SensitivityAnalysisPanel } from '@/components/strategy-builder/SensitivityAnalysisPanel'
 import { SimulationControls } from '@/components/strategy-builder/SimulationControls'
 import { WithdrawalForm } from '@/components/strategy-builder/WithdrawalForm'
 import { ComparisonPanel } from '@/components/results/ComparisonPanel'
@@ -259,6 +260,8 @@ export function StrategyBuilderPage() {
 
         {hasResults && <SpliceAnnotations metadata={metadata} />}
       </section>
+
+      <SensitivityAnalysisPanel />
 
       <ComparisonPanel valueMode={valueMode} currentAge={currentAge} />
     </div>
