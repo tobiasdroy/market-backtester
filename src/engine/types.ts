@@ -33,11 +33,22 @@ export interface CashFlowRule extends BaseRule {
   type: 'contribution' | 'withdrawal'
   startOffset: TimeOffset
   endOffset?: TimeOffset
-  /** In start-of-simulation GBP terms; see `inflationAdjusted`. */
+  /** In start-of-simulation GBP terms; see `inflationAdjusted`. The
+   * amount at `startOffset` - or the whole-run flat amount, if `endAmount`
+   * is unset. */
   amount: number
   frequency: 'monthly' | 'yearly'
   /** When true, the applied amount is scaled by CPI(now)/CPI(start). */
   inflationAdjusted: boolean
+  /** When set (together with `rampEndOffset`), the amount ramps linearly
+   * from `amount` at `startOffset` to `endAmount` at `rampEndOffset`, then
+   * holds steady at `endAmount` for any firings after that - e.g. "grow
+   * contributions from £5k/yr to £15k/yr over 10 years as salary rises"
+   * or "withdraw £50k/yr tapering to £30k/yr by year 40, then hold."
+   * Independent of `endOffset`, which controls whether the rule keeps
+   * firing at all, not the amount ramp. */
+  endAmount?: number
+  rampEndOffset?: TimeOffset
 }
 
 /** A one-off reallocation to a new target mix, applied exactly at

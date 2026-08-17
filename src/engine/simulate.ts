@@ -143,12 +143,26 @@ function glidePathAllocationAt(rule: GlidePathRule, offset: number): AllocationT
   }
 }
 
+/** The rule's base (pre-inflation) amount at `offset`, linearly ramped
+ * from `amount` toward `endAmount` if both `endAmount` and
+ * `rampEndOffset` are set, holding at `endAmount` past `rampEndOffset`.
+ * Falls back to the flat `amount` otherwise. */
+function rampedAmount(rule: CashFlowRule, offset: number): number {
+  if (rule.endAmount === undefined || !rule.rampEndOffset) return rule.amount
+  const span = rule.rampEndOffset.months - rule.startOffset.months
+  const progress = span <= 0 ? 1 : (offset - rule.startOffset.months) / span
+  const clamped = Math.max(0, Math.min(1, progress))
+  return rule.amount + (rule.endAmount - rule.amount) * clamped
+}
+
 function inflationAdjustedAmount(
   rule: CashFlowRule,
+  offset: number,
   currentCpi: number,
   startCpi: number,
 ): number {
-  return rule.inflationAdjusted ? rule.amount * (currentCpi / startCpi) : rule.amount
+  const base = rampedAmount(rule, offset)
+  return rule.inflationAdjusted ? base * (currentCpi / startCpi) : base
 }
 
 /** Core stepping loop, decoupled from real calendar lookups: runs
@@ -239,7 +253,7 @@ export function runStrategyOverMonths(
       }
 
       if (!isRuleDue(rule, offset)) continue
-      const amount = inflationAdjustedAmount(rule, month.cpiIndex, startCpi)
+      const amount = inflationAdjustedAmount(rule, offset, month.cpiIndex, startCpi)
 
       if (rule.type === 'contribution') {
         const weights =

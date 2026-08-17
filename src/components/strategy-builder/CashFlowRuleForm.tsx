@@ -22,6 +22,21 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
   const [amount, setAmount] = useState(initial?.amount ?? (type === 'contribution' ? 5000 : 20000))
   const [frequency, setFrequency] = useState<'monthly' | 'yearly'>(initial?.frequency ?? 'yearly')
   const [inflationAdjusted, setInflationAdjusted] = useState(initial?.inflationAdjusted ?? true)
+  const [hasRamp, setHasRamp] = useState(
+    initial?.endAmount !== undefined && initial?.rampEndOffset !== undefined,
+  )
+  const [endAmount, setEndAmount] = useState(initial?.endAmount ?? amount)
+  const [rampEndYear, setRampEndYear] = useState(
+    initial?.rampEndOffset ? initial.rampEndOffset.months / 12 : startYear + 10,
+  )
+
+  function handleRampToggle(checked: boolean) {
+    setHasRamp(checked)
+    // A ramp needs a target offset to interpolate toward, distinct from
+    // (and independent of) "ends in year" - default it to something
+    // sensible rather than leaving it unset.
+    if (checked && rampEndYear <= startYear) setRampEndYear(startYear + 10)
+  }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -33,6 +48,8 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
       amount,
       frequency,
       inflationAdjusted,
+      endAmount: hasRamp ? endAmount : undefined,
+      rampEndOffset: hasRamp ? { months: Math.round(rampEndYear * 12) } : undefined,
     })
   }
 
@@ -107,10 +124,51 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
         Adjust amount for inflation over time
       </label>
 
+      <div className="flex flex-col gap-2">
+        <label className="flex items-center gap-2 text-sm text-text-secondary">
+          <input
+            type="checkbox"
+            checked={hasRamp}
+            onChange={(e) => handleRampToggle(e.target.checked)}
+          />
+          Change the amount over time (e.g. salary growth, tapering withdrawals)
+        </label>
+        {hasRamp && (
+          <div className="ml-6 flex flex-wrap items-end gap-3">
+            <label className="flex flex-col gap-1">
+              <span className="text-sm text-text-secondary">Reaching (£)</span>
+              <input
+                type="number"
+                min={0}
+                step={100}
+                value={endAmount}
+                onChange={(e) => setEndAmount(Number(e.target.value))}
+                className="w-32 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
+              />
+            </label>
+            <label className="flex flex-col gap-1">
+              <span className="text-sm text-text-secondary">by year</span>
+              <input
+                type="number"
+                min={startYear}
+                step={1}
+                value={rampEndYear}
+                onChange={(e) => setRampEndYear(Number(e.target.value))}
+                className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
+              />
+            </label>
+          </div>
+        )}
+        {hasRamp && rampEndYear < startYear && (
+          <p className="text-sm text-status-critical">The ramp&rsquo;s target year can&rsquo;t be before the start year.</p>
+        )}
+      </div>
+
       <div className="flex gap-2">
         <button
           type="submit"
-          className="rounded-md bg-stocks px-3 py-1.5 text-sm font-medium text-white"
+          disabled={hasRamp && rampEndYear < startYear}
+          className="rounded-md bg-stocks px-3 py-1.5 text-sm font-medium text-white disabled:opacity-50"
         >
           {initial ? 'Save' : 'Add rule'}
         </button>

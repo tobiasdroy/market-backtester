@@ -27,6 +27,8 @@ const cashFlowRuleSchema = z.object({
   amount: z.number().min(0),
   frequency: z.enum(['monthly', 'yearly']),
   inflationAdjusted: z.boolean(),
+  endAmount: z.number().min(0).optional(),
+  rampEndOffset: timeOffsetSchema.optional(),
 })
 
 const rebalanceRuleSchema = z.object({

@@ -35,8 +35,12 @@ function describeRule(rule: StrategyRule): { label: string; color: string } {
   const endYear = rule.endOffset ? rule.endOffset.months / 12 : undefined
   const range = endYear !== undefined ? `years ${startYear}-${endYear}` : `from year ${startYear}`
   const inflation = rule.inflationAdjusted ? ', inflation-adjusted' : ''
+  const isRamping = rule.endAmount !== undefined && rule.rampEndOffset !== undefined
+  const amountLabel = isRamping
+    ? `£${rule.amount.toLocaleString()} → £${rule.endAmount!.toLocaleString()} by year ${rule.rampEndOffset!.months / 12}`
+    : `£${rule.amount.toLocaleString()}`
   return {
-    label: `${verb} £${rule.amount.toLocaleString()}${freq}, ${range}${inflation}`,
+    label: `${verb} ${amountLabel}${freq}, ${range}${inflation}`,
     color: rule.type === 'contribution' ? 'var(--series-stocks)' : 'var(--series-cash)',
   }
 }
