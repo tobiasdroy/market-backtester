@@ -31,8 +31,8 @@ function describeRule(rule: StrategyRule): { label: string; color: string } {
 export function RuleCard({ rule, onEdit, onDelete }: RuleCardProps) {
   const { label, color } = describeRule(rule)
   return (
-    <li className="flex items-center justify-between gap-3 rounded-md border border-border bg-surface px-3 py-2">
-      <div className="flex items-center gap-2">
+    <li className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-border bg-surface px-3 py-2">
+      <div className="flex min-w-0 items-center gap-2">
         <span
           className="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
           style={{ background: color }}

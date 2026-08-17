@@ -111,8 +111,8 @@ export function PortfolioValueChart({ snapshots, splices }: PortfolioValueChartP
       </div>
 
       {showTable ? (
-        <div className="max-h-80 overflow-y-auto">
-          <table className="w-full text-left text-sm">
+        <div className="max-h-80 overflow-x-auto overflow-y-auto">
+          <table className="w-full min-w-[420px] text-left text-sm">
             <thead className="sticky top-0 bg-surface text-text-secondary">
               <tr>
                 <th className="py-1 pr-2 font-normal">Year</th>

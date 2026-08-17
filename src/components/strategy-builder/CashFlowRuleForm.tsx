@@ -40,7 +40,7 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3 rounded-lg border border-border bg-surface p-4">
-      <div className="flex items-end gap-3">
+      <div className="flex flex-wrap items-end gap-3">
         <label className="flex flex-col gap-1">
           <span className="text-sm text-text-secondary">{verb} (£)</span>
           <input
@@ -66,7 +66,7 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
         </label>
       </div>
 
-      <div className="flex items-end gap-3">
+      <div className="flex flex-wrap items-end gap-3">
         <label className="flex flex-col gap-1">
           <span className="text-sm text-text-secondary">Starting in year</span>
           <input
