@@ -1,4 +1,5 @@
 import { lazy, Suspense, useState } from 'react'
+import { nanoid } from 'nanoid'
 import { AccountSettingsForm } from '@/components/strategy-builder/AccountSettingsForm'
 import { ContributionForm } from '@/components/strategy-builder/ContributionForm'
 import { InitialPortfolioForm } from '@/components/strategy-builder/InitialPortfolioForm'
@@ -7,9 +8,12 @@ import { RuleCard } from '@/components/strategy-builder/RuleCard'
 import { RuleTimeline } from '@/components/strategy-builder/RuleTimeline'
 import { SimulationControls } from '@/components/strategy-builder/SimulationControls'
 import { WithdrawalForm } from '@/components/strategy-builder/WithdrawalForm'
+import { ComparisonPanel } from '@/components/results/ComparisonPanel'
 import { ExportCsvButton } from '@/components/results/ExportCsvButton'
+import { SaveToComparisonButton } from '@/components/results/SaveToComparisonButton'
 import { SpliceAnnotations } from '@/components/results/SpliceAnnotations'
 import { SummaryStatsPanel } from '@/components/results/SummaryStatsPanel'
+import { comparisonEntryFromAggregate, comparisonEntryFromSingle } from '@/engine/comparison'
 import { computeDrawdownSeries, toRealSnapshots } from '@/engine/stats'
 import type { CashFlowRule, RebalanceRule, StrategyRule } from '@/engine/types'
 import { useMarketMetadata } from '@/hooks/useMarketMetadata'
@@ -96,6 +100,12 @@ export function StrategyBuilderPage() {
         ? monteCarloResult.bandsReal
         : monteCarloResult.bands
       : undefined
+
+  function buildComparisonEntry(name: string) {
+    if (singleResult) return comparisonEntryFromSingle(nanoid(), name, singleResult)
+    if (rollingResult) return comparisonEntryFromAggregate(nanoid(), name, 'rolling', rollingResult)
+    return comparisonEntryFromAggregate(nanoid(), name, 'monteCarlo', monteCarloResult!)
+  }
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-8">
@@ -212,6 +222,7 @@ export function StrategyBuilderPage() {
                 rollingResult={rollingResult ?? undefined}
                 bands={!rollingResult ? aggregateBands : undefined}
               />
+              <SaveToComparisonButton buildEntry={buildComparisonEntry} defaultName={strategy.name} />
             </div>
           )}
         </div>
@@ -248,6 +259,8 @@ export function StrategyBuilderPage() {
 
         {hasResults && <SpliceAnnotations metadata={metadata} />}
       </section>
+
+      <ComparisonPanel valueMode={valueMode} currentAge={currentAge} />
     </div>
   )
 }
