@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
-import type { CashFlowRule } from '@/engine/types'
+import type { CashFlowRule, WithdrawalStyle } from '@/engine/types'
 
 interface CashFlowRuleFormProps {
   type: 'contribution' | 'withdrawal'
@@ -9,8 +9,13 @@ interface CashFlowRuleFormProps {
   onCancel: () => void
 }
 
+type WithdrawalStyleKind = WithdrawalStyle['kind']
+
 /** Shared field set behind ContributionForm and WithdrawalForm - the two
- * rule types only differ in `type` and copy, not in shape. */
+ * rule types only differ in `type` and copy, not in shape. Withdrawals
+ * additionally get a choice of how the amount is computed each firing
+ * (see WithdrawalStyle in types.ts); contributions are always
+ * `fixedAmount`. */
 export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRuleFormProps) {
   const [startYear, setStartYear] = useState(
     initial ? initial.startOffset.months / 12 : 0,
@@ -30,6 +35,23 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
     initial?.rampEndOffset ? initial.rampEndOffset.months / 12 : startYear + 10,
   )
 
+  const [styleKind, setStyleKind] = useState<WithdrawalStyleKind>(initial?.withdrawalStyle?.kind ?? 'fixedAmount')
+  const [percentOfPortfolio, setPercentOfPortfolio] = useState(
+    initial?.withdrawalStyle?.kind === 'percentOfPortfolio' ? initial.withdrawalStyle.percent * 100 : 4,
+  )
+  const [guardrailInitialPercent, setGuardrailInitialPercent] = useState(
+    initial?.withdrawalStyle?.kind === 'guardrails' ? initial.withdrawalStyle.initialPercent * 100 : 4,
+  )
+  const [guardrailUpper, setGuardrailUpper] = useState(
+    initial?.withdrawalStyle?.kind === 'guardrails' ? initial.withdrawalStyle.upperGuardrailPercent * 100 : 20,
+  )
+  const [guardrailLower, setGuardrailLower] = useState(
+    initial?.withdrawalStyle?.kind === 'guardrails' ? initial.withdrawalStyle.lowerGuardrailPercent * 100 : 20,
+  )
+  const [guardrailAdjustment, setGuardrailAdjustment] = useState(
+    initial?.withdrawalStyle?.kind === 'guardrails' ? initial.withdrawalStyle.adjustmentPercent * 100 : 10,
+  )
+
   function handleRampToggle(checked: boolean) {
     setHasRamp(checked)
     // A ramp needs a target offset to interpolate toward, distinct from
@@ -40,48 +62,169 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    const isFixedAmount = type === 'contribution' || styleKind === 'fixedAmount'
+
+    const withdrawalStyle: WithdrawalStyle | undefined =
+      type !== 'withdrawal' || styleKind === 'fixedAmount'
+        ? undefined
+        : styleKind === 'percentOfPortfolio'
+          ? { kind: 'percentOfPortfolio', percent: percentOfPortfolio / 100 }
+          : {
+              kind: 'guardrails',
+              initialPercent: guardrailInitialPercent / 100,
+              upperGuardrailPercent: guardrailUpper / 100,
+              lowerGuardrailPercent: guardrailLower / 100,
+              adjustmentPercent: guardrailAdjustment / 100,
+            }
+
     onSave({
       id: initial?.id ?? nanoid(),
       type,
       startOffset: { months: Math.round(startYear * 12) },
       endOffset: hasEnd ? { months: Math.round(endYear * 12) } : undefined,
-      amount,
-      frequency,
-      inflationAdjusted,
-      endAmount: hasRamp ? endAmount : undefined,
-      rampEndOffset: hasRamp ? { months: Math.round(rampEndYear * 12) } : undefined,
+      amount: isFixedAmount ? amount : 0,
+      // Percent-of-portfolio styles read as an annual rate, so they only
+      // make sense fired once a year.
+      frequency: isFixedAmount ? frequency : 'yearly',
+      inflationAdjusted: isFixedAmount ? inflationAdjusted : false,
+      endAmount: isFixedAmount && hasRamp ? endAmount : undefined,
+      rampEndOffset: isFixedAmount && hasRamp ? { months: Math.round(rampEndYear * 12) } : undefined,
+      withdrawalStyle,
     })
   }
 
   const verb = type === 'contribution' ? 'Contribute' : 'Withdraw'
+  const isFixedAmount = type === 'contribution' || styleKind === 'fixedAmount'
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3 rounded-lg border border-border bg-surface p-4">
-      <div className="flex flex-wrap items-end gap-3">
+      {type === 'withdrawal' && (
         <label className="flex flex-col gap-1">
-          <span className="text-sm text-text-secondary">{verb} (£)</span>
-          <input
-            type="number"
-            min={0}
-            step={100}
-            value={amount}
-            onChange={(e) => setAmount(Number(e.target.value))}
-            className="w-32 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
-            required
-          />
-        </label>
-        <label className="flex flex-col gap-1">
-          <span className="text-sm text-text-secondary">Frequency</span>
+          <span className="text-sm text-text-secondary">Withdrawal style</span>
           <select
-            value={frequency}
-            onChange={(e) => setFrequency(e.target.value as 'monthly' | 'yearly')}
-            className="rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
+            value={styleKind}
+            onChange={(e) => setStyleKind(e.target.value as WithdrawalStyleKind)}
+            className="w-full max-w-sm rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
           >
-            <option value="yearly">per year</option>
-            <option value="monthly">per month</option>
+            <option value="fixedAmount">Fixed amount</option>
+            <option value="percentOfPortfolio">Percentage of portfolio (e.g. the 4% rule)</option>
+            <option value="guardrails">Guyton-Klinger guardrails</option>
           </select>
         </label>
-      </div>
+      )}
+
+      {isFixedAmount && (
+        <div className="flex flex-wrap items-end gap-3">
+          <label className="flex flex-col gap-1">
+            <span className="text-sm text-text-secondary">{verb} (£)</span>
+            <input
+              type="number"
+              min={0}
+              step={100}
+              value={amount}
+              onChange={(e) => setAmount(Number(e.target.value))}
+              className="w-32 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
+              required
+            />
+          </label>
+          <label className="flex flex-col gap-1">
+            <span className="text-sm text-text-secondary">Frequency</span>
+            <select
+              value={frequency}
+              onChange={(e) => setFrequency(e.target.value as 'monthly' | 'yearly')}
+              className="rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
+            >
+              <option value="yearly">per year</option>
+              <option value="monthly">per month</option>
+            </select>
+          </label>
+        </div>
+      )}
+
+      {type === 'withdrawal' && styleKind === 'percentOfPortfolio' && (
+        <label className="flex flex-col gap-1">
+          <span className="text-sm text-text-secondary">Withdraw % of portfolio per year</span>
+          <div className="flex items-center gap-1">
+            <input
+              type="number"
+              min={0}
+              max={100}
+              step={0.5}
+              value={percentOfPortfolio}
+              onChange={(e) => setPercentOfPortfolio(Number(e.target.value))}
+              className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
+            />
+            <span className="text-text-muted">%</span>
+          </div>
+          <p className="text-xs text-text-muted">
+            Recalculated from the current portfolio value every year - rises and falls with markets,
+            rather than a fixed £ amount.
+          </p>
+        </label>
+      )}
+
+      {type === 'withdrawal' && styleKind === 'guardrails' && (
+        <div className="flex flex-col gap-3 rounded-md border border-border p-3">
+          <div className="flex flex-wrap gap-3">
+            <label className="flex flex-col gap-1">
+              <span className="text-sm text-text-secondary">Initial withdrawal rate (%)</span>
+              <input
+                type="number"
+                min={0}
+                max={100}
+                step={0.5}
+                value={guardrailInitialPercent}
+                onChange={(e) => setGuardrailInitialPercent(Number(e.target.value))}
+                className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
+              />
+            </label>
+            <label className="flex flex-col gap-1">
+              <span className="text-sm text-text-secondary">Adjustment (%)</span>
+              <input
+                type="number"
+                min={0}
+                max={100}
+                step={0.5}
+                value={guardrailAdjustment}
+                onChange={(e) => setGuardrailAdjustment(Number(e.target.value))}
+                className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
+              />
+            </label>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <label className="flex flex-col gap-1">
+              <span className="text-sm text-text-secondary">Upper guardrail (%)</span>
+              <input
+                type="number"
+                min={0}
+                max={100}
+                step={1}
+                value={guardrailUpper}
+                onChange={(e) => setGuardrailUpper(Number(e.target.value))}
+                className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
+              />
+            </label>
+            <label className="flex flex-col gap-1">
+              <span className="text-sm text-text-secondary">Lower guardrail (%)</span>
+              <input
+                type="number"
+                min={0}
+                max={100}
+                step={1}
+                value={guardrailLower}
+                onChange={(e) => setGuardrailLower(Number(e.target.value))}
+                className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
+              />
+            </label>
+          </div>
+          <p className="text-xs text-text-muted">
+            Starts by withdrawing {guardrailInitialPercent}% of the portfolio. If the withdrawal rate
+            later rises more than {guardrailUpper}% above that, spending is cut by{' '}
+            {guardrailAdjustment}%; if it falls more than {guardrailLower}% below it, spending is
+            raised by {guardrailAdjustment}%.
+          </p>
+        </div>
+      )}
 
       <div className="flex flex-wrap items-end gap-3">
         <label className="flex flex-col gap-1">
@@ -115,59 +258,63 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
         )}
       </div>
 
-      <label className="flex items-center gap-2 text-sm text-text-secondary">
-        <input
-          type="checkbox"
-          checked={inflationAdjusted}
-          onChange={(e) => setInflationAdjusted(e.target.checked)}
-        />
-        Adjust amount for inflation over time
-      </label>
+      {isFixedAmount && (
+        <>
+          <label className="flex items-center gap-2 text-sm text-text-secondary">
+            <input
+              type="checkbox"
+              checked={inflationAdjusted}
+              onChange={(e) => setInflationAdjusted(e.target.checked)}
+            />
+            Adjust amount for inflation over time
+          </label>
 
-      <div className="flex flex-col gap-2">
-        <label className="flex items-center gap-2 text-sm text-text-secondary">
-          <input
-            type="checkbox"
-            checked={hasRamp}
-            onChange={(e) => handleRampToggle(e.target.checked)}
-          />
-          Change the amount over time (e.g. salary growth, tapering withdrawals)
-        </label>
-        {hasRamp && (
-          <div className="ml-6 flex flex-wrap items-end gap-3">
-            <label className="flex flex-col gap-1">
-              <span className="text-sm text-text-secondary">Reaching (£)</span>
+          <div className="flex flex-col gap-2">
+            <label className="flex items-center gap-2 text-sm text-text-secondary">
               <input
-                type="number"
-                min={0}
-                step={100}
-                value={endAmount}
-                onChange={(e) => setEndAmount(Number(e.target.value))}
-                className="w-32 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
+                type="checkbox"
+                checked={hasRamp}
+                onChange={(e) => handleRampToggle(e.target.checked)}
               />
+              Change the amount over time (e.g. salary growth, tapering withdrawals)
             </label>
-            <label className="flex flex-col gap-1">
-              <span className="text-sm text-text-secondary">by year</span>
-              <input
-                type="number"
-                min={startYear}
-                step={1}
-                value={rampEndYear}
-                onChange={(e) => setRampEndYear(Number(e.target.value))}
-                className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
-              />
-            </label>
+            {hasRamp && (
+              <div className="ml-6 flex flex-wrap items-end gap-3">
+                <label className="flex flex-col gap-1">
+                  <span className="text-sm text-text-secondary">Reaching (£)</span>
+                  <input
+                    type="number"
+                    min={0}
+                    step={100}
+                    value={endAmount}
+                    onChange={(e) => setEndAmount(Number(e.target.value))}
+                    className="w-32 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
+                  />
+                </label>
+                <label className="flex flex-col gap-1">
+                  <span className="text-sm text-text-secondary">by year</span>
+                  <input
+                    type="number"
+                    min={startYear}
+                    step={1}
+                    value={rampEndYear}
+                    onChange={(e) => setRampEndYear(Number(e.target.value))}
+                    className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
+                  />
+                </label>
+              </div>
+            )}
+            {hasRamp && rampEndYear < startYear && (
+              <p className="text-sm text-status-critical">The ramp&rsquo;s target year can&rsquo;t be before the start year.</p>
+            )}
           </div>
-        )}
-        {hasRamp && rampEndYear < startYear && (
-          <p className="text-sm text-status-critical">The ramp&rsquo;s target year can&rsquo;t be before the start year.</p>
-        )}
-      </div>
+        </>
+      )}
 
       <div className="flex gap-2">
         <button
           type="submit"
-          disabled={hasRamp && rampEndYear < startYear}
+          disabled={isFixedAmount && hasRamp && rampEndYear < startYear}
           className="rounded-md bg-stocks px-3 py-1.5 text-sm font-medium text-white disabled:opacity-50"
         >
           {initial ? 'Save' : 'Add rule'}

@@ -19,6 +19,36 @@ interface BaseRule {
   id: string
 }
 
+/** How a withdrawal rule's per-firing amount is computed. Ignored for
+ * contribution rules (always `fixedAmount`, i.e. the `amount`/`endAmount`/
+ * `inflationAdjusted` fields on `CashFlowRule`). */
+export type WithdrawalStyle =
+  | { kind: 'fixedAmount' }
+  /** Withdraws that fraction of the current total portfolio value every
+   * firing - self-adjusting with market performance, the literal
+   * "withdraw 4% of the portfolio" reading of the 4% rule. (Bengen's
+   * original rule - 4% of the *starting* balance, then inflation-adjusted
+   * forever - is already expressible as `fixedAmount` + `inflationAdjusted`.) */
+  | { kind: 'percentOfPortfolio'; percent: number }
+  /** A simplified Guyton-Klinger guardrails strategy: the first firing
+   * withdraws `initialPercent` of the portfolio; each firing after that
+   * compares the current withdrawal rate (last withdrawal / current
+   * portfolio value) to `initialPercent` and, if it has drifted more than
+   * `upperGuardrailPercent` above it, cuts the withdrawal by
+   * `adjustmentPercent` (capital preservation rule), or if it has drifted
+   * more than `lowerGuardrailPercent` below it, raises the withdrawal by
+   * `adjustmentPercent` (prosperity rule) - otherwise the withdrawal stays
+   * unchanged. Simplification: omits Guyton-Klinger's separate inflation
+   * rule (skipping the CPI raise after a down year) and portfolio
+   * management rule (freezing guardrails late in retirement). */
+  | {
+      kind: 'guardrails'
+      initialPercent: number
+      upperGuardrailPercent: number
+      lowerGuardrailPercent: number
+      adjustmentPercent: number
+    }
+
 /** A recurring contribution or withdrawal.
  *
  * `startOffset`/`endOffset` are inclusive month offsets from the
@@ -35,10 +65,12 @@ export interface CashFlowRule extends BaseRule {
   endOffset?: TimeOffset
   /** In start-of-simulation GBP terms; see `inflationAdjusted`. The
    * amount at `startOffset` - or the whole-run flat amount, if `endAmount`
-   * is unset. */
+   * is unset. Unused (set to 0) when `withdrawalStyle` is set to anything
+   * other than `fixedAmount`. */
   amount: number
   frequency: 'monthly' | 'yearly'
-  /** When true, the applied amount is scaled by CPI(now)/CPI(start). */
+  /** When true, the applied amount is scaled by CPI(now)/CPI(start).
+   * Only meaningful for `fixedAmount` withdrawals/contributions. */
   inflationAdjusted: boolean
   /** When set (together with `rampEndOffset`), the amount ramps linearly
    * from `amount` at `startOffset` to `endAmount` at `rampEndOffset`, then
@@ -46,9 +78,12 @@ export interface CashFlowRule extends BaseRule {
    * contributions from £5k/yr to £15k/yr over 10 years as salary rises"
    * or "withdraw £50k/yr tapering to £30k/yr by year 40, then hold."
    * Independent of `endOffset`, which controls whether the rule keeps
-   * firing at all, not the amount ramp. */
+   * firing at all, not the amount ramp. Only meaningful for `fixedAmount`. */
   endAmount?: number
   rampEndOffset?: TimeOffset
+  /** Withdrawal-only; see `WithdrawalStyle`. Unset (or `fixedAmount`)
+   * behaves exactly as before - a flat/ramping/inflation-adjusted `amount`. */
+  withdrawalStyle?: WithdrawalStyle
 }
 
 /** A one-off reallocation to a new target mix, applied exactly at

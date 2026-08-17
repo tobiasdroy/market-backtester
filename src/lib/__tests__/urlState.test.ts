@@ -31,6 +31,21 @@ const strategy: Strategy = {
       startAllocation: { stocks: 0.7, bonds: 0.3, cash: 0 },
       endAllocation: { stocks: 0.4, bonds: 0.6, cash: 0 },
     },
+    {
+      id: 'r4',
+      type: 'withdrawal',
+      startOffset: { months: 360 },
+      amount: 0,
+      frequency: 'yearly',
+      inflationAdjusted: false,
+      withdrawalStyle: {
+        kind: 'guardrails',
+        initialPercent: 0.04,
+        upperGuardrailPercent: 0.2,
+        lowerGuardrailPercent: 0.2,
+        adjustmentPercent: 0.1,
+      },
+    },
   ],
   contributionAllocation: 'proRata',
 }

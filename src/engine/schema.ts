@@ -19,6 +19,18 @@ const initialPortfolioSchema = z.object({
   allocation: allocationTargetSchema,
 })
 
+const withdrawalStyleSchema = z.discriminatedUnion('kind', [
+  z.object({ kind: z.literal('fixedAmount') }),
+  z.object({ kind: z.literal('percentOfPortfolio'), percent: z.number().min(0).max(1) }),
+  z.object({
+    kind: z.literal('guardrails'),
+    initialPercent: z.number().min(0).max(1),
+    upperGuardrailPercent: z.number().min(0).max(1),
+    lowerGuardrailPercent: z.number().min(0).max(1),
+    adjustmentPercent: z.number().min(0).max(1),
+  }),
+])
+
 const cashFlowRuleSchema = z.object({
   id: z.string(),
   type: z.enum(['contribution', 'withdrawal']),
@@ -29,6 +41,7 @@ const cashFlowRuleSchema = z.object({
   inflationAdjusted: z.boolean(),
   endAmount: z.number().min(0).optional(),
   rampEndOffset: timeOffsetSchema.optional(),
+  withdrawalStyle: withdrawalStyleSchema.optional(),
 })
 
 const rebalanceRuleSchema = z.object({

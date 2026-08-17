@@ -31,9 +31,27 @@ function describeRule(rule: StrategyRule): { label: string; color: string } {
     }
   }
   const verb = rule.type === 'contribution' ? 'Contribute' : 'Withdraw'
-  const freq = rule.frequency === 'yearly' ? '/year' : '/month'
   const endYear = rule.endOffset ? rule.endOffset.months / 12 : undefined
   const range = endYear !== undefined ? `years ${startYear}-${endYear}` : `from year ${startYear}`
+  const color = rule.type === 'contribution' ? 'var(--series-stocks)' : 'var(--series-cash)'
+
+  if (rule.type === 'withdrawal' && rule.withdrawalStyle?.kind === 'percentOfPortfolio') {
+    const pct = Math.round(rule.withdrawalStyle.percent * 1000) / 10
+    return { label: `Withdraw ${pct}% of portfolio/year, ${range}`, color }
+  }
+  if (rule.type === 'withdrawal' && rule.withdrawalStyle?.kind === 'guardrails') {
+    const s = rule.withdrawalStyle
+    return {
+      label: `Withdraw ${s.initialPercent * 100}% of portfolio/year (Guyton-Klinger guardrails: ±${
+        Math.round(s.upperGuardrailPercent * 100)
+      }%/±${Math.round(s.lowerGuardrailPercent * 100)}%, adjust ${Math.round(
+        s.adjustmentPercent * 100,
+      )}%), ${range}`,
+      color,
+    }
+  }
+
+  const freq = rule.frequency === 'yearly' ? '/year' : '/month'
   const inflation = rule.inflationAdjusted ? ', inflation-adjusted' : ''
   const isRamping = rule.endAmount !== undefined && rule.rampEndOffset !== undefined
   const amountLabel = isRamping
@@ -41,7 +59,7 @@ function describeRule(rule: StrategyRule): { label: string; color: string } {
     : `£${rule.amount.toLocaleString()}`
   return {
     label: `${verb} ${amountLabel}${freq}, ${range}${inflation}`,
-    color: rule.type === 'contribution' ? 'var(--series-stocks)' : 'var(--series-cash)',
+    color,
   }
 }
 

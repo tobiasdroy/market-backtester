@@ -165,6 +165,49 @@ function inflationAdjustedAmount(
   return rule.inflationAdjusted ? base * (currentCpi / startCpi) : base
 }
 
+/** The withdrawal amount for this firing, per `rule.withdrawalStyle` (see
+ * types.ts). `guardrailState` persists each guardrails rule's current
+ * nominal withdrawal across firings within one run - reset (a fresh Map)
+ * at the start of every `runStrategyOverMonths` call, same lifetime as
+ * `lastRebalanceAllocation`. Simplification: the result here is treated
+ * as the *requested net* amount fed into `withdrawWithTax` just like a
+ * fixed-amount withdrawal, so a taxable GIA's gross-up can pull slightly
+ * more than `percent` of the portfolio out in a given year. */
+function computeWithdrawalAmount(
+  rule: CashFlowRule,
+  offset: number,
+  currentTotal: number,
+  guardrailState: Map<string, number>,
+  currentCpi: number,
+  startCpi: number,
+): number {
+  const style = rule.withdrawalStyle
+  if (!style || style.kind === 'fixedAmount') {
+    return inflationAdjustedAmount(rule, offset, currentCpi, startCpi)
+  }
+
+  if (style.kind === 'percentOfPortfolio') {
+    return currentTotal * style.percent
+  }
+
+  // Guardrails: ratchets a persisted nominal amount up/down based on how
+  // far the implied withdrawal rate has drifted from the initial rate.
+  if (!guardrailState.has(rule.id)) {
+    const initial = currentTotal * style.initialPercent
+    guardrailState.set(rule.id, initial)
+    return initial
+  }
+  let current = guardrailState.get(rule.id)!
+  const rate = currentTotal > 0 ? current / currentTotal : 0
+  if (rate > style.initialPercent * (1 + style.upperGuardrailPercent)) {
+    current *= 1 - style.adjustmentPercent
+  } else if (rate < style.initialPercent * (1 - style.lowerGuardrailPercent)) {
+    current *= 1 + style.adjustmentPercent
+  }
+  guardrailState.set(rule.id, current)
+  return current
+}
+
 /** Core stepping loop, decoupled from real calendar lookups: runs
  * `strategy` over exactly `strategy.durationMonths + 1` months of
  * `months[0..]` (months[0] is the "month 0" starting point; returns are
@@ -199,6 +242,7 @@ export function runStrategyOverMonths(
   let lastRebalanceAllocation: AllocationTarget = allocation
   const contributionMode = strategy.contributionAllocation ?? 'proRata'
   const { feesAndTax } = strategy
+  const guardrailState = new Map<string, number>()
 
   const snapshots: PortfolioSnapshot[] = [
     {
@@ -253,15 +297,23 @@ export function runStrategyOverMonths(
       }
 
       if (!isRuleDue(rule, offset)) continue
-      const amount = inflationAdjustedAmount(rule, offset, month.cpiIndex, startCpi)
 
       if (rule.type === 'contribution') {
+        const amount = inflationAdjustedAmount(rule, offset, month.cpiIndex, startCpi)
         const weights =
           contributionMode === 'lastTarget' ? lastRebalanceAllocation : weightsOf(balances)
         distributeContribution(balances, amount, weights)
         cumulativeContributed += amount
         costBasis += amount
       } else {
+        const amount = computeWithdrawalAmount(
+          rule,
+          offset,
+          totalOf(balances),
+          guardrailState,
+          month.cpiIndex,
+          startCpi,
+        )
         const { netPaid, taxPaid, newCostBasis } = withdrawWithTax(
           balances,
           amount,
