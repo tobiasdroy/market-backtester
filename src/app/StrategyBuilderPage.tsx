@@ -2,6 +2,7 @@ import { lazy, Suspense, useState } from 'react'
 import { nanoid } from 'nanoid'
 import { AccountSettingsForm } from '@/components/strategy-builder/AccountSettingsForm'
 import { ContributionForm } from '@/components/strategy-builder/ContributionForm'
+import { GlidePathForm } from '@/components/strategy-builder/GlidePathForm'
 import { InitialPortfolioForm } from '@/components/strategy-builder/InitialPortfolioForm'
 import { RebalanceForm } from '@/components/strategy-builder/RebalanceForm'
 import { RuleCard } from '@/components/strategy-builder/RuleCard'
@@ -16,7 +17,7 @@ import { SpliceAnnotations } from '@/components/results/SpliceAnnotations'
 import { SummaryStatsPanel } from '@/components/results/SummaryStatsPanel'
 import { comparisonEntryFromAggregate, comparisonEntryFromSingle } from '@/engine/comparison'
 import { computeDrawdownSeries, toRealSnapshots } from '@/engine/stats'
-import type { CashFlowRule, RebalanceRule, StrategyRule } from '@/engine/types'
+import type { CashFlowRule, GlidePathRule, RebalanceRule, StrategyRule } from '@/engine/types'
 import { useMarketMetadata } from '@/hooks/useMarketMetadata'
 import { useResultsStore } from '@/store/resultsStore'
 import { useStrategyStore } from '@/store/strategyStore'
@@ -160,6 +161,13 @@ export function StrategyBuilderPage() {
             onCancel={closeForm}
           />
         )}
+        {activeType === 'glidePath' && (
+          <GlidePathForm
+            initial={editingRule?.type === 'glidePath' ? (editingRule as GlidePathRule) : undefined}
+            onSave={handleSaveRule}
+            onCancel={closeForm}
+          />
+        )}
 
         {!activeType && (
           <div className="flex flex-wrap gap-2">
@@ -183,6 +191,13 @@ export function StrategyBuilderPage() {
               className="rounded-md border border-border px-3 py-1.5 text-sm text-text-secondary hover:bg-page"
             >
               + Rebalance
+            </button>
+            <button
+              type="button"
+              onClick={() => setAddingType('glidePath')}
+              className="rounded-md border border-border px-3 py-1.5 text-sm text-text-secondary hover:bg-page"
+            >
+              + Glide path
             </button>
           </div>
         )}

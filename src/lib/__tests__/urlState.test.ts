@@ -23,6 +23,14 @@ const strategy: Strategy = {
       startOffset: { months: 240 },
       targetAllocation: { stocks: 0.7, bonds: 0.3, cash: 0 },
     },
+    {
+      id: 'r3',
+      type: 'glidePath',
+      startOffset: { months: 240 },
+      endOffset: { months: 300 },
+      startAllocation: { stocks: 0.7, bonds: 0.3, cash: 0 },
+      endAllocation: { stocks: 0.4, bonds: 0.6, cash: 0 },
+    },
   ],
   contributionAllocation: 'proRata',
 }

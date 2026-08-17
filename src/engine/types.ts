@@ -48,7 +48,20 @@ export interface RebalanceRule extends BaseRule {
   targetAllocation: AllocationTarget
 }
 
-export type StrategyRule = CashFlowRule | RebalanceRule
+/** Gradually shifts the target allocation from `startAllocation` to
+ * `endAllocation` over `[startOffset, endOffset]`, rebalancing to the
+ * linearly-interpolated mix every month in that range - e.g. a
+ * multi-year de-risking glide path into retirement, rather than one
+ * discrete jump. */
+export interface GlidePathRule extends BaseRule {
+  type: 'glidePath'
+  startOffset: TimeOffset
+  endOffset: TimeOffset
+  startAllocation: AllocationTarget
+  endAllocation: AllocationTarget
+}
+
+export type StrategyRule = CashFlowRule | RebalanceRule | GlidePathRule
 
 /** Ongoing platform/fund fee and account-wrapper tax treatment. Optional
  * and omitted entirely by default (no fees, no tax) so existing

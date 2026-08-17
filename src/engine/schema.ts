@@ -36,10 +36,20 @@ const rebalanceRuleSchema = z.object({
   targetAllocation: allocationTargetSchema,
 })
 
+const glidePathRuleSchema = z.object({
+  id: z.string(),
+  type: z.literal('glidePath'),
+  startOffset: timeOffsetSchema,
+  endOffset: timeOffsetSchema,
+  startAllocation: allocationTargetSchema,
+  endAllocation: allocationTargetSchema,
+})
+
 const strategyRuleSchema = z.discriminatedUnion('type', [
   cashFlowRuleSchema.extend({ type: z.literal('contribution') }),
   cashFlowRuleSchema.extend({ type: z.literal('withdrawal') }),
   rebalanceRuleSchema,
+  glidePathRuleSchema,
 ])
 
 const feesAndTaxSchema = z.object({

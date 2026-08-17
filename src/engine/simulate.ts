@@ -3,6 +3,7 @@ import type {
   AssetClass,
   CashFlowRule,
   FeesAndTax,
+  GlidePathRule,
   MarketData,
   MarketMonth,
   PortfolioSnapshot,
@@ -128,6 +129,20 @@ function isRuleDue(rule: CashFlowRule, offset: number): boolean {
   return offset >= base && (offset - base) % period === 0
 }
 
+/** Linearly interpolates between a glide path's start/end allocation at
+ * `offset`, clamped to [0, 1] progress. A zero-length range (start ==
+ * end offset) jumps straight to the end allocation, like a rebalance. */
+function glidePathAllocationAt(rule: GlidePathRule, offset: number): AllocationTarget {
+  const span = rule.endOffset.months - rule.startOffset.months
+  const progress = span <= 0 ? 1 : (offset - rule.startOffset.months) / span
+  const clamped = Math.max(0, Math.min(1, progress))
+  return {
+    stocks: rule.startAllocation.stocks + (rule.endAllocation.stocks - rule.startAllocation.stocks) * clamped,
+    bonds: rule.startAllocation.bonds + (rule.endAllocation.bonds - rule.startAllocation.bonds) * clamped,
+    cash: rule.startAllocation.cash + (rule.endAllocation.cash - rule.startAllocation.cash) * clamped,
+  }
+}
+
 function inflationAdjustedAmount(
   rule: CashFlowRule,
   currentCpi: number,
@@ -206,6 +221,19 @@ export function runStrategyOverMonths(
           balances.bonds = rebalanced.bonds
           balances.cash = rebalanced.cash
           lastRebalanceAllocation = rebalanceRule.targetAllocation
+        }
+        continue
+      }
+
+      if (rule.type === 'glidePath') {
+        const glideRule = rule as GlidePathRule
+        if (offset >= glideRule.startOffset.months && offset <= glideRule.endOffset.months) {
+          const target = glidePathAllocationAt(glideRule, offset)
+          const rebalanced = applyRebalance(balances, target)
+          balances.stocks = rebalanced.stocks
+          balances.bonds = rebalanced.bonds
+          balances.cash = rebalanced.cash
+          lastRebalanceAllocation = target
         }
         continue
       }

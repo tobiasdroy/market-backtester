@@ -47,7 +47,9 @@ export function applySensitivityValue(
       return {
         ...strategy,
         rules: strategy.rules.map((rule): StrategyRule =>
-          rule.id === target.ruleId && rule.type !== 'rebalance' ? { ...rule, amount: value } : rule,
+          rule.id === target.ruleId && (rule.type === 'contribution' || rule.type === 'withdrawal')
+            ? { ...rule, amount: value }
+            : rule,
         ),
       }
   }

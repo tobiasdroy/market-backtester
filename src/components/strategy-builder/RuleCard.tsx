@@ -17,6 +17,19 @@ function describeRule(rule: StrategyRule): { label: string; color: string } {
       color: 'var(--series-bonds)',
     }
   }
+  if (rule.type === 'glidePath') {
+    const from = rule.startAllocation
+    const to = rule.endAllocation
+    const endYear = rule.endOffset.months / 12
+    return {
+      label: `Glide from ${Math.round(from.stocks * 100)}/${Math.round(from.bonds * 100)}/${Math.round(
+        from.cash * 100,
+      )} to ${Math.round(to.stocks * 100)}/${Math.round(to.bonds * 100)}/${Math.round(
+        to.cash * 100,
+      )} (stocks/bonds/cash) over years ${startYear}-${endYear}`,
+      color: 'var(--series-4)',
+    }
+  }
   const verb = rule.type === 'contribution' ? 'Contribute' : 'Withdraw'
   const freq = rule.frequency === 'yearly' ? '/year' : '/month'
   const endYear = rule.endOffset ? rule.endOffset.months / 12 : undefined

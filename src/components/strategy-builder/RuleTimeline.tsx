@@ -1,4 +1,4 @@
-import type { StrategyRule } from '@/engine/types'
+import type { CashFlowRule, GlidePathRule, StrategyRule } from '@/engine/types'
 
 interface RuleTimelineProps {
   rules: StrategyRule[]
@@ -14,6 +14,7 @@ const VIEW_HEIGHT = 150
 const MARGIN_X = 24
 const TRACK_WIDTH = VIEW_WIDTH - MARGIN_X * 2
 const CONTRIBUTION_Y = 40
+const GLIDE_PATH_Y = 58
 const BASELINE_Y = 75
 const WITHDRAWAL_Y = 110
 
@@ -21,6 +22,7 @@ const COLOR = {
   contribution: 'var(--series-stocks)',
   withdrawal: 'var(--series-cash)',
   rebalance: 'var(--series-bonds)',
+  glidePath: 'var(--series-4)',
 }
 
 function niceTickStep(durationYears: number): number {
@@ -46,8 +48,11 @@ export function RuleTimeline({
   const ticks: number[] = []
   for (let y = 0; y <= durationYears; y += tickStep) ticks.push(y)
 
-  const cashFlowRules = rules.filter((r) => r.type !== 'rebalance')
+  const cashFlowRules = rules.filter(
+    (r): r is CashFlowRule => r.type === 'contribution' || r.type === 'withdrawal',
+  )
   const rebalanceRules = rules.filter((r) => r.type === 'rebalance')
+  const glidePathRules = rules.filter((r): r is GlidePathRule => r.type === 'glidePath')
 
   return (
     <div className="rounded-lg border border-border bg-surface p-4">
@@ -110,6 +115,27 @@ export function RuleTimeline({
           )
         })}
 
+        {/* Glide-path ranges */}
+        {glidePathRules.map((rule) => {
+          const x1 = yearToX(rule.startOffset.months / 12)
+          const x2 = Math.max(x1 + 4, yearToX(rule.endOffset.months / 12))
+          return (
+            <g key={rule.id} onClick={() => onSelectRule(rule.id)} className="cursor-pointer">
+              <line
+                x1={x1}
+                x2={x2}
+                y1={GLIDE_PATH_Y}
+                y2={GLIDE_PATH_Y}
+                stroke={COLOR.glidePath}
+                strokeWidth={4}
+                strokeLinecap="round"
+                strokeDasharray="2 3"
+              />
+              <circle cx={x1} cy={GLIDE_PATH_Y} r={4} fill="var(--surface-1)" stroke={COLOR.glidePath} strokeWidth={2} />
+            </g>
+          )
+        })}
+
         {/* Rebalance events */}
         {rebalanceRules.map((rule) => {
           const x = yearToX(rule.startOffset.months / 12)
@@ -125,6 +151,7 @@ export function RuleTimeline({
         <LegendItem color={COLOR.contribution} label="Contribution" />
         <LegendItem color={COLOR.withdrawal} label="Withdrawal" />
         <LegendItem color={COLOR.rebalance} label="Rebalance" />
+        <LegendItem color={COLOR.glidePath} label="Glide path" />
       </div>
     </div>
   )

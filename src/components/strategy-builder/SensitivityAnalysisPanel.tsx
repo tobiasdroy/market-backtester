@@ -49,7 +49,7 @@ export function SensitivityAnalysisPanel() {
     { kind: 'startValue' },
     { kind: 'annualFeePercent' },
     ...strategy.rules
-      .filter((r): r is CashFlowRule => r.type !== 'rebalance')
+      .filter((r): r is CashFlowRule => r.type === 'contribution' || r.type === 'withdrawal')
       .map((rule): TargetOption => ({ kind: 'ruleAmount', ruleId: rule.id, rule })),
   ]
 
