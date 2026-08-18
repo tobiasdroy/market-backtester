@@ -1,3 +1,4 @@
+import { NumberInput } from '@/components/ui/NumberInput'
 import { useStrategyStore } from '@/store/strategyStore'
 import { AllocationInputs } from './AllocationInputs'
 
@@ -14,14 +15,11 @@ export function InitialPortfolioForm() {
       <div className="flex flex-wrap gap-3">
         <label className="flex flex-1 flex-col gap-1">
           <span className="text-sm text-text-secondary">Starting value (£)</span>
-          <input
-            type="number"
+          <NumberInput
             min={0}
             step={1000}
             value={initialPortfolio.startValue}
-            onChange={(e) =>
-              setInitialPortfolio(Number(e.target.value), initialPortfolio.allocation)
-            }
+            onChange={(v) => setInitialPortfolio(v, initialPortfolio.allocation)}
             className="w-full rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
           />
         </label>

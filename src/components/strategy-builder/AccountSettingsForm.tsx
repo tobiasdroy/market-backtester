@@ -1,3 +1,4 @@
+import { NumberInput } from '@/components/ui/NumberInput'
 import type { FeesAndTax } from '@/engine/types'
 import { useStrategyStore } from '@/store/strategyStore'
 
@@ -54,13 +55,12 @@ export function AccountSettingsForm() {
         <div className="ml-6 flex flex-col gap-3">
           <label className="flex flex-col gap-1">
             <span className="text-sm text-text-secondary">Annual platform/fund fee (%)</span>
-            <input
-              type="number"
+            <NumberInput
               min={0}
               max={5}
               step={0.05}
               value={feePercent}
-              onChange={(e) => update({ annualFeePercent: Number(e.target.value) / 100 })}
+              onChange={(v) => update({ annualFeePercent: v / 100 })}
               className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
             />
           </label>
@@ -90,13 +90,12 @@ export function AccountSettingsForm() {
               <span className="text-sm text-text-secondary">
                 Capital gains tax rate on withdrawals (%)
               </span>
-              <input
-                type="number"
+              <NumberInput
                 min={0}
                 max={100}
                 step={1}
                 value={cgtRate}
-                onChange={(e) => update({ capitalGainsTaxRate: Number(e.target.value) / 100 })}
+                onChange={(v) => update({ capitalGainsTaxRate: v / 100 })}
                 className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
               />
               <span className="text-xs text-text-muted">

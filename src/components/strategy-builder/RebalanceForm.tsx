@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
+import { NumberInput } from '@/components/ui/NumberInput'
 import type { AllocationTarget, RebalanceRule } from '@/engine/types'
 import { AllocationInputs } from './AllocationInputs'
 
@@ -31,12 +32,11 @@ export function RebalanceForm({ initial, onSave, onCancel }: RebalanceFormProps)
     <form onSubmit={handleSubmit} className="flex flex-col gap-3 rounded-lg border border-border bg-surface p-4">
       <label className="flex flex-col gap-1">
         <span className="text-sm text-text-secondary">Rebalance in year</span>
-        <input
-          type="number"
+        <NumberInput
           min={0}
           step={1}
           value={year}
-          onChange={(e) => setYear(Number(e.target.value))}
+          onChange={setYear}
           className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
         />
       </label>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
+import { NumberInput } from '@/components/ui/NumberInput'
 import type { AllocationTarget, GlidePathRule } from '@/engine/types'
 import { AllocationInputs } from './AllocationInputs'
 
@@ -44,23 +45,21 @@ export function GlidePathForm({ initial, onSave, onCancel }: GlidePathFormProps)
       <div className="flex flex-wrap gap-3">
         <label className="flex flex-col gap-1">
           <span className="text-sm text-text-secondary">From year</span>
-          <input
-            type="number"
+          <NumberInput
             min={0}
             step={1}
             value={startYear}
-            onChange={(e) => setStartYear(Number(e.target.value))}
+            onChange={setStartYear}
             className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
           />
         </label>
         <label className="flex flex-col gap-1">
           <span className="text-sm text-text-secondary">To year</span>
-          <input
-            type="number"
+          <NumberInput
             min={0}
             step={1}
             value={endYear}
-            onChange={(e) => setEndYear(Number(e.target.value))}
+            onChange={setEndYear}
             className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
           />
         </label>

@@ -1,3 +1,4 @@
+import { NumberInput } from '@/components/ui/NumberInput'
 import type { AllocationTarget, AssetClass } from '@/engine/types'
 
 const ASSET_LABELS: Record<AssetClass, string> = {
@@ -59,13 +60,12 @@ export function AllocationInputs({ value, onChange }: AllocationInputsProps) {
               {ASSET_LABELS[asset]}
             </span>
             <div className="flex items-center gap-1">
-              <input
-                type="number"
+              <NumberInput
                 min={0}
                 max={100}
                 step={1}
                 value={Math.round(value[asset] * 1000) / 10}
-                onChange={(e) => handleChange(asset, Number(e.target.value))}
+                onChange={(v) => handleChange(asset, v)}
                 className="w-full rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
               />
               <span className="text-text-muted">%</span>

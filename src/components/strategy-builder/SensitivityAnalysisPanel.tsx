@@ -1,4 +1,5 @@
 import { lazy, Suspense, useState } from 'react'
+import { NumberInput } from '@/components/ui/NumberInput'
 import { buildSweepValues, type SensitivityResult, type SensitivityTarget } from '@/engine/sensitivity'
 import type { CashFlowRule } from '@/engine/types'
 import { useBacktestWorker } from '@/hooks/useBacktestWorker'
@@ -142,30 +143,27 @@ export function SensitivityAnalysisPanel() {
       <div className="flex flex-wrap gap-3">
         <label className="flex flex-col gap-1">
           <span className="text-sm text-text-secondary">From{isPercent ? ' (%)' : ' (£)'}</span>
-          <input
-            type="number"
+          <NumberInput
             value={from}
-            onChange={(e) => setFrom(Number(e.target.value))}
+            onChange={setFrom}
             className="w-32 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
           />
         </label>
         <label className="flex flex-col gap-1">
           <span className="text-sm text-text-secondary">To{isPercent ? ' (%)' : ' (£)'}</span>
-          <input
-            type="number"
+          <NumberInput
             value={to}
-            onChange={(e) => setTo(Number(e.target.value))}
+            onChange={setTo}
             className="w-32 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
           />
         </label>
         <label className="flex flex-col gap-1">
           <span className="text-sm text-text-secondary">Steps</span>
-          <input
-            type="number"
+          <NumberInput
             min={2}
             max={15}
             value={steps}
-            onChange={(e) => setSteps(Number(e.target.value))}
+            onChange={setSteps}
             className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
           />
         </label>

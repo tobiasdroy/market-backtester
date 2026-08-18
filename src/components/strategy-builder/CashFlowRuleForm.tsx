@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
+import { NumberInput } from '@/components/ui/NumberInput'
 import type { CashFlowRule, WithdrawalStyle } from '@/engine/types'
 
 interface CashFlowRuleFormProps {
@@ -117,12 +118,11 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
         <div className="flex flex-wrap items-end gap-3">
           <label className="flex flex-col gap-1">
             <span className="text-sm text-text-secondary">{verb} (£)</span>
-            <input
-              type="number"
+            <NumberInput
               min={0}
               step={100}
               value={amount}
-              onChange={(e) => setAmount(Number(e.target.value))}
+              onChange={setAmount}
               className="w-32 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
               required
             />
@@ -145,13 +145,12 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
         <label className="flex flex-col gap-1">
           <span className="text-sm text-text-secondary">Withdraw % of portfolio per year</span>
           <div className="flex items-center gap-1">
-            <input
-              type="number"
+            <NumberInput
               min={0}
               max={100}
               step={0.5}
               value={percentOfPortfolio}
-              onChange={(e) => setPercentOfPortfolio(Number(e.target.value))}
+              onChange={setPercentOfPortfolio}
               className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
             />
             <span className="text-text-muted">%</span>
@@ -168,25 +167,23 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
           <div className="flex flex-wrap gap-3">
             <label className="flex flex-col gap-1">
               <span className="text-sm text-text-secondary">Initial withdrawal rate (%)</span>
-              <input
-                type="number"
+              <NumberInput
                 min={0}
                 max={100}
                 step={0.5}
                 value={guardrailInitialPercent}
-                onChange={(e) => setGuardrailInitialPercent(Number(e.target.value))}
+                onChange={setGuardrailInitialPercent}
                 className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
               />
             </label>
             <label className="flex flex-col gap-1">
               <span className="text-sm text-text-secondary">Adjustment (%)</span>
-              <input
-                type="number"
+              <NumberInput
                 min={0}
                 max={100}
                 step={0.5}
                 value={guardrailAdjustment}
-                onChange={(e) => setGuardrailAdjustment(Number(e.target.value))}
+                onChange={setGuardrailAdjustment}
                 className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
               />
             </label>
@@ -194,25 +191,23 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
           <div className="flex flex-wrap gap-3">
             <label className="flex flex-col gap-1">
               <span className="text-sm text-text-secondary">Upper guardrail (%)</span>
-              <input
-                type="number"
+              <NumberInput
                 min={0}
                 max={100}
                 step={1}
                 value={guardrailUpper}
-                onChange={(e) => setGuardrailUpper(Number(e.target.value))}
+                onChange={setGuardrailUpper}
                 className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
               />
             </label>
             <label className="flex flex-col gap-1">
               <span className="text-sm text-text-secondary">Lower guardrail (%)</span>
-              <input
-                type="number"
+              <NumberInput
                 min={0}
                 max={100}
                 step={1}
                 value={guardrailLower}
-                onChange={(e) => setGuardrailLower(Number(e.target.value))}
+                onChange={setGuardrailLower}
                 className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
               />
             </label>
@@ -229,12 +224,11 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
       <div className="flex flex-wrap items-end gap-3">
         <label className="flex flex-col gap-1">
           <span className="text-sm text-text-secondary">Starting in year</span>
-          <input
-            type="number"
+          <NumberInput
             min={0}
             step={1}
             value={startYear}
-            onChange={(e) => setStartYear(Number(e.target.value))}
+            onChange={setStartYear}
             className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
           />
         </label>
@@ -247,12 +241,11 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
           Ends in year
         </label>
         {hasEnd && (
-          <input
-            type="number"
+          <NumberInput
             min={startYear}
             step={1}
             value={endYear}
-            onChange={(e) => setEndYear(Number(e.target.value))}
+            onChange={setEndYear}
             className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
           />
         )}
@@ -282,23 +275,21 @@ export function CashFlowRuleForm({ type, initial, onSave, onCancel }: CashFlowRu
               <div className="ml-6 flex flex-wrap items-end gap-3">
                 <label className="flex flex-col gap-1">
                   <span className="text-sm text-text-secondary">Reaching (£)</span>
-                  <input
-                    type="number"
+                  <NumberInput
                     min={0}
                     step={100}
                     value={endAmount}
-                    onChange={(e) => setEndAmount(Number(e.target.value))}
+                    onChange={setEndAmount}
                     className="w-32 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
                   />
                 </label>
                 <label className="flex flex-col gap-1">
                   <span className="text-sm text-text-secondary">by year</span>
-                  <input
-                    type="number"
+                  <NumberInput
                     min={startYear}
                     step={1}
                     value={rampEndYear}
-                    onChange={(e) => setRampEndYear(Number(e.target.value))}
+                    onChange={setRampEndYear}
                     className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
                   />
                 </label>

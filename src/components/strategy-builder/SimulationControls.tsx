@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { NumberInput } from '@/components/ui/NumberInput'
 import { useBacktestWorker } from '@/hooks/useBacktestWorker'
 import { useMarketMetadata } from '@/hooks/useMarketMetadata'
 import { useResultsStore } from '@/store/resultsStore'
@@ -66,12 +67,11 @@ export function SimulationControls() {
 
       <label className="flex flex-col gap-1">
         <span className="text-sm text-text-secondary">Simulation length (years)</span>
-        <input
-          type="number"
+        <NumberInput
           min={1}
           max={100}
           value={strategy.durationMonths / 12}
-          onChange={(e) => setDurationYears(Number(e.target.value))}
+          onChange={setDurationYears}
           className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
         />
       </label>
@@ -122,12 +122,11 @@ export function SimulationControls() {
         {startMode === 'rolling' && (
           <label className="ml-6 flex flex-col gap-1">
             <span className="text-sm text-text-secondary">Step between start dates (years)</span>
-            <input
-              type="number"
+            <NumberInput
               min={1}
               max={10}
               value={stepYears}
-              onChange={(e) => setStepYears(Number(e.target.value))}
+              onChange={setStepYears}
               className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
             />
           </label>
@@ -145,24 +144,22 @@ export function SimulationControls() {
           <div className="ml-6 flex flex-wrap gap-3">
             <label className="flex flex-col gap-1">
               <span className="text-sm text-text-secondary">Number of scenarios</span>
-              <input
-                type="number"
+              <NumberInput
                 min={10}
                 max={5000}
                 step={10}
                 value={monteCarloRuns}
-                onChange={(e) => setMonteCarloRuns(Number(e.target.value))}
+                onChange={setMonteCarloRuns}
                 className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
               />
             </label>
             <label className="flex flex-col gap-1">
               <span className="text-sm text-text-secondary">Historical block size (years)</span>
-              <input
-                type="number"
+              <NumberInput
                 min={1}
                 max={10}
                 value={blockYears}
-                onChange={(e) => setBlockYears(Number(e.target.value))}
+                onChange={setBlockYears}
                 className="w-24 rounded-md border border-border bg-surface px-2 py-1.5 text-text-primary"
               />
             </label>
